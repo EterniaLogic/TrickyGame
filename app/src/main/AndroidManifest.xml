@@ -16,6 +16,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".Question1"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_question1" >
+        </activity>
     </application>
 
 </manifest>
