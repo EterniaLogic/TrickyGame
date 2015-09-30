@@ -9,8 +9,13 @@ import android.util.Log;
 
 // The GameManager is a thread that manages score
 public class GameManager extends Thread {
+    // static members
     private static final String TAG = GameManager.class.getSimpleName();
+
     public static GameManager instance;
+
+    // non-static members
+    public boolean running;
     private boolean quit;
 
     GameManager(){
@@ -19,9 +24,16 @@ public class GameManager extends Thread {
 
         // initialize other variables
         quit=false;
+        running = false;
+    }
+
+    public static GameManager getInstance() {
+        return instance;
     }
 
     public void run(){
+        running=true; // used for assertions
+
         // finite loop for thread, keeps class alive
         while(!quit) {
             // do operations here.
@@ -34,7 +46,10 @@ public class GameManager extends Thread {
                 Log.d(TAG, "[run] Thread sleep threw an error!");
             }
         }
+
+        // end of thread
         quit=false;
+        running=false; // used for assertions
     }
 
 

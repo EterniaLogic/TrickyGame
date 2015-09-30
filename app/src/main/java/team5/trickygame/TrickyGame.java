@@ -16,7 +16,7 @@ public class TrickyGame extends AppCompatActivity {
 
         // Start up a persistent GameManager to keep score, along with database manager instance
         gameManager = new GameManager();
-        gameManager.run();
+        gameManager.start();
     }
 
     @Override
