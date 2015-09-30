@@ -1,16 +1,22 @@
 package team5.trickygame;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class MainMenu extends AppCompatActivity {
+public class TrickyGame extends AppCompatActivity {
+
+    private GameManager gameManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu2);
+
+        // Start up a persistent GameManager to keep score, along with database manager instance
+        gameManager = new GameManager();
+        gameManager.run();
     }
 
     @Override
