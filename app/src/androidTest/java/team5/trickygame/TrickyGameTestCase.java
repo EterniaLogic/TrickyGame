@@ -5,9 +5,9 @@ import android.test.ActivityInstrumentationTestCase2;
 /**
  * Created by eternia on 9/30/2015.
  */
-public class TrickyGameTestCase extends ActivityInstrumentationTestCase2<TrickyGame> {
+public class TrickyGameTestCase extends ActivityInstrumentationTestCase2<MainMenu> {
     public TrickyGameTestCase() {
-        super(TrickyGame.class);
+        super(MainMenu.class);
     }
 
     public void testActivityExists() {

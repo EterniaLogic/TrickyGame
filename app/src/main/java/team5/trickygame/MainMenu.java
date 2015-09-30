@@ -5,7 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class TrickyGame extends AppCompatActivity {
+public class MainMenu extends AppCompatActivity {
 
     private GameManager gameManager;
 
