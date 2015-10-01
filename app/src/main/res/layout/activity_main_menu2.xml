@@ -24,7 +24,9 @@
         android:layout_below="@+id/imageView"
         android:layout_marginStart="43dp"
         android:layout_marginTop="27dp"
-        android:background="@mipmap/start_quiz" />
+        android:background="@mipmap/start_quiz"
+        android:clickable="true"
+        android:onClick="startGame" />
 
     <ImageView
         android:id="@+id/options_button"
@@ -33,7 +35,9 @@
         android:layout_alignParentEnd="true"
         android:layout_alignTop="@+id/startquiz_button"
         android:layout_marginEnd="95dp"
-        android:background="@mipmap/options_button" />
+        android:background="@mipmap/options_button"
+        android:clickable="true"
+        android:onClick="goToOptions" />
 
     <ImageView
         android:id="@+id/quit_button"
@@ -43,7 +47,9 @@
         android:layout_below="@+id/options_button"
         android:layout_marginEnd="35dp"
         android:layout_marginTop="35dp"
-        android:background="@mipmap/exit_button" />
+        android:background="@mipmap/exit_button"
+        android:clickable="true"
+        android:onClick="goToCredits" />
 
     <ImageView
         android:id="@+id/leaderboards_button"
@@ -53,6 +59,8 @@
         android:layout_alignTop="@+id/quit_button"
         android:layout_marginLeft="110dp"
         android:layout_marginStart="50dp"
-        android:background="@mipmap/leaderboards_button" />
+        android:background="@mipmap/leaderboards_button"
+        android:clickable="true"
+        android:onClick="goToLeaderboards" />
 
 </RelativeLayout>
