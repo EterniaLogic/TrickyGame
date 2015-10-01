@@ -4,16 +4,20 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Toast;
 
 public class MainMenu extends AppCompatActivity {
 
+    LeaderboardScreen leaderboardScreen;
+    Credits credits;
+    Options options;
     private GameManager gameManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu2);
-
         // Start up a persistent GameManager to keep score, along with database manager instance
         gameManager = new GameManager();
         gameManager.start();
@@ -41,24 +45,21 @@ public class MainMenu extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-	public void goToOptions() {
-		Options options = new Options();
-		//throw new UnsupportedOperationException();
+	public void goToOptions(View V) {
+        Toast.makeText(this, "Clicked on Options Button", Toast.LENGTH_LONG).show();
 	}
 
-	public void goToLeaderboards() {
-		LeaderboardScreen leaderboardScreen = new LeaderboardScreen();
-		//throw new UnsupportedOperationException();
+	public void goToLeaderboards(View V) {
+        Toast.makeText(this, "Clicked on Leaderboards Button", Toast.LENGTH_LONG).show();
 	}
 
-	public void startGame() {
+	public void startGame(View V) {
 		// TODO - implement MainMenu.startGame
-		throw new UnsupportedOperationException();
+        Toast.makeText(this, "Clicked on start quiz Button", Toast.LENGTH_LONG).show();
 	}
 
-	public void goToCredits() {
+	public void goToCredits(View V) {
 		// TODO - implement MainMenu.goToCredits
-        Credits credits = new Credits();
-		throw new UnsupportedOperationException();
+        Toast.makeText(this, "Clicked on credits Button", Toast.LENGTH_LONG).show();
 	}
 }
