@@ -40,4 +40,25 @@ public class MainMenu extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+	public void goToOptions() {
+		Options options = new Options();
+		//throw new UnsupportedOperationException();
+	}
+
+	public void goToLeaderboards() {
+		LeaderboardScreen leaderboardScreen = new LeaderboardScreen();
+		//throw new UnsupportedOperationException();
+	}
+
+	public void startGame() {
+		// TODO - implement MainMenu.startGame
+		throw new UnsupportedOperationException();
+	}
+
+	public void goToCredits() {
+		// TODO - implement MainMenu.goToCredits
+        Credits credits = new Credits();
+		throw new UnsupportedOperationException();
+	}
 }
