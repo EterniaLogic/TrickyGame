@@ -25,21 +25,7 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3d52e07c-136a-49f2-bb2f-eb57b9e0ef94" name="Default" comment="Added Test Cases for the TrickyGame Main page and the GameManager">
-      <change type="DELETED" beforePath="C:\Users\eternia\AndroidStudioProjects\TG\TrickyGame\app\src\main\res\mipmap-mdpi\ic_launcher.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\eternia\AndroidStudioProjects\TG\TrickyGame\app\src\main\res\mipmap-xhdpi\ic_launcher.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\eternia\AndroidStudioProjects\TG\TrickyGame\app\src\main\res\mipmap-xxhdpi\ic_launcher.png" afterPath="" />
-      <change type="MOVED" beforePath="C:\Users\eternia\AndroidStudioProjects\TG\TrickyGame\app\src\main\java\team5\trickygame\TrickyGame.java" afterPath="$PROJECT_DIR$/app/src/main/java/team5/trickygame/MainMenu.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/cache.properties.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/fileHashes.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/fileSnapshots.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_launcher.png" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_launcher.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/taskArtifacts.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/androidTest/java/team5/trickygame/TrickyGameTestCase.java" afterPath="$PROJECT_DIR$/app/src/androidTest/java/team5/trickygame/TrickyGameTestCase.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main_menu2.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main_menu2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/menu/menu_main_menu.xml" afterPath="$PROJECT_DIR$/app/src/main/res/menu/menu_main_menu.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
+    <list default="true" id="3d52e07c-136a-49f2-bb2f-eb57b9e0ef94" name="Default" comment="Added test Tricky Quiz Icon and Main Menu Screens">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="TrickyGame.iws" />
@@ -2104,7 +2090,13 @@
       <option name="project" value="LOCAL" />
       <updated>1443605523811</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Added test Tricky Quiz Icon and Main Menu Screens">
+      <created>1443609507632</created>
+      <option name="number" value="00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1443609507632</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TodoView">
@@ -2167,7 +2159,8 @@
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <MESSAGE value="Added Asynchronous GameManager thread, includes public static instance for referencing from anywhere.&#10;This is best used for persistent classes, such as the DatabaseManager." />
     <MESSAGE value="Added Test Cases for the TrickyGame Main page and the GameManager" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Test Cases for the TrickyGame Main page and the GameManager" />
+    <MESSAGE value="Added test Tricky Quiz Icon and Main Menu Screens" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added test Tricky Quiz Icon and Main Menu Screens" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
