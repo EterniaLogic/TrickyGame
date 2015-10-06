@@ -1,10 +1,23 @@
 <resources>
-    <string name="app_name">Tricky Game</string>
+    <string name="app_name">TrickyGame</string>
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="OptAStr">RED</string>
+    <string name="OptCStr">YELLOW</string>
+    <string name="OptBStr">GREEN</string>
+    <string name="OptDStr">BLUE</string>
 
-<!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="title_activity_main_menu">Tricky Game</string>
+    <string name="title_activity_main_menu">Main Menu</string>
+
+    <string name="title_activity_question1">Question 1</string>
+    <string name="Question1Str">Press the Blue Button...</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="title_activity_end_game">EndGameActivity</string>
+    <string name="RestartBtnStr">Restart</string>
+    <string name="MainMenuBtnStr">Options</string>
+    <string name="OptionsBtnStr">Main Menu</string>
+    <string name="title_activity_leaderboard_activiy">LeaderboardActiviy</string>
+    <string name="title_activity_options">OptionsActivity</string>
 </resources>
