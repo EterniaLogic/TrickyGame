@@ -1,0 +1,88 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="team5.trickygame.Question1">
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/OptDStr"
+        android:id="@+id/RestartBtn"
+        android:minHeight="70dp"
+        android:minWidth="250dp"
+        android:textSize="40sp"
+        android:textColor="#37dc2c"
+        android:maxHeight="70dp"
+        android:layout_centerInParent="true"
+        android:layout_alignParentEnd="false"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="20dp"
+        android:background="#f20f07"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/OptCStr"
+        android:id="@+id/OptionsBtn"
+        android:layout_alignParentBottom="true"
+        android:layout_alignEnd="@+id/RestartBtn"
+        android:layout_marginBottom="25dp"
+        android:layout_alignStart="@+id/RestartBtn"
+        android:minHeight="70dp"
+        android:textSize="40sp"
+        android:textColor="#1e46f4"
+        android:background="#37dc2c"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/OptBStr"
+        android:id="@+id/MainMenuBtn"
+        android:minWidth="250dp"
+        android:minHeight="70dp"
+        android:textSize="40sp"
+        android:textColor="#f20f07"
+        android:background="#f9f508"
+        android:maxHeight="70dp"
+        android:layout_alignTop="@+id/RestartBtn"
+        android:layout_toEndOf="@+id/RestartBtn"
+        android:layout_marginLeft="20dp"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/OptAStr"
+        android:id="@+id/optD"
+        android:layout_alignTop="@+id/OptionsBtn"
+        android:layout_alignStart="@+id/MainMenuBtn"
+        android:layout_alignBottom="@+id/OptionsBtn"
+        android:layout_alignEnd="@+id/MainMenuBtn"
+        android:textSize="40sp"
+        android:textColor="#f9f508"
+        android:background="#1e46f4" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/Question1Str"
+        android:id="@+id/question1Lbl"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/RestartBtn"
+        android:layout_marginTop="20dp"
+        android:textSize="40sp"
+        android:textColor="#010101" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:id="@+id/livesText"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+</RelativeLayout>
