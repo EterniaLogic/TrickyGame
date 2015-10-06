@@ -1,17 +1,20 @@
 package team5.trickygame;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 public class MainMenu extends AppCompatActivity {
 
-    LeaderboardScreen leaderboardScreen;
+
     Credits credits;
-    Options options;
+
     private GameManager gameManager;
 
     @Override
@@ -21,6 +24,7 @@ public class MainMenu extends AppCompatActivity {
         // Start up a persistent GameManager to keep score, along with database manager instance
         gameManager = new GameManager();
         gameManager.start();
+
     }
 
     @Override
@@ -55,11 +59,14 @@ public class MainMenu extends AppCompatActivity {
 
 	public void startGame(View V) {
 		// TODO - implement MainMenu.startGame
-        Toast.makeText(this, "Clicked on start quiz Button", Toast.LENGTH_LONG).show();
+
+        Intent intent = new Intent(MainMenu.this, Question1.class);
+
+        this.startActivity(intent);
+        finish();
 	}
 
 	public void goToCredits(View V) {
 		// TODO - implement MainMenu.goToCredits
-        Toast.makeText(this, "Clicked on credits Button", Toast.LENGTH_LONG).show();
 	}
 }

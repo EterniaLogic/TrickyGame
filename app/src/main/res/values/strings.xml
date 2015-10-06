@@ -8,8 +8,16 @@
     <string name="OptBStr">GREEN</string>
     <string name="OptDStr">BLUE</string>
 
+    <string name="title_activity_main_menu">Main Menu</string>
+
     <string name="title_activity_question1">Question 1</string>
     <string name="Question1Str">Press the Blue Button...</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="title_activity_end_game">EndGameActivity</string>
+    <string name="RestartBtnStr">Restart</string>
+    <string name="MainMenuBtnStr">Options</string>
+    <string name="OptionsBtnStr">Main Menu</string>
+    <string name="title_activity_leaderboard_activiy">LeaderboardActiviy</string>
+    <string name="title_activity_options">OptionsActivity</string>
 </resources>
