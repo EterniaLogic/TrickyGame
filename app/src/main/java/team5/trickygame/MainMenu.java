@@ -1,30 +1,49 @@
 package team5.trickygame;
 
+import android.accounts.Account;
+import android.accounts.AccountManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.Toast;
 
 public class MainMenu extends AppCompatActivity {
-
+    public static boolean firstRun =true;
 
     Credits credits;
-
-    private GameManager gameManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu2);
-        // Start up a persistent GameManager to keep score, along with database manager instance
-        gameManager = new GameManager();
-        gameManager.start();
 
+        if(firstRun) {
+            // App has been started for the first time:
+            firstRun = false;
+
+            // Start up a persistent GameManager to keep score, along with database manager instance
+            GameManager.getInstance(); // creates if it doesnt exist
+
+
+            // Get the google account, used later for the LeaderboardServer.
+            Account[] accounts = AccountManager.get(this).getAccountsByType("com.google");
+            for (Account account : accounts) {
+                if(account.name.endsWith("@gmail.com")){
+                    // tell the GameManager that we have an identity
+                    GameManager.getInstance().setAccount(account.name);
+                    break; // get out of here.
+                }
+            }
+
+            // set a default account if none exists (This goes to an Anonymous account)
+            // Anonymous accounts cannot get a score.
+            if(GameManager.getInstance().noAccount()){
+                GameManager.getInstance().setAccount("Anonymous");
+            }
+        }
     }
 
     @Override
@@ -58,10 +77,10 @@ public class MainMenu extends AppCompatActivity {
 	}
 
 	public void startGame(View V) {
-		// TODO - implement MainMenu.startGame
-
         Intent intent = new Intent(MainMenu.this, Question1.class);
 
+        // Important for time and score keeping!
+        GameManager.getInstance().startQuiz();
         this.startActivity(intent);
         finish();
 	}

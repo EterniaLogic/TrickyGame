@@ -2,12 +2,16 @@ package team5.trickygame;
 
 import android.content.Intent;
 import android.graphics.Color;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+
+import java.util.LinkedList;
+
+import team5.trickygame.util.QuestionTimeScore;
 
 public class EndGameActivity extends AppCompatActivity {
 
@@ -20,12 +24,17 @@ public class EndGameActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
 
-        status.setText(intent.getStringExtra("val"));
+        // force built-in rounding
+        LinkedList<QuestionTimeScore> qtsList = GameManager.getInstance().endQuizStats();
+        long totalScore = (long)qtsList.getLast().getScore();
+
+
+        status.setText(intent.getStringExtra("val")+"\nScore: "+totalScore+"\nTime: "+qtsList.getLast().getHumanTime());
 
         if (intent.getStringExtra("color").equals("red")){
             status.setTextColor(Color.RED);
         } else{
-            status.setTextColor(Color.GREEN);
+            status.setTextColor(Color.rgb(0,150,100));
         }
 
 
@@ -53,11 +62,6 @@ public class EndGameActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void goToOptions() {
-        // TODO - implement EndGame.goToOptions
-
-    }
-
 
     public void goToMainMenu(View V) {
         // TODO - implement MainMenu.startGame
@@ -73,6 +77,9 @@ public class EndGameActivity extends AppCompatActivity {
         // TODO - implement MainMenu.startGame
 
         Intent intent = new Intent(EndGameActivity.this, Question1.class);
+
+        // Important for time and score keeping!
+        GameManager.getInstance().startQuiz();
 
         this.startActivity(intent);
         finish();

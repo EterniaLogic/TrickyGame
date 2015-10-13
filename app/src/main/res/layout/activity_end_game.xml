@@ -12,43 +12,29 @@
         android:text="@string/RestartBtnStr"
         android:id="@+id/RestartBtn"
         android:minHeight="70dp"
-        android:minWidth="250dp"
+        android:minWidth="100dp"
         android:textSize="30sp"
         android:maxHeight="70dp"
         android:clickable="true"
         android:onClick="restartGame"
-        android:layout_above="@+id/MainMenuBtn"
-        android:layout_alignLeft="@+id/MainMenuBtn"
-        android:layout_alignStart="@+id/MainMenuBtn" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/MainMenuBtnStr"
-        android:id="@+id/OptionsBtn"
-        android:minHeight="70dp"
-        android:textSize="30sp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignLeft="@+id/MainMenuBtn"
-        android:layout_alignStart="@+id/MainMenuBtn"
-        android:layout_alignRight="@+id/MainMenuBtn"
-        android:layout_alignEnd="@+id/MainMenuBtn"
-        android:onClick="goToOptions"
-        android:clickable="true" />
+        android:layout_alignTop="@+id/MainMenuBtn"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/OptionsBtnStr"
         android:id="@+id/MainMenuBtn"
-        android:minWidth="250dp"
+        android:minWidth="100dp"
         android:minHeight="70dp"
         android:textSize="30sp"
         android:maxHeight="70dp"
         android:onClick="goToMainMenu"
         android:clickable="true"
-        android:layout_above="@+id/OptionsBtn"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <TextView
         android:layout_width="wrap_content"

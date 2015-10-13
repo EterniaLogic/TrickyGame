@@ -1,9 +1,16 @@
 package team5.trickygame;
 
+import android.content.Intent;
 import android.util.Log;
+import android.widget.TextView;
+
+import java.util.Iterator;
+import java.util.LinkedList;
+
+import team5.trickygame.util.QuestionTimeScore;
 
 /**
- * Created by eternia on 9/30/2015.
+ * Created by eternia (Brent Clancy) on 9/30/2015.
  */
 
 
@@ -12,25 +19,155 @@ public class GameManager extends Thread {
     // static members
     private static final String TAG = GameManager.class.getSimpleName();
 
-    public static GameManager instance;
+    private static GameManager instance = new GameManager();
 
     // non-static members
     public boolean running;
     private boolean quit;
 
-    GameManager(){
-        // save this instance to a static variable
-        instance = this;
+    private LinkedList<QuestionTimeScore> questionScores = new LinkedList<>(); // for mid-game statistics
+    private long startTime = 0, lastQTime=0; // used for end-game and mid-game statistics
+    private float score = 0;
+    private int questionNum = 0, lives=0; // question Number used for end-game
+    private boolean gameStarted=false;
 
+    // Questions list:
+    LinkedList<Class<? extends Question>> questions = new LinkedList<>();
+
+    // internal usage for the LeaderboardServer
+    String account="";
+
+
+
+    GameManager(){
         // initialize other variables
         quit=false;
         running = false;
+        this.start();
+
+        // TODO: Add every question here
+        questions.add(Question1.class);
     }
 
     public static GameManager getInstance() {
         return instance;
     }
 
+
+    public void setAccount(String name){
+        this.account = name;
+    }
+
+    public boolean noAccount(){
+        return this.account.equals("");
+    }
+
+    // goes to the next question in the gameList
+    public void gotoNextQuestion(Question thisQuestion){
+        boolean next=false;
+
+        Iterator i = questions.iterator();
+        while(i.hasNext()){
+            Class<? extends Question> item = (Class<? extends Question>)i.next();
+            // If next is true, this "Next" one is the next question.
+            // Otherwise, if it doesnt exist, then the player has finished the game.
+            if(next){
+                // our destined question has been reached!
+                next = false;
+
+                // this question was completed
+                incQuestionNumber();
+
+                // Intent to goto the next question
+                Intent intent = new Intent(thisQuestion, item);
+                thisQuestion.startActivity(intent);
+                thisQuestion.finish();
+                break; // exit out of iterator loop
+            }else{
+                // iterate through
+                if(item.getName().equals(thisQuestion.getClass().getName())){
+                    next=true; // goto the next question
+                }
+            }
+        }
+
+        // next was never reached, assume that the game has finished!
+        if(next){
+            GameManager.getInstance().incQuestionNumber();
+
+            Intent intent = new Intent(thisQuestion,EndGameActivity.class);
+            intent.putExtra("val","You completed the Tricky Quiz");
+            intent.putExtra("color","Green");
+            thisQuestion.startActivity(intent);
+            thisQuestion.finish();
+        }
+    }
+
+    public int getLives(){
+        return lives;
+    }
+
+    public String getLivesStr(){
+        return Integer.toString(lives);
+    }
+
+    public void killLife(){
+        lives--;
+    }
+
+    public void checkEndGame(Question thisQ, TextView txt){
+        GameManager.getInstance().killLife();
+        txt.setText(Integer.toString(GameManager.getInstance().getLives()));
+        if (GameManager.getInstance().getLives()==0){
+            Intent intent = new Intent(thisQ,EndGameActivity.class);
+            intent.putExtra("val", "You lose");
+            intent.putExtra("color","red");
+            thisQ.startActivity(intent);
+            thisQ.finish();
+        }
+    }
+
+    // Start the quiz, this updates all relevant fields these include:
+    //  # of questions
+    //  amount of time spent for each question
+    public void startQuiz(){
+        this.startTime = System.currentTimeMillis();
+        this.lastQTime=System.currentTimeMillis(); // since we started the first question
+        this.questionNum = 0; // number of correct questions
+        this.score = 0.0f; // new game
+        this.questionScores.clear(); // clear out times
+        this.lives=5; // divided by difficulty
+        this.gameStarted = true; // used when getting data out of endGame
+    }
+
+    // Increments the Question #, also uses a LinkedList for
+    //  End-game statistics, used for score-keeping
+    public void incQuestionNumber(){
+        this.questionNum++; // a question was correct!
+        long sysms = System.currentTimeMillis();
+        QuestionTimeScore qts = new QuestionTimeScore(questionNum, (sysms-this.lastQTime));
+        score += qts.getScore(); // total score tally
+        questionScores.add(qts); // add QTS
+
+        this.lastQTime=System.currentTimeMillis();
+    }
+
+    public float getTotalScore(){ // return the current score
+        return score;
+    }
+
+    // returns a list of all of the scores, appended is the total score
+    public LinkedList<QuestionTimeScore> endQuizStats(){
+        // has endQuizStats been called before?
+        if(this.gameStarted) {
+            this.gameStarted = false; // prevent it from being called again
+            questionScores.add(new QuestionTimeScore(questionNum, (System.currentTimeMillis() - this.startTime), score));
+        }
+        return questionScores;
+    }
+
+
+    // instance keepalive (GC wont eat me!)
     public void run(){
         running=true; // used for assertions
 
@@ -51,8 +188,6 @@ public class GameManager extends Thread {
         quit=false;
         running=false; // used for assertions
     }
-
-
 
     // Manages end-of-life
     public void die(){
@@ -75,4 +210,5 @@ public class GameManager extends Thread {
             Log.d(TAG, "[die] Thread join threw an error!");
         }
     }
+
 }

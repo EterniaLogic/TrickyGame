@@ -22,4 +22,12 @@ public class TrickyGameTestCase extends ActivityInstrumentationTestCase2<MainMen
         // Make sure that the thread is running
         assertEquals(true, GameManager.getInstance().running);
     }
+
+    public void testQuestions(){
+        // loop through each question for every possibility
+    }
+
+    public void testQuestionScoring(){
+
+    }
 }
