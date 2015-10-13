@@ -2,15 +2,16 @@ package team5.trickygame;
 
 import android.accounts.Account;
 import android.accounts.AccountManager;
+import android.app.Activity;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
-public class MainMenu extends AppCompatActivity {
+public class MainMenu extends Activity {
     public static boolean firstRun =true;
 
     Credits credits;
@@ -23,9 +24,6 @@ public class MainMenu extends AppCompatActivity {
         if(firstRun) {
             // App has been started for the first time:
             firstRun = false;
-
-            // Start up a persistent GameManager to keep score, along with database manager instance
-            GameManager.getInstance(); // creates if it doesnt exist
 
 
             // Get the google account, used later for the LeaderboardServer.
@@ -88,4 +86,12 @@ public class MainMenu extends AppCompatActivity {
 	public void goToCredits(View V) {
 		// TODO - implement MainMenu.goToCredits
 	}
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        // ignore orientation/keyboard change
+        if(newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            super.onConfigurationChanged(newConfig);
+        }
+    }
 }

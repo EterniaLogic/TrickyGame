@@ -1,11 +1,11 @@
 package team5.trickygame;
 
-import android.support.v7.app.AppCompatActivity;
+import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class OptionsActivity extends AppCompatActivity {
+public class OptionsActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

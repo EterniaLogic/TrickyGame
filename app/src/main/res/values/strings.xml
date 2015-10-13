@@ -8,7 +8,8 @@
     <string name="OptBStr">GREEN</string>
     <string name="OptDStr">BLUE</string>
 
-    <string name="title_activity_main_menu">Main Menu</string>
+    <!-- Actual App Name on launcher -->
+    <string name="title_activity_main_menu">Tricky Quiz</string>
 
     <string name="title_activity_question1">Question 1</string>
     <string name="Question1Str">Press the Blue Button...</string>

@@ -1,12 +1,16 @@
 package team5.trickygame;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.util.Log;
 import android.widget.TextView;
 
 import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.concurrent.Executors;
 
+import team5.trickygame.util.Command;
 import team5.trickygame.util.QuestionTimeScore;
 
 /**
@@ -19,25 +23,25 @@ public class GameManager extends Thread {
     // static members
     private static final String TAG = GameManager.class.getSimpleName();
 
-    private static GameManager instance = new GameManager();
+    private static GameManager instance = null;
 
     // non-static members
     public boolean running;
     private boolean quit;
 
-    private LinkedList<QuestionTimeScore> questionScores = new LinkedList<>(); // for mid-game statistics
+    private LinkedList<QuestionTimeScore> questionScores = new LinkedList<QuestionTimeScore>(); // for mid-game statistics
     private long startTime = 0, lastQTime=0; // used for end-game and mid-game statistics
     private float score = 0;
     private int questionNum = 0, lives=0; // question Number used for end-game
     private boolean gameStarted=false;
+    ConcurrentLinkedQueue<Object> taskManager = new ConcurrentLinkedQueue<Object>();
 
-    // Questions list:
-    LinkedList<Class<? extends Question>> questions = new LinkedList<>();
+    // Questions list: (Actual Android activities)
+    private LinkedList<Class<? extends Question>> questions = new LinkedList<Class<? extends Question>>();
 
     // internal usage for the LeaderboardServer
-    String account="";
-
-
+    private String account="";
+    private LeaderboardServer LBS;
 
     GameManager(){
         // initialize other variables
@@ -45,17 +49,27 @@ public class GameManager extends Thread {
         running = false;
         this.start();
 
+        LBS = new LeaderboardServer(this);
+
         // TODO: Add every question here
         questions.add(Question1.class);
     }
 
     public static GameManager getInstance() {
+        if(instance == null)
+            instance = new GameManager();
+
         return instance;
     }
 
 
     public void setAccount(String name){
         this.account = name;
+        //LBS.setAccount(this.account);
+        LeaderboardServer.AsyncA async = new LeaderboardServer.AsyncA();
+        async.passed = this.account;
+        async.LBS = this.LBS;
+        this.taskManager.add(async);
     }
 
     public boolean noAccount(){
@@ -150,7 +164,15 @@ public class GameManager extends Thread {
         questionScores.add(qts); // add QTS
 
         this.lastQTime=System.currentTimeMillis();
+
+        // post this question
+        LeaderboardServer.AsyncQ qpass = new LeaderboardServer.AsyncQ();
+        qpass.LBS = this.LBS;
+        qpass.passed = qts;
+        taskManager.add(qpass);
     }
+
+
 
     public float getTotalScore(){ // return the current score
         return score;
@@ -176,6 +198,32 @@ public class GameManager extends Thread {
             // do operations here.
             // a ConcurrentLinkedQueue would be useful for asynchronous operations, this normally is
             // used with a while loop until the queue is empty
+            while(!taskManager.isEmpty()){
+                // get an object
+                Object t = taskManager.poll();
+                if(t instanceof LeaderboardServer.AsyncKey){
+                    final LeaderboardServer.AsyncKey request = (LeaderboardServer.AsyncKey)t;
+                    // Asyncronously timed key retrieval
+                    if(request.timeout <= 0){
+                        request.timeout = 3000; // 30 seconds
+                        Executors.newSingleThreadExecutor().execute(new Runnable() {
+                            @Override
+                            public void run() {
+                                try { Thread.sleep(500); } catch (InterruptedException e) {}
+
+                                // run this method
+                                request.execute();
+                            }
+                        });
+                    }else{
+                        request.timeout--;
+                    }
+                }else{
+                    // standard raw command
+                    Command com = (Command)t;
+                    com.execute();
+                }
+            }
 
             try {
                 Thread.sleep(100); // 100ms sleep Timer
@@ -210,5 +258,4 @@ public class GameManager extends Thread {
             Log.d(TAG, "[die] Thread join threw an error!");
         }
     }
-
 }

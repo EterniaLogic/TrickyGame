@@ -1,9 +1,11 @@
 package team5.trickygame;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.graphics.Color;
+import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -13,7 +15,7 @@ import java.util.LinkedList;
 
 import team5.trickygame.util.QuestionTimeScore;
 
-public class EndGameActivity extends AppCompatActivity {
+public class EndGameActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,5 +85,13 @@ public class EndGameActivity extends AppCompatActivity {
 
         this.startActivity(intent);
         finish();
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        // ignore orientation/keyboard change
+        if(newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            super.onConfigurationChanged(newConfig);
+        }
     }
 }
