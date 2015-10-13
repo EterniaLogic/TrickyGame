@@ -4,37 +4,21 @@ import android.util.Log;
 
 import org.apache.commons.io.IOUtils;
 import org.apache.http.HttpEntity;
-import org.apache.http.HttpHost;
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
-import org.apache.http.conn.scheme.Scheme;
-import org.apache.http.conn.ssl.AllowAllHostnameVerifier;
-import org.apache.http.conn.ssl.TrustStrategy;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.message.BasicNameValuePair;
 
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.StringWriter;
-import java.math.BigInteger;
-import java.net.InetSocketAddress;
-import java.security.KeyStore;
-import java.security.cert.CertificateException;
-import java.security.cert.X509Certificate;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.UUID;
-
-import javax.net.ssl.SSLContext;
-import javax.net.ssl.SSLSocketFactory;
-import javax.net.ssl.TrustManagerFactory;
 
 import team5.trickygame.util.Command;
 import team5.trickygame.util.QuestionTimeScore;
@@ -99,7 +83,7 @@ public class LeaderboardServer {
     private String doRequest(String req, List<BasicNameValuePair> pairs){
         try{
             httpclient = HttpClients.createDefault();
-            TrustStrategy trustStrategy = new TrustStrategy() {
+            /*TrustStrategy trustStrategy = new TrustStrategy() {
 
                 public boolean isTrusted(X509Certificate[] chain, String authType) throws CertificateException {
                     for (X509Certificate cert: chain) {
@@ -113,7 +97,7 @@ public class LeaderboardServer {
             SSLSocketFactory sslsf = new SSLSocketFactory("TLS", null, null, keystore, null,
                     trustStrategy, new AllowAllHostnameVerifier());
             Scheme https = new Scheme("https", 888, sslsf);
-            httpclient.getConnectionManager().getSchemeRegistry().register(https);
+            httpclient.getConnectionManager().getSchemeRegistry().register(https);*/
 
             httppost = new HttpPost(serverAddr);
 
