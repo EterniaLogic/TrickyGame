@@ -13,8 +13,9 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name=".MainMenu"
-            android:label="@string/title_activity_main_menu" android:screenOrientation="landscape"
-            android:configChanges="orientation|keyboardHidden">
+            android:configChanges="orientation|keyboardHidden"
+            android:label="@string/title_activity_main_menu"
+            android:screenOrientation="landscape" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -24,19 +25,30 @@
         <activity
             android:name=".Question1"
             android:configChanges="orientation|keyboardHidden|screenSize"
-            android:label="@string/title_activity_question1" android:screenOrientation="landscape" >
+            android:label="@string/title_activity_question1"
+            android:screenOrientation="landscape" >
         </activity>
         <activity
             android:name=".EndGameActivity"
-            android:label="@string/title_activity_end_game" android:screenOrientation="landscape" android:configChanges="orientation|keyboardHidden" >
+            android:configChanges="orientation|keyboardHidden"
+            android:label="@string/title_activity_end_game"
+            android:screenOrientation="landscape" >
         </activity>
         <activity
             android:name=".LeaderboardActiviy"
-            android:label="@string/title_activity_leaderboard_activiy" android:screenOrientation="landscape" android:configChanges="orientation|keyboardHidden" >
+            android:configChanges="orientation|keyboardHidden"
+            android:label="@string/title_activity_leaderboard_activiy"
+            android:screenOrientation="landscape" >
         </activity>
         <activity
             android:name=".OptionsActivity"
-            android:label="@string/title_activity_options" android:screenOrientation="landscape" android:configChanges="orientation|keyboardHidden" >
+            android:configChanges="orientation|keyboardHidden"
+            android:label="@string/title_activity_options"
+            android:screenOrientation="landscape" >
+        </activity>
+        <activity
+            android:name=".Question2"
+            android:label="@string/title_activity_question2fave_color" >
         </activity>
     </application>
 

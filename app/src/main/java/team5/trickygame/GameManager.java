@@ -1,7 +1,6 @@
 package team5.trickygame;
 
 import android.content.Intent;
-import android.content.res.Configuration;
 import android.util.Log;
 import android.widget.TextView;
 
@@ -53,6 +52,7 @@ public class GameManager extends Thread {
 
         // TODO: Add every question here
         questions.add(Question1.class);
+        questions.add(Question2.class);
     }
 
     public static GameManager getInstance() {
