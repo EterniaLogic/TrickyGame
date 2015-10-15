@@ -14,6 +14,8 @@ public class MainMenu extends AppCompatActivity {
 
 
     Credits credits;
+    Leaderboards l;
+
 
     private GameManager gameManager;
 
