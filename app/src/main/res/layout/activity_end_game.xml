@@ -18,7 +18,7 @@
         android:maxHeight="70dp"
         android:clickable="true"
         android:onClick="restartGame"
-        android:layout_alignTop="@+id/MainMenuBtn"
+        android:layout_alignTop="@+id/toprightbtn"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -26,7 +26,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/OptionsBtnStr"
-        android:id="@+id/MainMenuBtn"
+        android:id="@+id/toprightbtn"
         android:minWidth="100dp"
         android:minHeight="70dp"
         android:textSize="30sp"

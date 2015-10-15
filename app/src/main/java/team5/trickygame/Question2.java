@@ -15,8 +15,8 @@ public class Question2 extends Question {
 
         //Initialize UI Components
         final Button OptA = (Button) findViewById(R.id.RestartBtn);
-        final Button OptB = (Button) findViewById(R.id.MainMenuBtn);
-        final Button OptC = (Button) findViewById(R.id.OptionsBtn);
+        final Button OptB = (Button) findViewById(R.id.toprightbtn);
+        final Button OptC = (Button) findViewById(R.id.botleftbtn);
         final Button OptD = (Button) findViewById(R.id.optD);
 
         final TextView livesTxt = (TextView) findViewById(R.id.livesText);

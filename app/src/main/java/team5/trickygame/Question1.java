@@ -1,66 +1,50 @@
 package team5.trickygame;
 
-import android.content.res.Configuration;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 public class Question1 extends Question {
+    Button[] buttonChoices = new Button[4];
+    TextView livesTxt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //Remove title bar
-//        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
-//
-//        //Remove notification bar
-//        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-
-        //set content view AFTER ABOVE sequence
         setContentView(R.layout.activity_question1);
-
-
-        //Initialize UI Components
-        final Button OptA = (Button) findViewById(R.id.RestartBtn);
-        final Button OptB = (Button) findViewById(R.id.MainMenuBtn);
-        final Button OptC = (Button) findViewById(R.id.OptionsBtn);
-        final Button OptD = (Button) findViewById(R.id.optD);
-
-        final TextView livesTxt = (TextView) findViewById(R.id.livesText);
-
+        buttonChoices[0] = (Button) findViewById(R.id.topleftbtn);
+        buttonChoices[1] = (Button) findViewById(R.id.toprightbtn);
+        buttonChoices[2]= (Button) findViewById(R.id.botleftbtn);
+        buttonChoices[3]= (Button) findViewById(R.id.botrightbtn);
+        initButtonColors();
+        livesTxt = (TextView) findViewById(R.id.livesText);
         livesTxt.setText(GameManager.getInstance().getLivesStr());
+    }
 
-        OptD.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick (View view) {
-                // Simple and quick "Next Question" solver
+    public void checkCorrect(View v)
+    {
+        ColorDrawable c = (ColorDrawable) v.getBackground();
+        switch (c.getColor()) {
+            case Color.BLUE:
                 GameManager.getInstance().gotoNextQuestion(Question1.this);
-            }
-        });
-
-        OptA.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick (View view) {
+                break;
+            default:
                 GameManager.getInstance().checkEndGame(Question1.this, livesTxt);
-            }
-        });
+                break;
+        }
+    }
 
-        OptB.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick (View view) {
-                GameManager.getInstance().checkEndGame(Question1.this, livesTxt);
-            }
-        });
-
-        OptC.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick (View view) {
-                GameManager.getInstance().checkEndGame(Question1.this, livesTxt);
-            }
-        });
-
+    private void initButtonColors() {
+        int[] colors = {Color.RED,Color.BLUE,Color.CYAN,Color.MAGENTA,Color.YELLOW,Color.GREEN};
+        //TODO Make it random
+        for(int i = 0; i < 4; i++)
+        {
+            buttonChoices[i].setBackgroundColor(colors[i]);
+            buttonChoices[i].setTextColor(colors[i+1]);
+        }
     }
 }

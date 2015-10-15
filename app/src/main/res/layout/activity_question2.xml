@@ -26,7 +26,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/OptC2Str"
-        android:id="@+id/OptionsBtn"
+        android:id="@+id/botleftbtn"
         android:layout_alignParentBottom="true"
         android:layout_alignEnd="@+id/RestartBtn"
         android:layout_marginBottom="25dp"
@@ -38,7 +38,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/OptB2Str"
-        android:id="@+id/MainMenuBtn"
+        android:id="@+id/toprightbtn"
         android:minWidth="250dp"
         android:minHeight="70dp"
         android:textSize="40sp"
@@ -52,10 +52,10 @@
         android:layout_height="wrap_content"
         android:text="@string/OptD2Str"
         android:id="@+id/optD"
-        android:layout_alignTop="@+id/OptionsBtn"
-        android:layout_alignStart="@+id/MainMenuBtn"
-        android:layout_alignBottom="@+id/OptionsBtn"
-        android:layout_alignEnd="@+id/MainMenuBtn"
+        android:layout_alignTop="@+id/botleftbtn"
+        android:layout_alignStart="@+id/toprightbtn"
+        android:layout_alignBottom="@+id/botleftbtn"
+        android:layout_alignEnd="@+id/toprightbtn"
         android:textSize="40sp" />
 
     <TextView
