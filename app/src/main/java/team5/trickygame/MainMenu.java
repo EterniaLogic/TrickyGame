@@ -1,5 +1,6 @@
 package team5.trickygame;
 
+
 import android.accounts.Account;
 import android.accounts.AccountManager;
 import android.app.Activity;
@@ -78,7 +79,7 @@ public class MainMenu extends Activity {
         Intent intent = new Intent(MainMenu.this, Question1.class);
 
         // Important for time and score keeping!
-        GameManager.getInstance().startQuiz();
+//        GameManager.getInstance().startQuiz();
         this.startActivity(intent);
         finish();
 	}
