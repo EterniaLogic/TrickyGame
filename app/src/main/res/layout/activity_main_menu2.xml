@@ -31,12 +31,16 @@
         android:id="@+id/options_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@mipmap/tqoptions"
+        android:background="@mipmap/tqsound"
         android:clickable="true"
         android:onClick="goToOptions"
         android:layout_alignTop="@+id/startquiz_button"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:layout_above="@+id/quit_button"
+        android:layout_alignBottom="@+id/startquiz_button"
+        android:minWidth="250dp"
+        android:paddingBottom="10dp" />
 
     <ImageView
         android:id="@+id/quit_button"
@@ -47,7 +51,9 @@
         android:onClick="goToCredits"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_alignTop="@+id/leaderboards_button" />
+        android:layout_alignTop="@+id/leaderboards_button"
+        android:minWidth="250dp"
+        android:paddingTop="10dp" />
 
     <ImageView
         android:id="@+id/leaderboards_button"
@@ -58,6 +64,7 @@
         android:onClick="goToLeaderboards"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:paddingTop="10dp" />
 
 </RelativeLayout>
