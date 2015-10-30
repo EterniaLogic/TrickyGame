@@ -1,5 +1,6 @@
 package team5.trickygame;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.util.Log;
 import android.widget.TextView;
@@ -9,6 +10,10 @@ import java.util.LinkedList;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.Executors;
 
+import team5.trickygame.questions.Question;
+import team5.trickygame.questions.Question1;
+import team5.trickygame.questions.Question10;
+import team5.trickygame.questions.Question2;
 import team5.trickygame.util.Command;
 import team5.trickygame.util.QuestionTimeScore;
 
@@ -26,21 +31,20 @@ public class GameManager extends Thread {
 
     // non-static members
     public boolean running;
+    ConcurrentLinkedQueue<Object> taskManager = new ConcurrentLinkedQueue<Object>();
     private boolean quit;
-
     private LinkedList<QuestionTimeScore> questionScores = new LinkedList<QuestionTimeScore>(); // for mid-game statistics
     private long startTime = 0, lastQTime=0; // used for end-game and mid-game statistics
     private float score = 0;
     private int questionNum = 0, lives=0; // question Number used for end-game
     private boolean gameStarted=false;
-    ConcurrentLinkedQueue<Object> taskManager = new ConcurrentLinkedQueue<Object>();
-
     // Questions list: (Actual Android activities)
     private LinkedList<Class<? extends Question>> questions = new LinkedList<Class<? extends Question>>();
 
     // internal usage for the LeaderboardServer
     private String account="";
     private LeaderboardServer LBS;
+    private long timeminus=0; // time modification
 
     GameManager(){
         // initialize other variables
@@ -50,9 +54,10 @@ public class GameManager extends Thread {
 
         LBS = new LeaderboardServer(this);
 
-        // TODO: Add every question here
+        // TODO: Add every question here (This can be used to customize question orders)
         questions.add(Question1.class);
         questions.add(Question2.class);
+        questions.add(Question10.class);
     }
 
     public static GameManager getInstance() {
@@ -62,7 +67,7 @@ public class GameManager extends Thread {
         return instance;
     }
 
-
+    // Set the Leaderboards server account
     public void setAccount(String name){
         this.account = name;
         //LBS.setAccount(this.account);
@@ -72,8 +77,13 @@ public class GameManager extends Thread {
         this.taskManager.add(async);
     }
 
+    // determine if there is no account assiciated to the GameManager
     public boolean noAccount(){
         return this.account.equals("");
+    }
+
+    public void setTimeMod(long value){
+        timeminus=value;
     }
 
     // goes to the next question in the gameList
@@ -117,18 +127,23 @@ public class GameManager extends Thread {
         }
     }
 
+    // getter for lives
     public int getLives(){
         return lives;
     }
 
+    // return lives as a string
     public String getLivesStr(){
         return Integer.toString(lives);
     }
 
+    // remove a life
     public void killLife(){
         lives--;
     }
 
+    // Player has made a wrong choice.
+    //  Check to see if the game has ended after a life has been decremented
     public void checkEndGame(Question thisQ, TextView txt){
         GameManager.getInstance().killLife();
         txt.setText(Integer.toString(GameManager.getInstance().getLives()));
@@ -144,7 +159,7 @@ public class GameManager extends Thread {
     // Start the quiz, this updates all relevant fields these include:
     //  # of questions
     //  amount of time spent for each question
-    public void startQuiz(){
+    public void startQuiz(Activity thisActivity){
         this.startTime = System.currentTimeMillis();
         this.lastQTime=System.currentTimeMillis(); // since we started the first question
         this.questionNum = 0; // number of correct questions
@@ -152,6 +167,10 @@ public class GameManager extends Thread {
         this.questionScores.clear(); // clear out times
         this.lives=5; // divided by difficulty
         this.gameStarted = true; // used when getting data out of endGame
+
+        Intent intent = new Intent(thisActivity, questions.getFirst());
+        thisActivity.startActivity(intent);
+        thisActivity.finish();
     }
 
     // Increments the Question #, also uses a LinkedList for
@@ -159,9 +178,10 @@ public class GameManager extends Thread {
     public void incQuestionNumber(){
         this.questionNum++; // a question was correct!
         long sysms = System.currentTimeMillis();
-        QuestionTimeScore qts = new QuestionTimeScore(questionNum, (sysms-this.lastQTime));
+        QuestionTimeScore qts = new QuestionTimeScore(questionNum, (sysms-this.lastQTime)-timeminus);
         score += qts.getScore(); // total score tally
         questionScores.add(qts); // add QTS
+        timeminus=0; // reset time modifier
 
         this.lastQTime=System.currentTimeMillis();
 

@@ -1,9 +1,12 @@
-package team5.trickygame;
+package team5.trickygame.questions;
 
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import team5.trickygame.GameManager;
+import team5.trickygame.R;
 
 public class Question2 extends Question {
 

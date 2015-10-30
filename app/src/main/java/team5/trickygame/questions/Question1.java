@@ -1,12 +1,14 @@
-package team5.trickygame;
+package team5.trickygame.questions;
 
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import team5.trickygame.GameManager;
+import team5.trickygame.R;
 
 public class Question1 extends Question {
     Button[] buttonChoices = new Button[4];
@@ -29,10 +31,10 @@ public class Question1 extends Question {
     {
         ColorDrawable c = (ColorDrawable) v.getBackground();
         switch (c.getColor()) {
-            case Color.BLUE:
+            case Color.BLUE: // goto the next question
                 GameManager.getInstance().gotoNextQuestion(Question1.this);
                 break;
-            default:
+            default: // Remove a life and goto the end-game screen if the lives hit 0
                 GameManager.getInstance().checkEndGame(Question1.this, livesTxt);
                 break;
         }
