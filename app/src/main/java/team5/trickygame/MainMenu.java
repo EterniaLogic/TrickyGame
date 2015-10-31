@@ -15,8 +15,6 @@ import android.widget.Toast;
 public class MainMenu extends Activity {
     public static boolean firstRun =true;
 
-    Credits credits;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,24 +66,26 @@ public class MainMenu extends Activity {
     }
 
 	public void goToOptions(View V) {
-        Toast.makeText(this, "Clicked on Options Button", Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "Clicked on Sound Button", Toast.LENGTH_LONG).show();
 	}
 
 	public void goToLeaderboards(View V) {
-        Toast.makeText(this, "Clicked on Leaderboards Button", Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(MainMenu.this, LeaderboardActiviy.class);
+        startActivity(intent);
 	}
 
 	public void startGame(View V) {
         Intent intent = new Intent(MainMenu.this, Question1.class);
 
         // Important for time and score keeping!
-//        GameManager.getInstance().startQuiz();
+        GameManager.getInstance().startQuiz();
         this.startActivity(intent);
         finish();
 	}
 
 	public void goToCredits(View V) {
-		// TODO - implement MainMenu.goToCredits
+        Intent intent = new Intent(MainMenu.this, CreditsActivity.class);
+        startActivity(intent);
 	}
 
     @Override

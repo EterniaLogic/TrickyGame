@@ -27,6 +27,7 @@ public class GameManager extends Thread {
     // non-static members
     public boolean running;
     private boolean quit;
+    public boolean sound;
 
     private LinkedList<QuestionTimeScore> questionScores = new LinkedList<QuestionTimeScore>(); // for mid-game statistics
     private long startTime = 0, lastQTime=0; // used for end-game and mid-game statistics
@@ -53,6 +54,7 @@ public class GameManager extends Thread {
         // TODO: Add every question here
         questions.add(Question1.class);
         questions.add(Question2.class);
+        questions.add(Question10.class);
     }
 
     public static GameManager getInstance() {

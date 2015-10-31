@@ -35,4 +35,11 @@
     <string name="title_activity_question10">Question10</string>
     <string name="SodaCanQuestion">Explode the Soda Can!</string>
     <string name="sodadesc">soda</string>
+    <string name="title_activity_credits">CreditsActivity</string>
+    <string name="creditsBy">This app has been created by:</string>
+    <string name="AndreScredit">Andrew Scibek</string>
+    <string name="BrentCcredit">Brent Clancy</string>
+    <string name="DanielMcredit">Daniel Medina Sada</string>
+    <string name="FeyiOcredit">Feyi Oyewole</string>
+    <string name="JamesEcredit">James Ewings</string>
 </resources>

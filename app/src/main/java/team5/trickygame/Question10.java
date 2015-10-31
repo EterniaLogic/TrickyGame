@@ -1,6 +1,7 @@
 package team5.trickygame;
 
 import android.animation.ObjectAnimator;
+import team5.trickygame.ShakeDetector;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -19,11 +20,13 @@ import android.util.FloatMath;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.animation.Animation;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class Question10 extends Activity {
+public class Question10 extends Question   {
 
     private SensorManager mSensorManager;
     private Sensor mAccelerometer;
@@ -32,6 +35,7 @@ public class Question10 extends Activity {
 
     ImageView can;
 
+    TextView livesTxt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +43,21 @@ public class Question10 extends Activity {
         setContentView(R.layout.activity_question10);
 
         can = (ImageView) findViewById(R.id.sodaCan);
+
+        final Button wrongAnswer = (Button) findViewById(R.id.Q10Wrongbtn);
+
+        final TextView livesTxt = (TextView) findViewById(R.id.livesText);
+
+        livesTxt.setText(GameManager.getInstance().getLivesStr());
+
+
+        wrongAnswer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick (View view) {
+                GameManager.getInstance().checkEndGame(Question10.this, livesTxt);
+            }
+        });
+
 
         can.setImageResource(R.drawable.sodacan1);
         AnimationDrawable canExplodeAnimation;
@@ -62,11 +81,11 @@ public class Question10 extends Activity {
         });
     }
 
-    public void handleShakeEvent(int count){
-        System.out.print("Shake Count: "+ count);
-        Log.e("Shake Count",String.valueOf(shakeCount));
+    public void handleShakeEvent(int count) {
+        System.out.print("Shake Count: " + count);
+        Log.e("Shake Count", String.valueOf(shakeCount));
         shakeCount += count;
-        if (shakeCount > 12){
+        if (shakeCount > 12) {
             can.setImageDrawable(null);
             // Load the ImageView that will host the animation and
             // set its background to our AnimationDrawable XML resource.
@@ -75,18 +94,13 @@ public class Question10 extends Activity {
             frameAnimation.start();
 
             //TODO: Connect to next Question
-        }
-        else if (shakeCount > 8){
+        } else if (shakeCount > 8) {
             can.setImageResource(R.drawable.sodacan4);
-        }
-        else if (shakeCount > 4){
+        } else if (shakeCount > 4) {
             can.setImageResource(R.drawable.sodacan3);
-        }
-        else if(shakeCount > 2){
+        } else if (shakeCount > 2) {
             can.setImageResource(R.drawable.sodacan2);
         }
-
-
     }
 
     @Override
