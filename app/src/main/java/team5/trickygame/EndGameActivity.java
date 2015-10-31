@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Color;
-import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -66,8 +65,6 @@ public class EndGameActivity extends Activity {
 
 
     public void goToMainMenu(View V) {
-        // TODO - implement MainMenu.startGame
-
         Intent intent = new Intent(EndGameActivity.this, MainMenu.class);
 
         this.startActivity(intent);
@@ -76,15 +73,8 @@ public class EndGameActivity extends Activity {
     }
 
     public void restartGame(View V) {
-        // TODO - implement MainMenu.startGame
-
-        Intent intent = new Intent(EndGameActivity.this, Question1.class);
-
         // Important for time and score keeping!
-        GameManager.getInstance().startQuiz();
-
-        this.startActivity(intent);
-        finish();
+        GameManager.getInstance().startQuiz(this);
     }
 
     @Override

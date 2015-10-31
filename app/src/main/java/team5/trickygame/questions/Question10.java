@@ -1,41 +1,51 @@
-package team5.trickygame;
+package team5.trickygame.questions;
 
+<<<<<<< HEAD:app/src/main/java/team5/trickygame/Question10.java
 import android.animation.ObjectAnimator;
 import team5.trickygame.ShakeDetector;
 import android.app.Activity;
+=======
+>>>>>>> master:app/src/main/java/team5/trickygame/questions/Question10.java
 import android.content.Context;
-import android.content.Intent;
-import android.graphics.drawable.Animatable;
 import android.graphics.drawable.AnimationDrawable;
 import android.hardware.Sensor;
-import android.hardware.SensorEvent;
-import android.hardware.SensorEventListener;
-import android.hardware.SensorListener;
 import android.hardware.SensorManager;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import java.lang.Math;
-
-import android.util.FloatMath;
 import android.util.Log;
+<<<<<<< HEAD:app/src/main/java/team5/trickygame/Question10.java
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.Animation;
 import android.widget.Button;
+=======
+>>>>>>> master:app/src/main/java/team5/trickygame/questions/Question10.java
 import android.widget.ImageView;
-import android.widget.TextView;
 
+<<<<<<< HEAD:app/src/main/java/team5/trickygame/Question10.java
 public class Question10 extends Question   {
+=======
+import team5.trickygame.GameManager;
+import team5.trickygame.R;
+import team5.trickygame.ShakeDetector;
 
+public class Question10 extends Question {
+>>>>>>> master:app/src/main/java/team5/trickygame/questions/Question10.java
+
+    int shakeCount = 0;
+    boolean doneShaking = false;
+    ImageView can;
     private SensorManager mSensorManager;
     private Sensor mAccelerometer;
     private ShakeDetector mShakeDetector;
+<<<<<<< HEAD:app/src/main/java/team5/trickygame/Question10.java
     int shakeCount = 0;
 
     ImageView can;
 
     TextView livesTxt;
+=======
+>>>>>>> master:app/src/main/java/team5/trickygame/questions/Question10.java
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,20 +91,50 @@ public class Question10 extends Question   {
         });
     }
 
+<<<<<<< HEAD:app/src/main/java/team5/trickygame/Question10.java
     public void handleShakeEvent(int count) {
         System.out.print("Shake Count: " + count);
         Log.e("Shake Count", String.valueOf(shakeCount));
         shakeCount += count;
         if (shakeCount > 12) {
+=======
+    public void handleShakeEvent(int count){
+        System.out.print("Shake Count: "+ count);
+        Log.e("Shake Count", String.valueOf(shakeCount));
+        shakeCount += count;
+        if (shakeCount > 12 && !doneShaking){
+            // timeout for end of animation, then goto the next question:
+            doneShaking = true;
+>>>>>>> master:app/src/main/java/team5/trickygame/questions/Question10.java
             can.setImageDrawable(null);
+            new Thread(new Runnable(){
+                public void run(){
+                    try {
+                        // wait for n milliseconds
+                        Thread.sleep(3000);
+
+                        // Goto the next question
+                        GameManager.getInstance().setTimeMod(3000);
+                        GameManager.getInstance().gotoNextQuestion(Question10.this);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }).start();
+
             // Load the ImageView that will host the animation and
             // set its background to our AnimationDrawable XML resource.
             can.setBackgroundResource(R.drawable.soda_explode);
             AnimationDrawable frameAnimation = (AnimationDrawable) can.getBackground();
             frameAnimation.start();
+<<<<<<< HEAD:app/src/main/java/team5/trickygame/Question10.java
 
             //TODO: Connect to next Question
         } else if (shakeCount > 8) {
+=======
+        }
+        else if (shakeCount > 8){
+>>>>>>> master:app/src/main/java/team5/trickygame/questions/Question10.java
             can.setImageResource(R.drawable.sodacan4);
         } else if (shakeCount > 4) {
             can.setImageResource(R.drawable.sodacan3);
@@ -115,28 +155,6 @@ public class Question10 extends Question   {
         // Add the following line to unregister the Sensor Manager onPause
         mSensorManager.unregisterListener(mShakeDetector);
         super.onPause();
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_question10, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
     }
 
 

@@ -4,7 +4,6 @@ package team5.trickygame;
 import android.accounts.Account;
 import android.accounts.AccountManager;
 import android.app.Activity;
-import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.Menu;
@@ -13,7 +12,7 @@ import android.view.View;
 import android.widget.Toast;
 
 public class MainMenu extends Activity {
-    public static boolean firstRun =true;
+    public static boolean firstRun = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,12 +74,15 @@ public class MainMenu extends Activity {
 	}
 
 	public void startGame(View V) {
-        Intent intent = new Intent(MainMenu.this, Question1.class);
-
         // Important for time and score keeping!
+<<<<<<< HEAD
         GameManager.getInstance().startQuiz();
         this.startActivity(intent);
         finish();
+=======
+        // Note: on GameManager line 56, you can add additional questions.
+        GameManager.getInstance().startQuiz(this);
+>>>>>>> master
 	}
 
 	public void goToCredits(View V) {

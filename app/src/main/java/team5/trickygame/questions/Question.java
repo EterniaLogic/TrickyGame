@@ -1,9 +1,12 @@
-package team5.trickygame;
+package team5.trickygame.questions;
+
 
 import android.app.Activity;
 import android.content.res.Configuration;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import team5.trickygame.R;
 
 /**
  * Created by Andrew on 10/1/2015.
