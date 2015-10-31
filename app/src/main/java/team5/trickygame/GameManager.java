@@ -31,13 +31,9 @@ public class GameManager extends Thread {
 
     // non-static members
     public boolean running;
+    public boolean sound;
     ConcurrentLinkedQueue<Object> taskManager = new ConcurrentLinkedQueue<Object>();
     private boolean quit;
-<<<<<<< HEAD
-    public boolean sound;
-
-=======
->>>>>>> master
     private LinkedList<QuestionTimeScore> questionScores = new LinkedList<QuestionTimeScore>(); // for mid-game statistics
     private long startTime = 0, lastQTime=0; // used for end-game and mid-game statistics
     private float score = 0;

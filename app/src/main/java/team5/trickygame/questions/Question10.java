@@ -1,51 +1,28 @@
 package team5.trickygame.questions;
 
-<<<<<<< HEAD:app/src/main/java/team5/trickygame/Question10.java
-import android.animation.ObjectAnimator;
-import team5.trickygame.ShakeDetector;
-import android.app.Activity;
-=======
->>>>>>> master:app/src/main/java/team5/trickygame/questions/Question10.java
 import android.content.Context;
 import android.graphics.drawable.AnimationDrawable;
 import android.hardware.Sensor;
 import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.util.Log;
-<<<<<<< HEAD:app/src/main/java/team5/trickygame/Question10.java
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
-import android.view.animation.Animation;
 import android.widget.Button;
-=======
->>>>>>> master:app/src/main/java/team5/trickygame/questions/Question10.java
 import android.widget.ImageView;
+import android.widget.TextView;
 
-<<<<<<< HEAD:app/src/main/java/team5/trickygame/Question10.java
-public class Question10 extends Question   {
-=======
 import team5.trickygame.GameManager;
 import team5.trickygame.R;
 import team5.trickygame.ShakeDetector;
 
 public class Question10 extends Question {
->>>>>>> master:app/src/main/java/team5/trickygame/questions/Question10.java
-
-    int shakeCount = 0;
     boolean doneShaking = false;
+    int shakeCount = 0;
     ImageView can;
+    TextView livesTxt;
     private SensorManager mSensorManager;
     private Sensor mAccelerometer;
     private ShakeDetector mShakeDetector;
-<<<<<<< HEAD:app/src/main/java/team5/trickygame/Question10.java
-    int shakeCount = 0;
-
-    ImageView can;
-
-    TextView livesTxt;
-=======
->>>>>>> master:app/src/main/java/team5/trickygame/questions/Question10.java
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,7 +33,7 @@ public class Question10 extends Question {
 
         final Button wrongAnswer = (Button) findViewById(R.id.Q10Wrongbtn);
 
-        final TextView livesTxt = (TextView) findViewById(R.id.livesText);
+        livesTxt = (TextView) findViewById(R.id.livesText);
 
         livesTxt.setText(GameManager.getInstance().getLivesStr());
 
@@ -91,13 +68,6 @@ public class Question10 extends Question {
         });
     }
 
-<<<<<<< HEAD:app/src/main/java/team5/trickygame/Question10.java
-    public void handleShakeEvent(int count) {
-        System.out.print("Shake Count: " + count);
-        Log.e("Shake Count", String.valueOf(shakeCount));
-        shakeCount += count;
-        if (shakeCount > 12) {
-=======
     public void handleShakeEvent(int count){
         System.out.print("Shake Count: "+ count);
         Log.e("Shake Count", String.valueOf(shakeCount));
@@ -105,7 +75,6 @@ public class Question10 extends Question {
         if (shakeCount > 12 && !doneShaking){
             // timeout for end of animation, then goto the next question:
             doneShaking = true;
->>>>>>> master:app/src/main/java/team5/trickygame/questions/Question10.java
             can.setImageDrawable(null);
             new Thread(new Runnable(){
                 public void run(){
@@ -127,14 +96,8 @@ public class Question10 extends Question {
             can.setBackgroundResource(R.drawable.soda_explode);
             AnimationDrawable frameAnimation = (AnimationDrawable) can.getBackground();
             frameAnimation.start();
-<<<<<<< HEAD:app/src/main/java/team5/trickygame/Question10.java
-
-            //TODO: Connect to next Question
-        } else if (shakeCount > 8) {
-=======
         }
         else if (shakeCount > 8){
->>>>>>> master:app/src/main/java/team5/trickygame/questions/Question10.java
             can.setImageResource(R.drawable.sodacan4);
         } else if (shakeCount > 4) {
             can.setImageResource(R.drawable.sodacan3);
