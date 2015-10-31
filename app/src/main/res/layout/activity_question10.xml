@@ -22,10 +22,43 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+<<<<<<< HEAD
+        android:id="@+id/livesText"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:textColor="#ff0000"
+        android:singleLine="false" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+=======
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
+>>>>>>> master
         android:text="@string/SodaCanQuestion"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="#010101"
+<<<<<<< HEAD
+        android:textSize="40sp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/Q10Wrongbtn"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:alpha="0"
+        android:onClick="wrongAnswer" />
+=======
         android:textSize="40sp" />
+>>>>>>> master
 </RelativeLayout>
