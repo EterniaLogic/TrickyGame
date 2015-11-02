@@ -12,14 +12,16 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import team5.trickygame.util.MusicManager;
+
 public class MainMenu extends Activity {
     public static boolean firstRun = true;
-
+    boolean continueMusic = true;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu2);
-
+        onResume();
         if(firstRun) {
             // App has been started for the first time:
             firstRun = false;
@@ -91,5 +93,18 @@ public class MainMenu extends Activity {
         if(newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
             super.onConfigurationChanged(newConfig);
         }
+    }
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if (!continueMusic) {
+            MusicManager.pause();
+        }
+    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        continueMusic = false;
+        MusicManager.start(this);
     }
 }

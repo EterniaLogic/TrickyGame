@@ -105,7 +105,6 @@ public class Question10 extends Question {
             can.setImageResource(R.drawable.sodacan2);
         }
     }
-
     @Override
     public void onResume() {
         super.onResume();

@@ -7,12 +7,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import team5.trickygame.R;
+import team5.trickygame.util.MusicManager;
 
 /**
  * Created by Andrew on 10/1/2015.
  */
 public abstract class Question extends Activity {
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -41,5 +41,15 @@ public abstract class Question extends Activity {
         if(newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
             super.onConfigurationChanged(newConfig);
         }
+    }
+    @Override
+    protected void onPause() {
+        super.onPause();
+        MusicManager.pause();
+    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        MusicManager.start(this);
     }
 }

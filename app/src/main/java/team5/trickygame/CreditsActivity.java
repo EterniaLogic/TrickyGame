@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import team5.trickygame.util.MusicManager;
+
 public class CreditsActivity extends Activity {
 
     @Override
@@ -34,5 +36,15 @@ public class CreditsActivity extends Activity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+    @Override
+    protected void onPause() {
+        super.onPause();
+        MusicManager.pause();
+    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        MusicManager.start(this);
     }
 }
