@@ -35,33 +35,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6c069dc7-4f82-4d20-bd9b-03150b5ed30a" name="Default" comment="Merge remote-tracking branch 'refs/remotes/origin/master' into Andrew&#10;&#10;Conflicts:&#10;&#9;.gradle/2.4/taskArtifacts/cache.properties&#10;&#9;.gradle/2.4/taskArtifacts/cache.properties.lock&#10;&#9;.gradle/2.4/taskArtifacts/fileHashes.bin&#10;&#9;.gradle/2.4/taskArtifacts/fileSnapshots.bin&#10;&#9;.gradle/2.4/taskArtifacts/outputFileStates.bin&#10;&#9;.gradle/2.4/taskArtifacts/taskArtifacts.bin&#10;&#9;.idea/gradle.xml&#10;&#9;.idea/inspectionProfiles/Project_Default.xml&#10;&#9;.idea/misc.xml&#10;&#9;.idea/workspace.xml&#10;&#9;README.md&#10;&#9;app/app.iml&#10;&#9;app/src/main/AndroidManifest.xml&#10;&#9;app/src/main/java/team5/trickygame/CreditsActivity.java&#10;&#9;app/src/main/java/team5/trickygame/GameManager.java&#10;&#9;app/src/main/java/team5/trickygame/LeaderboardActiviy.java&#10;&#9;app/src/main/java/team5/trickygame/MainMenu.java&#10;&#9;app/src/main/java/team5/trickygame/questions/Question.java&#10;&#9;local.properties&#10;">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/questiondrawer.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/team5/trickygame/questions/Question7.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_question7.xml" />
-      <change type="DELETED" beforePath="C:\Users\Andrew\AndroidStudioProjects\TrickyGame\.gradle\2.4\taskArtifacts\cache.properties" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Andrew\AndroidStudioProjects\TrickyGame\.gradle\2.4\taskArtifacts\cache.properties.lock" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Andrew\AndroidStudioProjects\TrickyGame\.gradle\2.4\taskArtifacts\fileHashes.bin" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Andrew\AndroidStudioProjects\TrickyGame\.gradle\2.4\taskArtifacts\fileSnapshots.bin" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Andrew\AndroidStudioProjects\TrickyGame\.gradle\2.4\taskArtifacts\outputFileStates.bin" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Andrew\AndroidStudioProjects\TrickyGame\.gradle\2.4\taskArtifacts\taskArtifacts.bin" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Andrew\AndroidStudioProjects\TrickyGame\.idea\.name" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Andrew\AndroidStudioProjects\TrickyGame\.idea\compiler.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Andrew\AndroidStudioProjects\TrickyGame\.idea\copyright\profiles_settings.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Andrew\AndroidStudioProjects\TrickyGame\.idea\encodings.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Andrew\AndroidStudioProjects\TrickyGame\.idea\misc.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Andrew\AndroidStudioProjects\TrickyGame\.idea\modules.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Andrew\AndroidStudioProjects\TrickyGame\.idea\vcs.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Andrew\AndroidStudioProjects\TrickyGame\app\app-release.apk" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Andrew\AndroidStudioProjects\TrickyGame\local.properties" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/team5/trickygame/GameManager.java" afterPath="$PROJECT_DIR$/app/src/main/java/team5/trickygame/GameManager.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/team5/trickygame/questions/Question10.java" afterPath="$PROJECT_DIR$/app/src/main/java/team5/trickygame/questions/Question10.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TrickyGame.iml" afterPath="$PROJECT_DIR$/TrickyGame.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="TrickyGame.iws" />
@@ -93,8 +69,8 @@
       <file leaf-file-name="Question10.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/team5/trickygame/questions/Question10.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.393574">
-              <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+            <state vertical-scroll-proportion="1.3256881">
+              <caret line="119" column="5" selection-start-line="119" selection-start-column="5" selection-end-line="119" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -1553,6 +1529,7 @@
         <option value="$PROJECT_DIR$/app/src/main/java/team5/trickygame/questions/Question7.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_question7.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/team5/trickygame/GameManager.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/team5/trickygame/questions/Question10.java" />
       </list>
     </option>
   </component>
@@ -1609,6 +1586,60 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TrickyGame" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TrickyGame" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="trickygame" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TrickyGame" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="trickygame" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="questions" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -1824,6 +1855,13 @@
       <option name="number" value="Default" />
       <updated>1446503297004</updated>
     </task>
+    <task id="LOCAL-00001" summary="Added a question and javadocs to game manager&#10;">
+      <created>1446505069040</created>
+      <option name="number" value="00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1446505069040</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1839,7 +1877,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32962447" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32969153" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.6147427" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.35465926" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32962447" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -1876,7 +1914,8 @@
     <option name="CHECK_COMMIT_MESSAGE_SPELLING" value="false" />
     <MESSAGE value="Added a question" />
     <MESSAGE value="Added a question and put javadoc comments on gamemanager" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added a question and put javadoc comments on gamemanager" />
+    <MESSAGE value="Added a question and javadocs to game manager&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added a question and javadocs to game manager&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1983,8 +2022,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/team5/trickygame/questions/Question10.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.393574">
-          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+        <state vertical-scroll-proportion="1.3256881">
+          <caret line="119" column="5" selection-start-line="119" selection-start-column="5" selection-end-line="119" selection-end-column="5" />
           <folding />
         </state>
       </provider>
