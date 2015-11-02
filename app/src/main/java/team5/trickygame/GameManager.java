@@ -18,6 +18,7 @@ import team5.trickygame.questions.Question;
 import team5.trickygame.questions.Question1;
 import team5.trickygame.questions.Question10;
 import team5.trickygame.questions.Question2;
+import team5.trickygame.questions.Question7;
 import team5.trickygame.util.Command;
 import team5.trickygame.util.MusicManager;
 import team5.trickygame.util.QuestionTimeScore;
@@ -63,6 +64,7 @@ public class GameManager extends Thread {
         // TODO: Add every question here (This can be used to customize question orders)
         questions.add(Question1.class);
         questions.add(Question2.class);
+        questions.add(Question7.class);
         questions.add(Question10.class);
     }
 
