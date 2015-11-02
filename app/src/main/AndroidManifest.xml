@@ -10,6 +10,7 @@
     <uses-feature
         android:name="android.hardware.sensor.accelerometer"
         android:required="true" />
+
     <application
         android:allowBackup="true"
         android:hardwareAccelerated="true"
@@ -44,7 +45,7 @@
             android:name=".LeaderboardActiviy"
             android:configChanges="orientation|keyboardHidden"
             android:label="@string/title_activity_leaderboard_activiy"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="team5.trickygame.MainMenu" />
@@ -66,15 +67,15 @@
             android:screenOrientation="landscape" >
         </activity>
         <activity
-            android:name=".Question6"
-            android:label="@string/title_activity_question6"
+            android:name=".questions.Question7"
+            android:label="@string/title_activity_question7"
             android:screenOrientation="landscape" >
         </activity>
         <activity
             android:name=".CreditsActivity"
             android:label="@string/title_activity_credits"
-            android:screenOrientation="landscape"
-            android:parentActivityName=".MainMenu" >
+            android:parentActivityName=".MainMenu"
+            android:screenOrientation="landscape" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="team5.trickygame.MainMenu" />
