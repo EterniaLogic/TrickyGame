@@ -1,32 +1,48 @@
 package team5.trickygame;
 
+
+import android.accounts.Account;
+import android.accounts.AccountManager;
+import android.app.Activity;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.Toast;
 
-public class MainMenu extends AppCompatActivity {
+import team5.trickygame.util.MusicManager;
 
-
-    Credits credits;
-    Leaderboards l;
-
-
-    private GameManager gameManager;
-
+public class MainMenu extends Activity {
+    public static boolean firstRun = true;
+    boolean continueMusic = true;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu2);
-        // Start up a persistent GameManager to keep score, along with database manager instance
-        gameManager = new GameManager();
-        gameManager.start();
+        onResume();
+        if(firstRun) {
+            // App has been started for the first time:
+            firstRun = false;
 
+
+            // Get the google account, used later for the LeaderboardServer.
+            Account[] accounts = AccountManager.get(this).getAccountsByType("com.google");
+            for (Account account : accounts) {
+                if(account.name.endsWith("@gmail.com")){
+                    // tell the GameManager that we have an identity
+                    GameManager.getInstance().setAccount(account.name);
+                    break; // get out of here.
+                }
+            }
+
+            // set a default account if none exists (This goes to an Anonymous account)
+            // Anonymous accounts cannot get a score.
+            if(GameManager.getInstance().noAccount()){
+                GameManager.getInstance().setAccount("Anonymous");
+            }
+        }
     }
 
     @Override
@@ -52,23 +68,43 @@ public class MainMenu extends AppCompatActivity {
     }
 
 	public void goToOptions(View V) {
-        Toast.makeText(this, "Clicked on Options Button", Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "Clicked on Sound Button", Toast.LENGTH_LONG).show();
 	}
 
 	public void goToLeaderboards(View V) {
-        Toast.makeText(this, "Clicked on Leaderboards Button", Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(MainMenu.this, LeaderboardActiviy.class);
+        startActivity(intent);
 	}
 
 	public void startGame(View V) {
-		// TODO - implement MainMenu.startGame
-
-        Intent intent = new Intent(MainMenu.this, Question1.class);
-
-        this.startActivity(intent);
-        finish();
+        // Important for time and score keeping!
+        // Note: on GameManager line 56, you can add additional questions.
+        GameManager.getInstance().startQuiz(this);
 	}
 
 	public void goToCredits(View V) {
-		// TODO - implement MainMenu.goToCredits
+        Intent intent = new Intent(MainMenu.this, CreditsActivity.class);
+        startActivity(intent);
 	}
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        // ignore orientation/keyboard change
+        if(newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            super.onConfigurationChanged(newConfig);
+        }
+    }
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if (!continueMusic) {
+            MusicManager.pause();
+        }
+    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        continueMusic = false;
+        MusicManager.start(this);
+    }
 }
