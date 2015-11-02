@@ -3,15 +3,24 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-    <string name="OptAStr">RED</string>
-    <string name="OptCStr">YELLOW</string>
-    <string name="OptBStr">GREEN</string>
-    <string name="OptDStr">BLUE</string>
 
-    <string name="title_activity_main_menu">Main Menu</string>
+    <string name="Question1Str">Press the Blue Button...</string>
+    <string name="Q1StrChoice1">RED</string>
+    <string name="Q1StrChoice2">YELLOW</string>
+    <string name="Q1StrChoice3">GREEN</string>
+    <string name="Q1StrChoice4">BLUE</string>
+
+    <string name="Question2Str">What is the Airspeed Velocity of an Unladen Swallow?</string>
+    <string name="OptA2Str">Umm...</string>
+    <string name="OptB2Str">10 m/s</string>
+    <string name="OptC2Str">2 m/s</string>
+    <string name="OptD2Str">3000 m/s</string>
+
+    <!-- Actual App Name on launcher -->
+    <string name="title_activity_main_menu">Tricky Quiz</string>
 
     <string name="title_activity_question1">Question 1</string>
-    <string name="Question1Str">Press the Blue Button...</string>
+
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="title_activity_end_game">EndGameActivity</string>
@@ -20,4 +29,17 @@
     <string name="OptionsBtnStr">Main Menu</string>
     <string name="title_activity_leaderboard_activiy">LeaderboardActiviy</string>
     <string name="title_activity_options">OptionsActivity</string>
+    <string name="title_activity_question2fave_color">Question2faveColor</string>
+    <string name="title_activity_question6">Question6</string>
+    <string name="stopped">Stopped</string>
+    <string name="title_activity_question10">Question10</string>
+    <string name="SodaCanQuestion">Explode the Soda Can!</string>
+    <string name="sodadesc">soda</string>
+    <string name="title_activity_credits">CreditsActivity</string>
+    <string name="creditsBy">This app has been created by:</string>
+    <string name="AndreScredit">Andrew Scibek</string>
+    <string name="BrentCcredit">Brent Clancy</string>
+    <string name="DanielMcredit">Daniel Medina Sada</string>
+    <string name="FeyiOcredit">Feyi Oyewole</string>
+    <string name="JamesEcredit">James Ewings</string>
 </resources>

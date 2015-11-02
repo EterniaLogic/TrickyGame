@@ -1,15 +1,20 @@
 package team5.trickygame;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.graphics.Color;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
-public class EndGameActivity extends AppCompatActivity {
+import java.util.LinkedList;
+
+import team5.trickygame.util.QuestionTimeScore;
+
+public class EndGameActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,12 +25,17 @@ public class EndGameActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
 
-        status.setText(intent.getStringExtra("val"));
+        // force built-in rounding
+        LinkedList<QuestionTimeScore> qtsList = GameManager.getInstance().endQuizStats();
+        long totalScore = (long)qtsList.getLast().getScore();
+
+
+        status.setText(intent.getStringExtra("val")+"\nScore: "+totalScore+"\nTime: "+qtsList.getLast().getHumanTime());
 
         if (intent.getStringExtra("color").equals("red")){
             status.setTextColor(Color.RED);
         } else{
-            status.setTextColor(Color.GREEN);
+            status.setTextColor(Color.rgb(0,150,100));
         }
 
 
@@ -53,15 +63,8 @@ public class EndGameActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void goToOptions() {
-        // TODO - implement EndGame.goToOptions
-
-    }
-
 
     public void goToMainMenu(View V) {
-        // TODO - implement MainMenu.startGame
-
         Intent intent = new Intent(EndGameActivity.this, MainMenu.class);
 
         this.startActivity(intent);
@@ -70,11 +73,15 @@ public class EndGameActivity extends AppCompatActivity {
     }
 
     public void restartGame(View V) {
-        // TODO - implement MainMenu.startGame
+        // Important for time and score keeping!
+        GameManager.getInstance().startQuiz(this);
+    }
 
-        Intent intent = new Intent(EndGameActivity.this, Question1.class);
-
-        this.startActivity(intent);
-        finish();
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        // ignore orientation/keyboard change
+        if(newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            super.onConfigurationChanged(newConfig);
+        }
     }
 }
