@@ -34,10 +34,8 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6c069dc7-4f82-4d20-bd9b-03150b5ed30a" name="Default" comment="Merge remote-tracking branch 'refs/remotes/origin/master' into Andrew&#10;&#10;Conflicts:&#10;&#9;.gradle/2.4/taskArtifacts/cache.properties&#10;&#9;.gradle/2.4/taskArtifacts/cache.properties.lock&#10;&#9;.gradle/2.4/taskArtifacts/fileHashes.bin&#10;&#9;.gradle/2.4/taskArtifacts/fileSnapshots.bin&#10;&#9;.gradle/2.4/taskArtifacts/outputFileStates.bin&#10;&#9;.gradle/2.4/taskArtifacts/taskArtifacts.bin&#10;&#9;.idea/gradle.xml&#10;&#9;.idea/inspectionProfiles/Project_Default.xml&#10;&#9;.idea/misc.xml&#10;&#9;.idea/workspace.xml&#10;&#9;README.md&#10;&#9;app/app.iml&#10;&#9;app/src/main/AndroidManifest.xml&#10;&#9;app/src/main/java/team5/trickygame/CreditsActivity.java&#10;&#9;app/src/main/java/team5/trickygame/GameManager.java&#10;&#9;app/src/main/java/team5/trickygame/LeaderboardActiviy.java&#10;&#9;app/src/main/java/team5/trickygame/MainMenu.java&#10;&#9;app/src/main/java/team5/trickygame/questions/Question.java&#10;&#9;local.properties&#10;">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/team5/trickygame/questions/Question10.java" afterPath="$PROJECT_DIR$/app/src/main/java/team5/trickygame/questions/Question10.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TrickyGame.iml" afterPath="$PROJECT_DIR$/TrickyGame.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" />
+    <list default="true" id="6c069dc7-4f82-4d20-bd9b-03150b5ed30a" name="Default" comment="">
+      <change type="DELETED" beforePath="C:\Users\Andrew\AndroidStudioProjects\TrickyGame\app\src\main\java\team5\trickygame\Credits.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="TrickyGame.iws" />
@@ -1861,7 +1859,13 @@
       <option name="project" value="LOCAL" />
       <updated>1446505069040</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="removed methods needed for question 10">
+      <created>1446505275111</created>
+      <option name="number" value="00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1446505275111</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1915,7 +1919,8 @@
     <MESSAGE value="Added a question" />
     <MESSAGE value="Added a question and put javadoc comments on gamemanager" />
     <MESSAGE value="Added a question and javadocs to game manager&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added a question and javadocs to game manager&#10;" />
+    <MESSAGE value="removed methods needed for question 10" />
+    <option name="LAST_COMMIT_MESSAGE" value="removed methods needed for question 10" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
