@@ -20,6 +20,7 @@ import team5.trickygame.questions.Question10;
 import team5.trickygame.questions.Question2;
 import team5.trickygame.questions.Question7;
 import team5.trickygame.util.Command;
+import team5.trickygame.util.MusicManager;
 import team5.trickygame.util.QuestionTimeScore;
 
 /**
@@ -52,9 +53,6 @@ public class GameManager extends Thread {
     private LeaderboardServer LBS;
     private long timeminus=0; // time modification
 
-    /**
-     *
-     */
     GameManager(){
         // initialize other variables
         quit=false;
@@ -70,10 +68,6 @@ public class GameManager extends Thread {
         questions.add(Question10.class);
     }
 
-    /**
-     *
-     * @return
-     */
     public static GameManager getInstance() {
         if(instance == null)
             instance = new GameManager();
@@ -81,10 +75,7 @@ public class GameManager extends Thread {
         return instance;
     }
 
-    /** Set the Leaderboards server account
-     *
-     * @param name
-     */
+    // Set the Leaderboards server account
     public void setAccount(String name){
         this.account = name;
         //LBS.setAccount(this.account);
@@ -94,26 +85,16 @@ public class GameManager extends Thread {
         this.taskManager.add(async);
     }
 
-    /** determine if there is no account assiciated to the GameManager
-     *
-     * @return
-     */
+    // determine if there is no account assiciated to the GameManager
     public boolean noAccount(){
         return this.account.equals("");
     }
 
-    /**
-     *
-     * @param value
-     */
     public void setTimeMod(long value){
         timeminus=value;
     }
 
-    /**
-     *
-     * @param thisQuestion
-     */
+    // goes to the next question in the gameList
     public void gotoNextQuestion(Question thisQuestion){
         boolean next=false;
 
@@ -154,34 +135,23 @@ public class GameManager extends Thread {
         }
     }
 
-    /**
-     *
-     * @return The current amount of lives the player has
-     */
+    // getter for lives
     public int getLives(){
         return lives;
     }
 
-    /**
-     *
-     * @return The current amount of lives the player has
-     */
+    // return lives as a string
     public String getLivesStr(){
         return Integer.toString(lives);
     }
 
-    /**
-     * Take one life away from the player
-     */
+    // remove a life
     public void killLife(){
         lives--;
     }
 
-    /**
-     *
-     * @param thisQ Current Question
-     * @param txt The txt
-     */
+    // Player has made a wrong choice.
+    //  Check to see if the game has ended after a life has been decremented
     public void checkEndGame(Question thisQ, TextView txt){
         GameManager.getInstance().killLife();
         txt.setText(Integer.toString(GameManager.getInstance().getLives()));
@@ -194,9 +164,9 @@ public class GameManager extends Thread {
         }
     }
 
-    /**
-     * Starts the quiz
-     */
+    // Start the quiz, this updates all relevant fields these include:
+    //  # of questions
+    //  amount of time spent for each question
     public void startQuiz(Activity thisActivity){
         this.startTime = System.currentTimeMillis();
         this.lastQTime=System.currentTimeMillis(); // since we started the first question
@@ -211,10 +181,8 @@ public class GameManager extends Thread {
         thisActivity.finish();
     }
 
-    /**
-     * Increments the Question #, also uses a LinkedList for
-     * End-game statistics, used for score-keeping
-     */
+    // Increments the Question #, also uses a LinkedList for
+    //  End-game statistics, used for score-keeping
     public void incQuestionNumber(){
         this.questionNum++; // a question was correct!
         long sysms = System.currentTimeMillis();
@@ -233,18 +201,11 @@ public class GameManager extends Thread {
     }
 
 
-    /**
-     *
-     * @return the total score at moment
-     */
+
     public float getTotalScore(){ // return the current score
         return score;
     }
 
-    /**
-     *
-     * @return End game stats
-     */
     // returns a list of all of the scores, appended is the total score
     public LinkedList<QuestionTimeScore> endQuizStats(){
         // has endQuizStats been called before?
@@ -256,9 +217,7 @@ public class GameManager extends Thread {
     }
 
 
-    /**
-     * instance keepalive so GC doesnt collect
-     */
+    // instance keepalive (GC wont eat me!)
     public void run(){
         running=true; // used for assertions
 
@@ -306,9 +265,6 @@ public class GameManager extends Thread {
         running=false; // used for assertions
     }
 
-    /**
-     *
-     */
     // Manages end-of-life
     public void die(){
         // Enforce an asynchronous stopper variable

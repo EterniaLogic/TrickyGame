@@ -5,17 +5,12 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.TextView;
 
-import team5.trickygame.GameManager;
 import team5.trickygame.R;
 
 public class Question7 extends Question {
-    TextView livesTxt;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,12 +29,7 @@ public class Question7 extends Question {
         NotificationManager notificationManger =
                 (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         notificationManger.notify(01, notification);
-        livesTxt = (TextView) findViewById(R.id.livesText);
-        livesTxt.setText(GameManager.getInstance().getLivesStr());
-    }
-    public void checkCorrect(View v)
-    {
-        GameManager.getInstance().checkEndGame(Question7.this, livesTxt);
+
     }
 
 }
