@@ -72,6 +72,11 @@
             android:screenOrientation="landscape" >
         </activity>
         <activity
+            android:name=".questions.Question4"
+            android:label="@string/title_activity_question4"
+            android:screenOrientation="landscape" >
+        </activity>
+        <activity
             android:name=".CreditsActivity"
             android:label="@string/title_activity_credits"
             android:parentActivityName=".MainMenu"

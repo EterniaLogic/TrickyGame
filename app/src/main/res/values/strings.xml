@@ -33,7 +33,7 @@
     <string name="title_activity_question6">Question6</string>
     <string name="stopped">Stopped</string>
     <string name="title_activity_question10">Question10</string>
-    <string name="SodaCanQuestion">Explode the Soda Can!</string>
+        <string name="SodaCanQuestion">Explode the Soda Can!</string>
     <string name="sodadesc">soda</string>
     <string name="title_activity_credits">CreditsActivity</string>
     <string name="creditsBy">This app has been created by:</string>
@@ -44,4 +44,5 @@
     <string name="JamesEcredit">James Ewings</string>
     <string name="title_activity_question7">Question7</string>
     <string name="title_activity_question3">Question3</string>
+    <string name="title_activity_question4">Question4</string>
 </resources>
