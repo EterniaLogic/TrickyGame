@@ -20,6 +20,10 @@ public class Question7 extends Question {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question7);
+
+        // Generate notification (outside of App)
+        // Problem: If you fail the quiz then use this, you will still be able to
+        //          continue the quiz.
         Intent intent = new Intent(this, Question10.class);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 01, intent, PendingIntent.FLAG_UPDATE_CURRENT);
         Notification.Builder builder = new Notification.Builder(getApplicationContext());
@@ -34,11 +38,16 @@ public class Question7 extends Question {
         NotificationManager notificationManger =
                 (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         notificationManger.notify(01, notification);
+
+        // Helps keep the GameManager Question ticker in sync
+        GameManager.getInstance().incQuestionNumber();
+
         livesTxt = (TextView) findViewById(R.id.livesText);
         livesTxt.setText(GameManager.getInstance().getLivesStr());
     }
     public void checkCorrect(View v)
     {
+        // Used if an answer was incorrect?
         GameManager.getInstance().checkEndGame(Question7.this, livesTxt);
     }
 
