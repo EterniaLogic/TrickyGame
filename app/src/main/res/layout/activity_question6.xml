@@ -4,46 +4,39 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="team5.trickygame.Question6"
+    tools:context="team5.trickygame.questions.Question6"
     android:background="@android:color/white"
     >
 
 
-    <ImageView
+    <team5.trickygame.Q6Classes.Q6GameControl
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/view" />
+
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/ballImg"
-        android:layout_centerVertical="true"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/Q8Str"
+        android:id="@+id/Q8Title"
+        android:textColor="@android:color/black"
+        android:textSize="30sp"
+        android:textIsSelectable="false"
+        android:lines="2"
+        android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:src="@mipmap/ball"
-        android:layout_marginLeft="20dp"
-        android:scaleType="center" />
+        android:maxWidth="200dp" />
 
-    <ImageView
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/wallImg"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:src="@mipmap/wall"
-        android:layout_alignParentEnd="false"
-        android:contentDescription="Wall"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="5"
+        android:id="@+id/textView8"
         android:layout_alignParentTop="true"
-        android:layout_alignParentBottom="true"
-        android:adjustViewBounds="false"
-        android:baselineAlignBottom="false"
-        android:scaleType="fitXY"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp" />
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/Base"
-        android:layout_centerVertical="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:padding="30dp"
-        android:background="@android:color/black" />
+        android:layout_alignRight="@+id/view"
+        android:layout_alignEnd="@+id/view"
+        android:textColor="#ff180d" />
 </RelativeLayout>

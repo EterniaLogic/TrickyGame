@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Color;
-import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -13,6 +12,7 @@ import android.widget.TextView;
 
 import java.util.LinkedList;
 
+import team5.trickygame.questions.Question1;
 import team5.trickygame.util.QuestionTimeScore;
 
 public class EndGameActivity extends Activity {

@@ -9,8 +9,17 @@ import java.util.LinkedList;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.Executors;
 
+import team5.trickygame.LeaderboardClasses.LeaderboardServer;
+import team5.trickygame.questions.Question;
+import team5.trickygame.questions.Question1;
+import team5.trickygame.questions.Question10;
+import team5.trickygame.questions.Question2;
+import team5.trickygame.questions.Question3;
+import team5.trickygame.questions.Question4;
+import team5.trickygame.questions.Question7;
 import team5.trickygame.util.Command;
 import team5.trickygame.util.QuestionTimeScore;
+
 
 /**
  * Created by eternia (Brent Clancy) on 9/30/2015.
@@ -28,13 +37,12 @@ public class GameManager extends Thread {
     public boolean running;
     private boolean quit;
     public boolean sound;
-
     private LinkedList<QuestionTimeScore> questionScores = new LinkedList<QuestionTimeScore>(); // for mid-game statistics
     private long startTime = 0, lastQTime=0; // used for end-game and mid-game statistics
     private float score = 0;
     private int questionNum = 0, lives=0; // question Number used for end-game
     private boolean gameStarted=false;
-    ConcurrentLinkedQueue<Object> taskManager = new ConcurrentLinkedQueue<Object>();
+    public ConcurrentLinkedQueue<Object> taskManager = new ConcurrentLinkedQueue<Object>();
 
     // Questions list: (Actual Android activities)
     private LinkedList<Class<? extends Question>> questions = new LinkedList<Class<? extends Question>>();
@@ -54,6 +62,10 @@ public class GameManager extends Thread {
         // TODO: Add every question here
         questions.add(Question1.class);
         questions.add(Question2.class);
+        questions.add(Question3.class);
+        questions.add(Question4.class);
+        //questions.add(Question6.class);
+        questions.add(Question7.class);
         questions.add(Question10.class);
     }
 

@@ -30,7 +30,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Question1"
+            android:name=".questions.Question1"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_question1"
             android:screenOrientation="landscape" >
@@ -51,34 +51,42 @@
                 android:value="team5.trickygame.MainMenu" />
         </activity>
         <activity
-            android:name=".OptionsActivity"
-            android:configChanges="orientation|keyboardHidden"
-            android:label="@string/title_activity_options"
-            android:screenOrientation="landscape" >
-        </activity>
-        <activity
-            android:name=".Question2"
+            android:name=".questions.Question2"
             android:label="@string/title_activity_question2fave_color"
             android:screenOrientation="landscape" >
         </activity>
         <activity
-            android:name=".Question10"
+            android:name=".questions.Question10"
             android:label="@string/title_activity_question10"
             android:screenOrientation="landscape" >
         </activity>
         <activity
-            android:name=".Question6"
+            android:name=".questions.Question6"
             android:label="@string/title_activity_question6"
+            android:screenOrientation="landscape" >
+        </activity>
+        <activity
+            android:name=".questions.Question7"
+            android:label="@string/title_activity_question7"
+            android:screenOrientation="landscape" >
+        </activity>
+        <activity
+            android:name=".questions.Question4"
+            android:label="@string/title_activity_question4"
             android:screenOrientation="landscape" >
         </activity>
         <activity
             android:name=".CreditsActivity"
             android:label="@string/title_activity_credits"
-            android:screenOrientation="landscape"
-            android:parentActivityName=".MainMenu" >
+            android:parentActivityName=".MainMenu"
+            android:screenOrientation="landscape" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="team5.trickygame.MainMenu" />
+        </activity>
+        <activity
+            android:name=".questions.Question3"
+            android:label="@string/title_activity_question3" >
         </activity>
     </application>
 
