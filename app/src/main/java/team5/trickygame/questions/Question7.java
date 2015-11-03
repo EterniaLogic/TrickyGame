@@ -16,7 +16,6 @@ import team5.trickygame.R;
 
 public class Question7 extends Question {
     TextView livesTxt;
-    NotificationManager notificationManger;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,7 +24,6 @@ public class Question7 extends Question {
         // Generate notification (outside of App)
         // Problem: If you fail the quiz then use this, you will still be able to
         //          continue the quiz.
-        //Fixed.
         Intent intent = new Intent(this, Question10.class);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 01, intent, PendingIntent.FLAG_UPDATE_CURRENT);
         Notification.Builder builder = new Notification.Builder(getApplicationContext());
@@ -37,7 +35,7 @@ public class Question7 extends Question {
         builder.setOngoing(true);
         builder.setContentIntent(pendingIntent);
         Notification notification = builder.build();
-        notificationManger =
+        NotificationManager notificationManger =
                 (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         notificationManger.notify(01, notification);
 
@@ -49,9 +47,7 @@ public class Question7 extends Question {
     }
     public void checkCorrect(View v)
     {
-        // Used when user clicks on drawer.
-        if(GameManager.getInstance().getLives() == 1)
-            notificationManger.cancelAll();
+        // Used if an answer was incorrect?
         GameManager.getInstance().checkEndGame(Question7.this, livesTxt);
     }
 

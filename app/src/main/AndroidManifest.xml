@@ -80,6 +80,10 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="team5.trickygame.MainMenu" />
         </activity>
+        <activity
+            android:name=".questions.Question3"
+            android:label="@string/title_activity_question3" >
+        </activity>
     </application>
 
 </manifest>
