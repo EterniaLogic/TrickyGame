@@ -1,26 +1,34 @@
-package team5.trickygame;
-/*
- *
- *   Created by Daniel Medina Sada
- *
- */
-import android.app.Activity;
+package team5.trickygame.questions;
+
+
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.Window;
+import android.view.WindowManager;
+import team5.trickygame.Q6Classes.Q6GameControl;
+import team5.trickygame.R;
+import team5.trickygame.questions.Question;
 
-public class CreditsActivity extends Activity {
+public class Question6 extends Question {
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_credits);
+
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        // making it full screen
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        // set our MainGamePanel as the View
+        setContentView(new Q6GameControl(this));
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_credits, menu);
+        getMenuInflater().inflate(R.menu.menu_question6, menu);
         return true;
     }
 
