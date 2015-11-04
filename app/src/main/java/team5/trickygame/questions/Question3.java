@@ -1,6 +1,10 @@
 package team5.trickygame.questions;
 
 import android.os.Bundle;
+<<<<<<< HEAD
+=======
+import android.app.Activity;
+>>>>>>> master
 import android.view.View;
 import android.widget.TextView;
 

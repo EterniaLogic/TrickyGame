@@ -12,18 +12,25 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+<<<<<<< HEAD
 import team5.trickygame.questions.Question1;
 import team5.trickygame.util.MusicManager;
 
 public class MainMenu extends Activity {
     public static boolean firstRun =true;
     boolean continueMusic = true;
+=======
+import team5.trickygame.util.MusicManager;
+>>>>>>> master
 
+public class MainMenu extends Activity {
+    public static boolean firstRun = true;
+    boolean continueMusic = true;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu2);
-
+        onResume();
         if(firstRun) {
             // App has been started for the first time:
             firstRun = false;
@@ -79,12 +86,15 @@ public class MainMenu extends Activity {
 	}
 
 	public void startGame(View V) {
-        Intent intent = new Intent(MainMenu.this, Question1.class);
-
         // Important for time and score keeping!
+<<<<<<< HEAD
         GameManager.getInstance().startQuiz();
         this.startActivity(intent);
         finish();
+=======
+        // Note: on GameManager line 56, you can add additional questions.
+        GameManager.getInstance().startQuiz(this);
+>>>>>>> master
 	}
 
 	public void goToCredits(View V) {
@@ -99,7 +109,10 @@ public class MainMenu extends Activity {
             super.onConfigurationChanged(newConfig);
         }
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> master
     @Override
     protected void onPause() {
         super.onPause();

@@ -1,98 +1,104 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:layout_height="match_parent" android:background="@mipmap/tmpbackg2"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+<<<<<<< HEAD
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="team5.trickygame.questions.Question1"
     android:background="@mipmap/tmpbackg2">
+=======
+    tools:context="team5.trickygame.questions.Question1">
+>>>>>>> master
 
     <Button
+        android:id="@+id/topleftbtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/Q1StrChoice1"
-        android:id="@+id/topleftbtn"
-        android:minHeight="70dp"
-        android:minWidth="250dp"
-        android:textSize="40sp"
-        android:textColor="#37dc2c"
-        android:maxHeight="70dp"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
         android:layout_marginLeft="20dp"
         android:background="#f20f07"
-        android:layout_centerVertical="true"
-        android:layout_alignParentStart="true"
-        android:onClick="checkCorrect" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/Q1StrChoice3"
-        android:id="@+id/botleftbtn"
-        android:layout_alignParentBottom="true"
-        android:layout_alignEnd="@+id/topleftbtn"
-        android:layout_marginBottom="25dp"
-        android:layout_alignStart="@+id/topleftbtn"
+        android:maxHeight="70dp"
         android:minHeight="70dp"
-        android:textSize="40sp"
-        android:textColor="#1e46f4"
-        android:background="#37dc2c"
-        android:onClick="checkCorrect" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/Q1StrChoice2"
-        android:id="@+id/toprightbtn"
         android:minWidth="250dp"
+        android:onClick="checkCorrect"
+        android:text="@string/Q1StrChoice1"
+        android:textColor="#37dc2c"
+        android:textSize="40sp" />
+
+    <Button
+        android:id="@+id/botleftbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/topleftbtn"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/topleftbtn"
+        android:layout_marginBottom="25dp"
+        android:background="#37dc2c"
         android:minHeight="70dp"
-        android:textSize="40sp"
-        android:textColor="#f20f07"
+        android:onClick="checkCorrect"
+        android:text="@string/Q1StrChoice3"
+        android:textColor="#1e46f4"
+        android:textSize="40sp" />
+
+    <Button
+        android:id="@+id/toprightbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/topleftbtn"
+        android:layout_marginLeft="20dp"
         android:background="#f9f508"
         android:maxHeight="70dp"
-        android:layout_marginLeft="20dp"
-        android:layout_alignTop="@+id/topleftbtn"
-        android:layout_alignParentEnd="true"
-        android:onClick="checkCorrect" />
+        android:minHeight="70dp"
+        android:minWidth="250dp"
+        android:onClick="checkCorrect"
+        android:text="@string/Q1StrChoice2"
+        android:textColor="#f20f07"
+        android:textSize="40sp" />
 
     <Button
+        android:id="@+id/botrightbtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/Q1StrChoice4"
-        android:id="@+id/botrightbtn"
-        android:layout_alignTop="@+id/botleftbtn"
-        android:layout_alignStart="@+id/toprightbtn"
         android:layout_alignBottom="@+id/botleftbtn"
         android:layout_alignEnd="@+id/toprightbtn"
-        android:textSize="40sp"
-        android:textColor="#f9f508"
-        android:background="#1e46f4"
-        android:visibility="visible"
         android:layout_alignParentEnd="false"
         android:layout_alignParentStart="false"
-        android:onClick="checkCorrect" />
+        android:layout_alignStart="@+id/toprightbtn"
+        android:layout_alignTop="@+id/botleftbtn"
+        android:background="#1e46f4"
+        android:onClick="checkCorrect"
+        android:text="@string/Q1StrChoice4"
+        android:textColor="#f9f508"
+        android:textSize="40sp"
+        android:visibility="visible" />
 
     <TextView
+        android:id="@+id/question1Lbl"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="@string/Question1Str"
-        android:id="@+id/question1Lbl"
+        android:layout_alignEnd="@+id/toprightbtn"
         android:layout_alignParentTop="true"
         android:layout_alignStart="@+id/topleftbtn"
         android:layout_marginTop="20dp"
-        android:textSize="40sp"
-        android:textColor="#010101"
-        android:layout_alignEnd="@+id/toprightbtn"
         android:layout_toEndOf="@id/toprightbtn"
-        android:layout_toStartOf="@id/topleftbtn" />
+        android:layout_toStartOf="@id/topleftbtn"
+        android:text="@string/Question1Str"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#010101"
+        android:textSize="40sp" />
 
     <TextView
+        android:id="@+id/livesText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/livesText"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
         android:textColor="#f80000"
         android:textStyle="bold" />
 
