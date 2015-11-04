@@ -43,6 +43,11 @@ public class Q6GameControl extends SurfaceView implements
 		//TODO: Get Lives
 		//TODO: Implement next Question
 		//TODO: Retrieve game manager
+		/*
+
+
+		 */
+
         // create the game loop thread
 		thread = new Q6MainThread(getHolder(), this);
 		
