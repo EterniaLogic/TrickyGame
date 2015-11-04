@@ -1,5 +1,9 @@
 package team5.trickygame.questions;
-
+/*
+ *
+ *   Created by Daniel Medina Sada and Andrew Scibeck
+ *
+ */
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -9,6 +13,7 @@ import android.widget.TextView;
 
 import team5.trickygame.GameManager;
 import team5.trickygame.R;
+
 
 public class Question1 extends Question {
     Button[] buttonChoices = new Button[4];
@@ -31,10 +36,10 @@ public class Question1 extends Question {
     {
         ColorDrawable c = (ColorDrawable) v.getBackground();
         switch (c.getColor()) {
-            case Color.BLUE: // goto the next question
+            case Color.BLUE:
                 GameManager.getInstance().gotoNextQuestion(Question1.this);
                 break;
-            default: // Remove a life and goto the end-game screen if the lives hit 0
+            default:
                 GameManager.getInstance().checkEndGame(Question1.this, livesTxt);
                 break;
         }
