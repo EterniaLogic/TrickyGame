@@ -4,7 +4,6 @@
 package team5.trickygame.Q6Classes;
 
 
-import team5.trickygame.Q6Classes.Q6Ball;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -12,14 +11,10 @@ import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.util.Log;
-import android.view.Display;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
-import android.view.WindowManager;
-import android.widget.RelativeLayout;
 
-import team5.trickygame.Q6Classes.Q6MainThread;
 import team5.trickygame.R;
 
 /**
@@ -44,7 +39,9 @@ public class Q6GameControl extends SurfaceView implements
 		// create droid and load bitmap
 		ballObj = new Q6Ball(BitmapFactory.decodeResource(getResources(), R.mipmap.ball), 50, 50);
 
-
+		//TODO: Draw question
+		//TODO: Get Lives
+		//TODO: Implement next Question
 
         // create the game loop thread
 		thread = new Q6MainThread(getHolder(), this);
