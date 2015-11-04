@@ -10,9 +10,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
 
-import team5.trickygame.questions.Question1;
 import team5.trickygame.util.MusicManager;
 
 public class MainMenu extends Activity {
@@ -26,9 +24,10 @@ public class MainMenu extends Activity {
         if(firstRun) {
             // App has been started for the first time:
             firstRun = false;
+            GameManager.getInitialInstance(this.getBaseContext());
 
 
-            // Get the google account, used later for the LeaderboardServer.
+            // Get the google account, used later for the LeaderboardGlobal.
             Account[] accounts = AccountManager.get(this).getAccountsByType("com.google");
             for (Account account : accounts) {
                 if(account.name.endsWith("@gmail.com")){
@@ -41,6 +40,7 @@ public class MainMenu extends Activity {
             // set a default account if none exists (This goes to an Anonymous account)
             // Anonymous accounts cannot get a score.
             if(GameManager.getInstance().noAccount()){
+
                 GameManager.getInstance().setAccount("Anonymous");
             }
         }
@@ -82,11 +82,7 @@ public class MainMenu extends Activity {
     public void startGame(View V) {
         // Important for time and score keeping!
         // Note: on GameManager line 56, you can add additional questions.
-        Intent intent = new Intent(MainMenu.this, Question1.class);
-
-        GameManager.getInstance().startQuiz();
-        this.startActivity(intent);
-        finish();
+        GameManager.getInstance().startQuiz(this);
     }
 
     public void goToCredits(View V) {

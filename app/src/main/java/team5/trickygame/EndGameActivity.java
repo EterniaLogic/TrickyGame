@@ -81,7 +81,7 @@ public class EndGameActivity extends Activity {
         Intent intent = new Intent(EndGameActivity.this, Question1.class);
 
         // Important for time and score keeping!
-        GameManager.getInstance().startQuiz();
+        GameManager.getInstance().startQuiz(this);
 
         this.startActivity(intent);
         finish();

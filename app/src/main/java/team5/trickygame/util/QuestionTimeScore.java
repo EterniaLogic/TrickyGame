@@ -1,18 +1,16 @@
 package team5.trickygame.util;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
 /**
  * Created by eternia on 10/13/15.
  */
 public class QuestionTimeScore {
+    private static int difficulty = 1; // score coefficient value
     private float score=0;
     private int question=0;
     private long time=0;
-    private static int difficulty = 1; // score coefficient value
+    private String account;
 
     public QuestionTimeScore(int question, long time){
         this.question = question;
@@ -28,6 +26,14 @@ public class QuestionTimeScore {
         this.question = question_final;
         this.time = time_final;
         this.score = score_final;
+    }
+
+    // End of game score, time, GLOBAL
+    public QuestionTimeScore(int question_final, long time_final, float score_final, String account){
+        this.question = question_final;
+        this.time = time_final;
+        this.score = score_final;
+        this.account = account;
     }
 
     // REF: http://stackoverflow.com/questions/9027317/how-to-convert-milliseconds-to-hhmmss-format
@@ -53,5 +59,9 @@ public class QuestionTimeScore {
 
     public float getScore(){
         return score;
+    }
+
+    public String getAccount() {
+        return account;
     }
 }

@@ -4,12 +4,12 @@ package team5.trickygame.questions;
  *   Created by Daniel Medina Sada
  *
  */
+
 import android.content.Context;
 import android.graphics.drawable.AnimationDrawable;
 import android.hardware.Sensor;
 import android.hardware.SensorManager;
 import android.os.Bundle;
-
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -24,13 +24,12 @@ import team5.trickygame.R;
 
 public class Question10 extends Question   {
 
+    boolean doneShaking = false;
+    int shakeCount = 0;
+    ImageView can;
     private SensorManager mSensorManager;
     private Sensor mAccelerometer;
     private ShakeDetector mShakeDetector;
-    int shakeCount = 0;
-
-    ImageView can;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,20 +76,36 @@ public class Question10 extends Question   {
     }
 
     //When there is a shake
-    public void handleShakeEvent(int count) {
-        System.out.print("Shake Count: " + count);
+    public void handleShakeEvent(int count){
+        System.out.print("Shake Count: "+ count);
         Log.e("Shake Count", String.valueOf(shakeCount));
         shakeCount += count;
-        if (shakeCount > 12) {
+        if (shakeCount > 12 && !doneShaking){
+            // timeout for end of animation, then goto the next question:
+            doneShaking = true;
             can.setImageDrawable(null);
+            new Thread(new Runnable(){
+                public void run(){
+                    try {
+                        // wait for n milliseconds
+                        Thread.sleep(3000);
+
+                        // Goto the next question
+                        GameManager.getInstance().setTimeMod(3000);
+                        GameManager.getInstance().gotoNextQuestion(Question10.this);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }).start();
+
             // Load the ImageView that will host the animation and
             // set its background to our AnimationDrawable XML resource.
             can.setBackgroundResource(R.drawable.soda_explode);
             AnimationDrawable frameAnimation = (AnimationDrawable) can.getBackground();
             frameAnimation.start();
-
-            //TODO: Connect to next Activity
-        } else if (shakeCount > 8) {
+        }
+        else if (shakeCount > 8){
             can.setImageResource(R.drawable.sodacan4);
         } else if (shakeCount > 4) {
             can.setImageResource(R.drawable.sodacan3);

@@ -1,16 +1,20 @@
 package team5.trickygame;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.os.Vibrator;
 import android.util.Log;
 import android.widget.TextView;
 
 import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.Executors;
 
-import team5.trickygame.LeaderboardClasses.LeaderboardServer;
+import team5.trickygame.LeaderboardClasses.LeaderboardGlobal;
+import team5.trickygame.LeaderboardClasses.LeaderboardLocal;
 import team5.trickygame.questions.Question;
 import team5.trickygame.questions.Question1;
 import team5.trickygame.questions.Question10;
@@ -33,35 +37,34 @@ public class GameManager extends Thread {
     // static members
     private static final String TAG = GameManager.class.getSimpleName();
 
-    private static GameManager instance = null;
-
+    // Enforce Singletons
+    private static GameManager instance;
+    private static LeaderboardGlobal LBG;
+    private static LeaderboardLocal LBL;
+    private static Context context;
     // non-static members
     public boolean running;
-    private boolean quit;
     public boolean sound;
+    public ConcurrentLinkedQueue<Object> taskManager = new ConcurrentLinkedQueue<Object>();
+    private boolean quit;
     private LinkedList<QuestionTimeScore> questionScores = new LinkedList<QuestionTimeScore>(); // for mid-game statistics
-    private long startTime = 0, lastQTime=0; // used for end-game and mid-game statistics
+    private long startTime = 0, lastQTime=0, timeminus=0; // used for end-game and mid-game statistics
     private float score = 0;
     private int questionNum = 0, lives=0; // question Number used for end-game
     private boolean gameStarted=false;
-    public ConcurrentLinkedQueue<Object> taskManager = new ConcurrentLinkedQueue<Object>();
-
     // Questions list: (Actual Android activities)
     private LinkedList<Class<? extends Question>> questions = new LinkedList<Class<? extends Question>>();
-
-    // internal usage for the LeaderboardServer
+    // internal usage for the LeaderboardGlobal
     private String account="";
-    private LeaderboardServer LBS;
 
-    GameManager(){
+
+    private GameManager(){
         // initialize other variables
         quit=false;
         running = false;
-        this.start();
 
-        LBS = new LeaderboardServer(this);
 
-        // TODO: Add every question here
+        // TODO: Add every question here. Order Matters.
         questions.add(Question1.class);
         questions.add(Question2.class);
         questions.add(Question3.class);
@@ -72,20 +75,37 @@ public class GameManager extends Thread {
         questions.add(Question11.class);
     }
 
-    public static GameManager getInstance() {
-        if(instance == null)
+    public static GameManager getInitialInstance(Context context_){
+        if(instance == null) {
+            context = context_;
             instance = new GameManager();
 
+            instance.start();
+            LBL = LeaderboardLocal.getInstance();
+            LBG = LeaderboardGlobal.getInstance();
+        }
+        return getInstance();
+    }
+
+    // getInstance makes a new GameManager
+    //  Enforces a singleton
+    public static GameManager getInstance() throws NullPointerException{
+        if(instance == null) throw new NullPointerException("GameManager: Tried to get unknown instance");
         return instance;
+    }
+
+    public static Context getContext() throws NullPointerException{
+        if(context == null) throw new NullPointerException("GameManager: Tried to get unknown Context");
+        return context;
     }
 
 
     public void setAccount(String name){
         this.account = name;
-        //LBS.setAccount(this.account);
-        LeaderboardServer.AsyncA async = new LeaderboardServer.AsyncA();
+        //LBG.setAccount(this.account);
+        LeaderboardGlobal.AsyncA async = new LeaderboardGlobal.AsyncA();
         async.passed = this.account;
-        async.LBS = this.LBS;
+        async.LBS = LBG;
         this.taskManager.add(async);
     }
 
@@ -134,6 +154,14 @@ public class GameManager extends Thread {
         }
     }
 
+    /**		+    // goes to the next question in the gameList
+     -     *
+     -     * @param value
+     -     */
+    public void setTimeMod(long value){
+        timeminus=value;
+    }
+
     public int getLives(){
         return lives;
     }
@@ -156,12 +184,15 @@ public class GameManager extends Thread {
             thisQ.startActivity(intent);
             thisQ.finish();
         }
+
+        Vibrator v = (Vibrator)context.getSystemService(Context.VIBRATOR_SERVICE);
+        v.vibrate(200);
     }
 
     // Start the quiz, this updates all relevant fields these include:
     //  # of questions
     //  amount of time spent for each question
-    public void startQuiz(){
+    public void startQuiz(Activity thisActivity){
         this.startTime = System.currentTimeMillis();
         this.lastQTime=System.currentTimeMillis(); // since we started the first question
         this.questionNum = 0; // number of correct questions
@@ -169,6 +200,12 @@ public class GameManager extends Thread {
         this.questionScores.clear(); // clear out times
         this.lives=5; // divided by difficulty
         this.gameStarted = true; // used when getting data out of endGame
+        LBL.startQuiz();
+        LBG.startQuiz();
+
+        Intent intent = new Intent(thisActivity, questions.getFirst());
+        thisActivity.startActivity(intent);
+        thisActivity.finish();
     }
 
     // Increments the Question #, also uses a LinkedList for
@@ -176,17 +213,16 @@ public class GameManager extends Thread {
     public void incQuestionNumber(){
         this.questionNum++; // a question was correct!
         long sysms = System.currentTimeMillis();
-        QuestionTimeScore qts = new QuestionTimeScore(questionNum, (sysms-this.lastQTime));
+        QuestionTimeScore qts = new QuestionTimeScore(questionNum, (sysms-this.lastQTime)-timeminus);
         score += qts.getScore(); // total score tally
         questionScores.add(qts); // add QTS
+        timeminus=0;
 
         this.lastQTime=System.currentTimeMillis();
 
-        // post this question
-        LeaderboardServer.AsyncQ qpass = new LeaderboardServer.AsyncQ();
-        qpass.LBS = this.LBS;
-        qpass.passed = qts;
-        taskManager.add(qpass);
+        // post this question to Local and Global
+        LBL.postQuestion(qts);
+        LBG.postQuestion(qts);
     }
 
 
@@ -195,12 +231,36 @@ public class GameManager extends Thread {
         return score;
     }
 
+    public void clearLocalLeaderboard(){
+        LBL.clearQuizTimes();
+    }
+
+    public List<List<QuestionTimeScore>> getLeaderboard(boolean isGlobal, int scores){
+        if(isGlobal){
+            return LBG.getLeaderboard(scores);
+        }else{
+            return LBL.getLeaderboard(scores);
+        }
+    }
+
     // returns a list of all of the scores, appended is the total score
     public LinkedList<QuestionTimeScore> endQuizStats(){
         // has endQuizStats been called before?
         if(this.gameStarted) {
             this.gameStarted = false; // prevent it from being called again
-            questionScores.add(new QuestionTimeScore(questionNum, (System.currentTimeMillis() - this.startTime), score));
+            long time=0, score=0;
+
+            Iterator<QuestionTimeScore> sQuestion = questionScores.iterator();
+            while(sQuestion.hasNext()) {
+                QuestionTimeScore qts = sQuestion.next();
+                time+=qts.getTime();
+                score+=qts.getScore();
+            }
+
+            QuestionTimeScore qtsEnd = new QuestionTimeScore(questionNum, time, score);
+            questionScores.add(qtsEnd);
+            LBL.endQuiz(qtsEnd);
+            LBG.endQuiz(qtsEnd);
         }
         return questionScores;
     }
@@ -218,11 +278,11 @@ public class GameManager extends Thread {
             while(!taskManager.isEmpty()){
                 // get an object
                 Object t = taskManager.poll();
-                if(t instanceof LeaderboardServer.AsyncKey){
-                    final LeaderboardServer.AsyncKey request = (LeaderboardServer.AsyncKey)t;
+                if(t instanceof LeaderboardGlobal.AsyncKey){
+                    final LeaderboardGlobal.AsyncKey request = (LeaderboardGlobal.AsyncKey)t;
                     // Asyncronously timed key retrieval
                     if(request.timeout <= 0){
-                        request.timeout = 3000; // 30 seconds
+                        request.timeout = 300; // 30 seconds
                         Executors.newSingleThreadExecutor().execute(new Runnable() {
                             @Override
                             public void run() {

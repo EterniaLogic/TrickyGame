@@ -1,395 +1,59 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:layout_height="match_parent" android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="team5.trickygame.LeaderboardActiviy"
-    android:background="@mipmap/background">
+    tools:context="team5.trickygame.LeaderboardActiviy">
 
-    <TextView android:text="@string/LeaderboardTitle" android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/LeaderboardTitle"
-        android:textSize="40sp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:textColor="@android:color/white" />
+        <TabHost
+            android:id="@+id/tabHost"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="HS1 Player"
-        android:id="@+id/HS1P"
-        android:layout_below="@+id/LeaderboardTitle"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
-        android:minWidth="130dp"
-        android:maxWidth="130dp"
-        android:textSize="16sp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="HS2 Player"
-        android:id="@+id/HS2P"
-        android:layout_below="@+id/HS1P"
-        android:layout_centerHorizontal="true"
-        android:minWidth="130dp"
-        android:maxWidth="130dp"
-        android:textSize="16sp"
-        android:layout_marginTop="5dp" />
+                <TabWidget
+                    android:id="@android:id/tabs"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"></TabWidget>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="HS3 Player"
-        android:id="@+id/HS3P"
-        android:layout_below="@+id/HS2P"
-        android:layout_centerHorizontal="true"
-        android:minWidth="130dp"
-        android:maxWidth="130dp"
-        android:textSize="16sp"
-        android:layout_marginTop="5dp" />
+                <FrameLayout
+                    android:id="@android:id/tabcontent"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="HS4 Player"
-        android:id="@+id/HS4P"
-        android:layout_below="@+id/HS3P"
-        android:layout_centerHorizontal="true"
-        android:minWidth="130dp"
-        android:maxWidth="130dp"
-        android:textSize="16sp"
-        android:layout_marginTop="5dp" />
+                    <LinearLayout
+                        android:id="@+id/Global"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="HS5 Player"
-        android:id="@+id/HS5P"
-        android:layout_below="@+id/HS4P"
-        android:layout_centerHorizontal="true"
-        android:minWidth="130dp"
-        android:maxWidth="130dp"
-        android:textSize="16sp"
-        android:layout_marginTop="5dp" />
+                        <ListView
+                            android:id="@+id/listView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="HS6 Player"
-        android:id="@+id/HS6P"
-        android:layout_below="@+id/HS5P"
-        android:layout_centerHorizontal="true"
-        android:minWidth="130dp"
-        android:maxWidth="130dp"
-        android:textSize="16sp"
-        android:layout_marginTop="5dp" />
+                    <LinearLayout
+                        android:id="@+id/Local"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="HS7 Player"
-        android:id="@+id/HS7P"
-        android:layout_below="@+id/HS6P"
-        android:layout_centerHorizontal="true"
-        android:minWidth="130dp"
-        android:maxWidth="130dp"
-        android:textSize="16sp"
-        android:layout_marginTop="5dp" />
+                        <ListView
+                            android:id="@+id/listView2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="HS8 Player"
-        android:id="@+id/HS8P"
-        android:layout_below="@+id/HS7P"
-        android:layout_centerHorizontal="true"
-        android:minWidth="130dp"
-        android:maxWidth="130dp"
-        android:textSize="16sp"
-        android:layout_marginTop="5dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="HS9 Player"
-        android:id="@+id/HS9P"
-        android:layout_below="@+id/HS8P"
-        android:layout_centerHorizontal="true"
-        android:minWidth="130dp"
-        android:maxWidth="130dp"
-        android:textSize="16sp"
-        android:layout_marginTop="5dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="HS10 Player"
-        android:id="@+id/HS10P"
-        android:layout_below="@+id/HS9P"
-        android:layout_centerHorizontal="true"
-        android:minWidth="130dp"
-        android:maxWidth="130dp"
-        android:textSize="16sp"
-        android:layout_marginTop="5dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="1."
-        android:id="@+id/n1"
-        android:textSize="16sp"
-        android:layout_alignTop="@+id/HS1P"
-        android:layout_alignLeft="@+id/n2"
-        android:layout_alignStart="@+id/n2" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="2."
-        android:id="@+id/n2"
-        android:layout_below="@+id/HS1P"
-        android:layout_toLeftOf="@+id/HS1P"
-        android:layout_toStartOf="@+id/HS1P"
-        android:layout_marginRight="15dp"
-        android:textSize="16sp"
-        android:layout_marginTop="5dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="3."
-        android:id="@+id/n3"
-        android:layout_below="@+id/HS2P"
-        android:layout_toLeftOf="@+id/HS3P"
-        android:layout_toStartOf="@+id/HS3P"
-        android:layout_marginRight="15dp"
-        android:textSize="16sp"
-        android:layout_marginTop="5dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="6."
-        android:id="@+id/n6"
-        android:layout_above="@+id/HS7P"
-        android:layout_toLeftOf="@+id/HS4P"
-        android:layout_toStartOf="@+id/HS6P"
-        android:layout_marginRight="15dp"
-        android:textSize="16sp"
-        android:layout_marginTop="5dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="4."
-        android:id="@+id/n4"
-        android:layout_below="@+id/HS3P"
-        android:layout_toLeftOf="@+id/HS3P"
-        android:layout_toStartOf="@+id/HS4P"
-        android:layout_marginRight="15dp"
-        android:textSize="16sp"
-        android:layout_marginTop="5dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="5."
-        android:id="@+id/n5"
-        android:layout_below="@+id/HS4P"
-        android:layout_toLeftOf="@+id/HS4P"
-        android:layout_toStartOf="@+id/HS5P"
-        android:layout_marginRight="15dp"
-        android:textSize="16sp"
-        android:layout_marginTop="5dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="7."
-        android:id="@+id/n7"
-        android:layout_below="@+id/HS6P"
-        android:layout_toLeftOf="@+id/HS6P"
-        android:layout_toStartOf="@+id/HS6P"
-        android:layout_marginRight="15dp"
-        android:textSize="16sp"
-        android:layout_marginTop="5dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="8."
-        android:id="@+id/n8"
-        android:layout_below="@+id/HS7P"
-        android:layout_toLeftOf="@+id/HS7P"
-        android:layout_toStartOf="@+id/HS7P"
-        android:layout_marginRight="15dp"
-        android:textSize="16sp"
-        android:layout_marginTop="5dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="9."
-        android:id="@+id/n9"
-        android:layout_below="@+id/HS8P"
-        android:layout_toLeftOf="@+id/HS8P"
-        android:layout_toStartOf="@+id/HS8P"
-        android:layout_marginRight="15dp"
-        android:textSize="16sp"
-        android:layout_marginTop="5dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="10."
-        android:id="@+id/n10"
-        android:layout_below="@+id/HS9P"
-        android:layout_toLeftOf="@+id/HS9P"
-        android:layout_toStartOf="@+id/HS9P"
-        android:layout_marginRight="15dp"
-        android:textSize="16sp"
-        android:layout_marginTop="5dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="HS1S"
-        android:id="@+id/HS1S"
-        android:layout_alignTop="@+id/HS1P"
-        android:layout_toRightOf="@+id/HS1P"
-        android:layout_toEndOf="@+id/HS1P"
-        android:textSize="16sp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="HS2S"
-        android:id="@+id/HS2S"
-        android:layout_below="@+id/HS1S"
-        android:layout_alignLeft="@+id/HS1S"
-        android:layout_alignStart="@+id/HS1S"
-        android:textSize="16sp"
-        android:layout_marginTop="5dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="HS3S"
-        android:id="@+id/HS3S"
-        android:layout_below="@+id/HS2S"
-        android:layout_alignLeft="@+id/HS1S"
-        android:layout_alignStart="@+id/HS1S"
-        android:textSize="16sp"
-        android:layout_marginTop="5dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="HS4S"
-        android:id="@+id/HS4S"
-        android:layout_below="@+id/HS3P"
-        android:layout_alignLeft="@+id/HS1S"
-        android:layout_alignStart="@+id/HS1S"
-        android:textSize="16sp"
-        android:layout_marginTop="5dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="HS5S"
-        android:id="@+id/HS5S"
-        android:layout_below="@+id/HS4P"
-        android:layout_alignLeft="@+id/HS1S"
-        android:layout_alignStart="@+id/HS1S"
-        android:textSize="16sp"
-        android:layout_marginTop="5dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="HS6S"
-        android:id="@+id/HS6S"
-        android:layout_below="@+id/HS5P"
-        android:layout_alignLeft="@+id/HS1S"
-        android:layout_alignStart="@+id/HS1S"
-        android:textSize="16sp"
-        android:layout_marginTop="5dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="HS7S"
-        android:id="@+id/HS7S"
-        android:layout_below="@+id/HS6P"
-        android:layout_alignLeft="@+id/HS1S"
-        android:layout_alignStart="@+id/HS1S"
-        android:textSize="16sp"
-        android:layout_marginTop="5dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="HS8S"
-        android:id="@+id/HS8S"
-        android:layout_below="@+id/HS7P"
-        android:layout_alignLeft="@+id/HS1S"
-        android:layout_alignStart="@+id/HS1S"
-        android:textSize="16sp"
-        android:layout_marginTop="5dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="HS9S"
-        android:id="@+id/HS9S"
-        android:layout_below="@+id/HS8P"
-        android:layout_alignLeft="@+id/HS1S"
-        android:layout_alignStart="@+id/HS1S"
-        android:textSize="16sp"
-        android:layout_marginTop="5dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="HS10S"
-        android:id="@+id/HS10S"
-        android:layout_below="@+id/HS9P"
-        android:layout_alignLeft="@+id/HS1S"
-        android:layout_alignStart="@+id/HS1S"
-        android:textSize="16sp"
-        android:layout_marginTop="5dp" />
-
+                </FrameLayout>
+            </LinearLayout>
+        </TabHost>
 </RelativeLayout>

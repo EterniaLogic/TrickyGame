@@ -35,7 +35,8 @@ import team5.trickygame.util.QuestionTimeScore;
 
 // All network stuff will shove an error if it is force on the "Main Thread".
 
-public class LeaderboardServer {
+public class LeaderboardGlobal {
+    private static LeaderboardGlobal instance;
     HttpClient httpclient;
     HttpPost httppost;
     private String serverAddr = "https://eternialogic.com:888/TrickyGame/";
@@ -44,10 +45,14 @@ public class LeaderboardServer {
 
 
     // REF: http://stackoverflow.com/questions/3324717/sending-http-post-request-in-java
-    public LeaderboardServer(GameManager gam){
-
+    private LeaderboardGlobal(){
         // begin scheduling leaderboard data
-        gam.taskManager.add(new AsyncKey());
+        GameManager.getInstance().taskManager.add(new AsyncKey());
+    }
+
+    public static LeaderboardGlobal getInstance(){
+        if(instance == null) instance = new LeaderboardGlobal();
+        return instance;
     }
 
     // Sets the initial account to use
@@ -58,26 +63,45 @@ public class LeaderboardServer {
         doRequest("sa", pairs);
     }
 
+    public void postQuestion(QuestionTimeScore qts){
+        // post this question to Global
+        LeaderboardGlobal.AsyncQ qpass = new LeaderboardGlobal.AsyncQ();
+        qpass.LBS = this;
+        qpass.passed = qts;
+        GameManager.getInstance().taskManager.add(qpass);
+    }
+
+    public void startQuiz(){
+        // start the quiz
+    }
+
+    public void endQuiz(QuestionTimeScore fullTime){
+        // end the quiz and reports the full time taken
+    }
+
+    public List<List<QuestionTimeScore>> getLeaderboard(int scores) {
+        LinkedList<List<QuestionTimeScore>> list = new LinkedList<>();
+
+        return list;
+    }
+
+////////////////////////////////////// Different Thread ////////////////////////////////////////////
+
+    // post a question that has been dealt by the user, combine
+    public void doPostQuestion(QuestionTimeScore qts){
+        LinkedList<BasicNameValuePair> pairs = new LinkedList<>();
+        pairs.add(new BasicNameValuePair("q", Integer.toString(qts.getQuestion())));
+        pairs.add(new BasicNameValuePair("t", Long.toString(qts.getTime())));
+        pairs.add(new BasicNameValuePair("s", Float.toString(qts.getScore())));
+        doRequest("nq", pairs);
+    }
+
     private void keyChallenge(String input){
         int challenge = Integer.parseInt(input);
         LinkedList<BasicNameValuePair> pairs = new LinkedList<>();
         pairs.add(new BasicNameValuePair("k", Integer.toString(challenge)));
         pairs.add(new BasicNameValuePair("s", lKey.get(challenge)));
         doRequest("kc", pairs);
-    }
-
-    // Your IP has changed, so the online web server needs to know.
-    public void ipChanged(String ip){
-        doRequest("ip", new LinkedList<BasicNameValuePair>());
-    }
-
-    // post a question that has been dealt by the user, combine
-    public void postQuestion(QuestionTimeScore qts){
-        LinkedList<BasicNameValuePair> pairs = new LinkedList<>();
-        pairs.add(new BasicNameValuePair("q", Integer.toString(qts.getQuestion())));
-        pairs.add(new BasicNameValuePair("t", Long.toString(qts.getTime())));
-        pairs.add(new BasicNameValuePair("s", Float.toString(qts.getScore())));
-        doRequest("nq", pairs);
     }
 
     // keyed request
@@ -150,28 +174,32 @@ public class LeaderboardServer {
     }
 
     public static class AsyncQ implements Command {
+        public Object passed=null;
+        public LeaderboardGlobal LBS=null;
         public AsyncQ(){
 
         }
-        public Object passed=null;
-        public LeaderboardServer LBS=null;
+
         public void execute(){
-            LBS.postQuestion((QuestionTimeScore)passed);
+            LBS.doPostQuestion((QuestionTimeScore) passed);
         }
     }
 
     public static class AsyncA implements Command {
+        public String passed="";
+        public LeaderboardGlobal LBS=null;
         public AsyncA(){
 
         }
-        public String passed="";
-        public LeaderboardServer LBS=null;
+
         public void execute(){
             LBS.setAccount(passed);
         }
     }
 
     public class AsyncKey implements Command {
+        public int timeout=3000;
+
         public void execute()
         {
             try{
@@ -215,7 +243,6 @@ public class LeaderboardServer {
             timeout = 3000; // 1k * 100ms = 10kms ~= 30 seconds
             GameManager.getInstance().taskManager.add(new AsyncKey());
         }
-        public int timeout=3000;
     }
 
 }
