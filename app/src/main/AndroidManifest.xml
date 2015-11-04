@@ -49,11 +49,14 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="team5.trickygame.MainMenu" />
+<<<<<<< Updated upstream
         </activity>
         <activity
             android:name=".questions.Question2"
             android:label="@string/title_activity_question2fave_color"
             android:screenOrientation="landscape" >
+=======
+>>>>>>> Stashed changes
         </activity>
         <activity
             android:name=".questions.Question10"
@@ -61,6 +64,7 @@
             android:screenOrientation="landscape" >
         </activity>
         <activity
+<<<<<<< Updated upstream
             android:name=".questions.Question6"
             android:label="@string/title_activity_question6"
             android:screenOrientation="landscape" >
@@ -73,21 +77,43 @@
         <activity
             android:name=".questions.Question4"
             android:label="@string/title_activity_question4"
+=======
+            android:name=".questions.Question2"
+            android:label="@string/title_activity_question2fave_color"
+            android:screenOrientation="landscape" >
+        </activity>
+        <activity
+            android:name=".questions.Question10"
+            android:label="@string/title_activity_question10"
+            android:screenOrientation="landscape" >
+        </activity>
+        <activity
+            android:name=".Question6"
+            android:label="@string/title_activity_question6"
+>>>>>>> Stashed changes
             android:screenOrientation="landscape" >
         </activity>
         <activity
             android:name=".CreditsActivity"
             android:label="@string/title_activity_credits"
+<<<<<<< Updated upstream
             android:parentActivityName=".MainMenu"
             android:screenOrientation="landscape" >
+=======
+            android:screenOrientation="landscape"
+            android:parentActivityName=".MainMenu" >
+>>>>>>> Stashed changes
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="team5.trickygame.MainMenu" />
         </activity>
+<<<<<<< Updated upstream
         <activity
             android:name=".questions.Question3"
             android:label="@string/title_activity_question3" >
         </activity>
+=======
+>>>>>>> Stashed changes
     </application>
 
 </manifest>

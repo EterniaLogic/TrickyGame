@@ -1,4 +1,8 @@
 package team5.trickygame.questions;
+<<<<<<< Updated upstream:app/src/main/java/team5/trickygame/questions/Question.java
+=======
+
+>>>>>>> Stashed changes:app/src/main/java/team5/trickygame/questions/Question.java
 
 import android.app.Activity;
 import android.content.res.Configuration;
@@ -6,7 +10,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import team5.trickygame.R;
+<<<<<<< Updated upstream:app/src/main/java/team5/trickygame/questions/Question.java
 import team5.trickygame.util.MusicManager;
+=======
+>>>>>>> Stashed changes:app/src/main/java/team5/trickygame/questions/Question.java
 
 /**
  * Created by Andrew on 10/1/2015.

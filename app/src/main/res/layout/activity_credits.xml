@@ -7,7 +7,11 @@
     tools:context="team5.trickygame.CreditsActivity"
     android:background="@mipmap/background">
 
+<<<<<<< Updated upstream
     <TextView android:text="@string/CreditsTitle" android:layout_width="wrap_content"
+=======
+    <TextView android:text="Credits" android:layout_width="wrap_content"
+>>>>>>> Stashed changes
         android:layout_height="wrap_content"
         android:id="@+id/creditTitle"
         android:textColor="@android:color/black"
