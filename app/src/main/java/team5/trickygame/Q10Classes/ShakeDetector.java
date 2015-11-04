@@ -1,5 +1,6 @@
 package team5.trickygame.Q10Classes;
 
+import android.hardware.SensorEventListener;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;

@@ -1,8 +1,4 @@
 package team5.trickygame.questions;
-<<<<<<< HEAD:app/src/main/java/team5/trickygame/questions/Question.java
-=======
-
->>>>>>> master:app/src/main/java/team5/trickygame/questions/Question.java
 
 import android.app.Activity;
 import android.content.res.Configuration;
@@ -16,6 +12,7 @@ import team5.trickygame.util.MusicManager;
  * Created by Andrew on 10/1/2015.
  */
 public abstract class Question extends Activity {
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -45,10 +42,7 @@ public abstract class Question extends Activity {
             super.onConfigurationChanged(newConfig);
         }
     }
-<<<<<<< HEAD:app/src/main/java/team5/trickygame/questions/Question.java
 
-=======
->>>>>>> master:app/src/main/java/team5/trickygame/questions/Question.java
     @Override
     protected void onPause() {
         super.onPause();

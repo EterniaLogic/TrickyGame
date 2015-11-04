@@ -1,88 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:background="#ffffff"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-<<<<<<< HEAD
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="team5.trickygame.questions.Question2"
     android:background="#ffffff">
-=======
-    tools:context="team5.trickygame.questions.Question2">
->>>>>>> master
     <Button
-        android:id="@+id/RestartBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="@string/OptA2Str"
+        android:id="@+id/RestartBtn"
+        android:minHeight="70dp"
+        android:minWidth="250dp"
+        android:textSize="40sp"
+        android:textColor="#1d1d1d"
+        android:maxHeight="70dp"
+        android:layout_centerInParent="true"
         android:layout_alignParentEnd="false"
         android:layout_alignParentStart="true"
-        android:layout_centerInParent="true"
-        android:layout_marginLeft="20dp"
-        android:maxHeight="70dp"
-        android:minHeight="70dp"
-        android:minWidth="250dp"
-        android:text="@string/OptA2Str"
-        android:textColor="#1d1d1d"
-        android:textSize="40sp" />
+        android:layout_marginLeft="20dp" />
 
     <Button
-        android:id="@+id/botleftbtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/RestartBtn"
-        android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/RestartBtn"
-        android:layout_marginBottom="25dp"
-        android:minHeight="70dp"
         android:text="@string/OptC2Str"
+        android:id="@+id/botleftbtn"
+        android:layout_alignParentBottom="true"
+        android:layout_alignEnd="@+id/RestartBtn"
+        android:layout_marginBottom="25dp"
+        android:layout_alignStart="@+id/RestartBtn"
+        android:minHeight="70dp"
         android:textSize="40sp" />
 
     <Button
-        android:id="@+id/toprightbtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/RestartBtn"
-        android:layout_marginLeft="20dp"
-        android:layout_toEndOf="@+id/RestartBtn"
-        android:maxHeight="70dp"
-        android:minHeight="70dp"
-        android:minWidth="250dp"
         android:text="@string/OptB2Str"
-        android:textSize="40sp"/>
+        android:id="@+id/toprightbtn"
+        android:minWidth="250dp"
+        android:minHeight="70dp"
+        android:textSize="40sp"
+        android:maxHeight="70dp"
+        android:layout_alignTop="@+id/RestartBtn"
+        android:layout_toEndOf="@+id/RestartBtn"
+        android:layout_marginLeft="20dp"/>
 
     <Button
-        android:id="@+id/optD"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="@string/OptD2Str"
+        android:id="@+id/optD"
+        android:layout_alignTop="@+id/botleftbtn"
+        android:layout_alignStart="@+id/toprightbtn"
         android:layout_alignBottom="@+id/botleftbtn"
         android:layout_alignEnd="@+id/toprightbtn"
-        android:layout_alignStart="@+id/toprightbtn"
-        android:layout_alignTop="@+id/botleftbtn"
-        android:text="@string/OptD2Str"
         android:textSize="40sp" />
 
     <TextView
-        android:id="@+id/question1Lbl"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/Question2Str"
+        android:id="@+id/question1Lbl"
         android:layout_alignParentTop="true"
         android:layout_alignStart="@+id/RestartBtn"
         android:layout_marginTop="20dp"
-        android:text="@string/Question2Str"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="#010101"
-        android:textSize="40sp" />
+        android:textSize="40sp"
+        android:textColor="#010101" />
 
     <TextView
-        android:id="@+id/livesText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
+        android:id="@+id/livesText"
         android:layout_alignParentTop="true"
-        android:singleLine="false"
-        android:textColor="#ff0000" />
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:textColor="#ff0000"
+        android:singleLine="false" />
 </RelativeLayout>

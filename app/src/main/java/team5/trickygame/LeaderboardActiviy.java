@@ -10,8 +10,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import team5.trickygame.LeaderboardClasses.*;
 
-import team5.trickygame.util.MusicManager;
-
 public class LeaderboardActiviy extends Activity {
 
     @Override
@@ -52,15 +50,5 @@ public class LeaderboardActiviy extends Activity {
     public void back() {
         // TODO - implement LeaderboardScreen.back
         throw new UnsupportedOperationException();
-    }
-    @Override
-    protected void onPause() {
-        super.onPause();
-        MusicManager.pause();
-    }
-    @Override
-    protected void onResume() {
-        super.onResume();
-        MusicManager.start(this);
     }
 }

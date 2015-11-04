@@ -66,6 +66,8 @@ public class EndGameActivity extends Activity {
 
 
     public void goToMainMenu(View V) {
+        // TODO - implement MainMenu.startGame
+
         Intent intent = new Intent(EndGameActivity.this, MainMenu.class);
 
         this.startActivity(intent);
@@ -74,8 +76,15 @@ public class EndGameActivity extends Activity {
     }
 
     public void restartGame(View V) {
+        // TODO - implement MainMenu.startGame
+
+        Intent intent = new Intent(EndGameActivity.this, Question1.class);
+
         // Important for time and score keeping!
-        GameManager.getInstance().startQuiz(this);
+        GameManager.getInstance().startQuiz();
+
+        this.startActivity(intent);
+        finish();
     }
 
     @Override

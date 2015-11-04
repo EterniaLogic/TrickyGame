@@ -38,7 +38,7 @@ import team5.trickygame.util.QuestionTimeScore;
 public class LeaderboardServer {
     HttpClient httpclient;
     HttpPost httppost;
-    private String serverAddr = "https://eternialogic.com/TrickyGame/";
+    private String serverAddr = "https://eternialogic.com:888/TrickyGame/";
     private String iToken = "", cKey = "";
     private List<String> lKey = new LinkedList<String>();
 
@@ -150,32 +150,28 @@ public class LeaderboardServer {
     }
 
     public static class AsyncQ implements Command {
-        public Object passed=null;
-        public LeaderboardServer LBS=null;
         public AsyncQ(){
 
         }
-
+        public Object passed=null;
+        public LeaderboardServer LBS=null;
         public void execute(){
             LBS.postQuestion((QuestionTimeScore)passed);
         }
     }
 
     public static class AsyncA implements Command {
-        public String passed="";
-        public LeaderboardServer LBS=null;
         public AsyncA(){
 
         }
-
+        public String passed="";
+        public LeaderboardServer LBS=null;
         public void execute(){
             LBS.setAccount(passed);
         }
     }
 
     public class AsyncKey implements Command {
-        public int timeout=3000;
-
         public void execute()
         {
             try{
@@ -219,6 +215,7 @@ public class LeaderboardServer {
             timeout = 3000; // 1k * 100ms = 10kms ~= 30 seconds
             GameManager.getInstance().taskManager.add(new AsyncKey());
         }
+        public int timeout=3000;
     }
 
 }
