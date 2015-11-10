@@ -1,11 +1,8 @@
 package team5.trickygame;
 
 import android.app.Activity;
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-import android.content.ServiceConnection;
-import android.os.IBinder;
 import android.os.Vibrator;
 import android.util.Log;
 import android.widget.TextView;
@@ -30,6 +27,7 @@ import team5.trickygame.util.Command;
 import team5.trickygame.util.Foreground;
 import team5.trickygame.util.QuestionTimeScore;
 import team5.trickygame.util.SoundService;
+
 
 
 /**
@@ -89,10 +87,6 @@ public class GameManager extends Thread {
         }
         return getInstance();
     }
-
-
-
-
     // getInstance makes a new GameManager
     //  Enforces a singleton
     public static GameManager getInstance() throws NullPointerException{

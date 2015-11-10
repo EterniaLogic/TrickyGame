@@ -6,11 +6,16 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
+<<<<<<< HEAD
     <uses-permission android:name="android.permission.VIBRATE" />
+=======
+    <uses-permission android:name="android.permission.VIBRATE"/>
+>>>>>>> 0286c442bc563b819563dc62db4ce00fc20d174f
 
     <uses-feature
         android:name="android.hardware.sensor.accelerometer"
         android:required="true" />
+
 
     <application
         android:allowBackup="true"
@@ -46,7 +51,7 @@
             android:name=".LeaderboardActiviy"
             android:configChanges="orientation|keyboardHidden"
             android:label="@string/title_activity_leaderboard_activiy"
-            android:screenOrientation="landscape" >
+            android:screenOrientation="landscape">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="team5.trickygame.MainMenu" />

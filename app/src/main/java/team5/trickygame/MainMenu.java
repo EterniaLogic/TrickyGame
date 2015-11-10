@@ -54,10 +54,13 @@ public class MainMenu extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu2);
+
         if(firstRun) {
             // App has been started for the first time:
             firstRun = false;
             GameManager.getInitialInstance(this.getBaseContext());
+
+
             // Get the google account, used later for the LeaderboardGlobal.
             Account[] accounts = AccountManager.get(this).getAccountsByType("com.google");
             for (Account account : accounts) {

@@ -13,6 +13,12 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.Random;
+
 import team5.trickygame.GameManager;
 import team5.trickygame.R;
 
@@ -83,12 +89,22 @@ public class Question1 extends Question {
 
         Collections.shuffle(colors);
 
+
         for(int i = 0; i < 4; i++)
         {
             buttonChoices[i].setBackgroundColor(colors.get(i));
             buttonChoices[i].setTextColor(colors.get(i+1));
         }
 
+        boolean isBlue = false;
+
+
+
+        for (int i = 0; i < 4; i++){
+            ColorDrawable d = (ColorDrawable) buttonChoices[i].getBackground();
+            if (d.getColor() == Color.BLUE)
+                isBlue = true;
+        }
         boolean isBlue = false;
 
 
