@@ -24,10 +24,15 @@ local.properties
 .gradle
 /*/local.properties
 /*/out
-/*/*/build
+*/build
+build/
+gradle/
 /*/*/production
 *.iml
 *.iws
 *.ipr
+*.gradle
+gradlew
+*.bat
 *~
 *.swp
