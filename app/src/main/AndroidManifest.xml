@@ -8,9 +8,11 @@
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.VIBRATE" />
 
+
     <uses-feature
         android:name="android.hardware.sensor.accelerometer"
         android:required="true" />
+
 
     <application
         android:allowBackup="true"
@@ -46,7 +48,7 @@
             android:name=".LeaderboardActiviy"
             android:configChanges="orientation|keyboardHidden"
             android:label="@string/title_activity_leaderboard_activiy"
-            android:screenOrientation="landscape" >
+            android:screenOrientation="landscape">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="team5.trickygame.MainMenu" />

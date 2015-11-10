@@ -70,6 +70,8 @@ public class Question1 extends Question {
         colors.addAll(Arrays.<Integer>asList(c));
         Collections.shuffle(colors);
 
+
+
         for(int i = 0; i < 4; i++)
         {
             buttonChoices[i].setBackgroundColor(colors.get(i));

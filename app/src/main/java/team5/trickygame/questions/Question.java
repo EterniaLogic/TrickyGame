@@ -2,17 +2,21 @@ package team5.trickygame.questions;
 
 import android.app.Activity;
 
+import android.content.Context;
+
 import android.content.res.Configuration;
 
 import android.view.Menu;
 import android.view.MenuItem;
 
 import team5.trickygame.R;
+import team5.trickygame.util.SoundService;
 
 /**
  * Created by Andrew on 10/1/2015.
  */
 public abstract class Question extends Activity {
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.

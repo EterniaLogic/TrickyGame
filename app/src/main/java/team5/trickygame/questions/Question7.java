@@ -44,6 +44,8 @@ public class Question7 extends Question {
         // Helps keep the GameManager Question ticker in sync
         GameManager.getInstance().incQuestionNumber();
 
+        GameManager.getInstance().incQuestionNumber();
+
         livesTxt = (TextView) findViewById(R.id.livesText);
         livesTxt.setText(GameManager.getInstance().getLivesStr());
     }
