@@ -32,6 +32,7 @@ gradle/
 *.iws
 *.ipr
 *.gradle
+gradle.properties
 gradlew
 *.bat
 *~
