@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">TrickyGame</string>
+    <string name="app_name">TrickyQuiz</string>
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
@@ -33,6 +33,9 @@
     <string name="title_activity_question6">Question6</string>
     <string name="stopped">Stopped</string>
     <string name="title_activity_question10">Question10</string>
+    <string name="title_activity_question3">Question3</string>
+    <string name="title_activity_question7">Question7</string>
+    <string name="title_activity_question4">Question10</string>
     <string name="SodaCanQuestion">Explode the Soda Can!</string>
     <string name="sodadesc">soda</string>
     <string name="title_activity_credits">CreditsActivity</string>
@@ -42,5 +45,10 @@
     <string name="DanielMcredit">Daniel Medina Sada</string>
     <string name="FeyiOcredit">Feyi Oyewole</string>
     <string name="JamesEcredit">James Ewings</string>
-    <string name="title_activity_question7">Question7</string>
+    <string name="CreditsTitle">Credits</string>
+    <string name="LeaderboardTitle">Leaderboard</string>
+    <string name="Q8Str">Get the ball to the corner</string>
+    <string name="livesQ6">Medium Text</string>
+    <string name="title_activity_question11">Question11</string>
+    <string name="title_activity_sound">SoundActivity</string>
 </resources>

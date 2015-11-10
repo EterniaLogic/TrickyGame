@@ -1,25 +1,33 @@
 package team5.trickygame.questions;
+/*
+ *
+ *   Created by Daniel Medina Sada
+ *
+ */
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
 import android.hardware.Sensor;
 import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import team5.trickygame.GameManager;
+import team5.trickygame.Q10Classes.ShakeDetector;
 import team5.trickygame.R;
-import team5.trickygame.ShakeDetector;
 
-public class Question10 extends Question {
+public class Question10 extends Question   {
+
     boolean doneShaking = false;
     int shakeCount = 0;
     ImageView can;
-    TextView livesTxt;
     private SensorManager mSensorManager;
     private Sensor mAccelerometer;
     private ShakeDetector mShakeDetector;
@@ -28,16 +36,15 @@ public class Question10 extends Question {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question10);
-
         can = (ImageView) findViewById(R.id.sodaCan);
 
         final Button wrongAnswer = (Button) findViewById(R.id.Q10Wrongbtn);
 
-        livesTxt = (TextView) findViewById(R.id.livesText);
-
+        // Set current Lives
+        final TextView livesTxt = (TextView) findViewById(R.id.livesText);
         livesTxt.setText(GameManager.getInstance().getLivesStr());
 
-
+        // Remove life if wrong answer and go to EndGame screen if no more lives
         wrongAnswer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick (View view) {
@@ -68,6 +75,7 @@ public class Question10 extends Question {
         });
     }
 
+    //When there is a shake
     public void handleShakeEvent(int count){
         System.out.print("Shake Count: "+ count);
         Log.e("Shake Count", String.valueOf(shakeCount));
@@ -106,6 +114,41 @@ public class Question10 extends Question {
         }
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        // Add the following line to register the Session Manager Listener onResume
+        mSensorManager.registerListener(mShakeDetector, mAccelerometer,	SensorManager.SENSOR_DELAY_UI);
+    }
+
+    @Override
+    public void onPause() {
+        // Add the following line to unregister the Sensor Manager onPause
+        mSensorManager.unregisterListener(mShakeDetector);
+        super.onPause();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_question10, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_settings) {
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
 
 
 }
