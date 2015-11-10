@@ -17,10 +17,9 @@ public class SQLiteTests extends ActivityInstrumentationTestCase2<MainMenu> {
     public SQLiteTests() {
         super(MainMenu.class);
     }
-
-    public void testSQLiteWin() throws Exception {
+    public void testSQLiteWin() throws Exception{
         assertNotNull(getActivity());
-        Log.v("[SQLite Test]", "Start SQLite Test");
+        Log.v("[SQLite Test]","Start SQLite Test");
         LeaderboardLocal LBL = LeaderboardLocal.getInstance();
         assertNotNull(LBL);
 
@@ -35,8 +34,8 @@ public class SQLiteTests extends ActivityInstrumentationTestCase2<MainMenu> {
 
         // start simulation
         LBL.startQuiz();
-        for (int i = 1; i < 100; i++) {
-            long time = r.nextInt(high - low) + low;
+        for(int i=1;i<100;i++) {
+            long time = r.nextInt(high-low)+low;
             LBL.postQuestion(new QuestionTimeScore(i, time));
             total += time;
         }
@@ -47,23 +46,23 @@ public class SQLiteTests extends ActivityInstrumentationTestCase2<MainMenu> {
         assertNotNull(scores); // TEST
 
         Iterator<List<QuestionTimeScore>> s = scores.iterator();
-        while (s.hasNext()) {
+        while(s.hasNext()){
             List<QuestionTimeScore> singlescorelist = s.next();
 
             Log.v("[SQLite Test]", "Score:");
             Iterator<QuestionTimeScore> sQuestion = singlescorelist.iterator();
-            while (sQuestion.hasNext()) {
+            while(sQuestion.hasNext()){
                 QuestionTimeScore qts = sQuestion.next();
-                assertTrue(qts.getQuestion() > 0); // TEST
-                assertTrue(qts.getScore() > 0.0f); // TEST
-                Log.v("[SQLite Test]", "----Question: " + qts.getQuestion() + " Score: " + qts.getScore() + " Time: " + qts.getHumanTime());
+                assertTrue(qts.getQuestion()>0); // TEST
+                assertTrue(qts.getScore()>0.0f); // TEST
+                Log.v("[SQLite Test]","----Question: "+qts.getQuestion()+" Score: "+qts.getScore()+" Time: "+qts.getHumanTime());
             }
         }
 
         LBL.clearQuizTimes();
     }
 
-    public void testSQLiteTONS() throws Exception {
+    public void testSQLiteTONS() throws Exception{
         assertNotNull(getActivity());
         Log.v("[SQLite Test]", "Start SQLite Test");
         LeaderboardLocal LBL = LeaderboardLocal.getInstance();
@@ -79,7 +78,7 @@ public class SQLiteTests extends ActivityInstrumentationTestCase2<MainMenu> {
         int high = 10000; // really slow human (10 seconds)
 
         // start simulation
-        for (int j = 0; j < 10; j++) {
+        for(int j=0;j<10;j++) {
             LBL.startQuiz();
             for (int i = 1; i < 10; i++) {
                 long time = r.nextInt(high - low) + low;
@@ -94,16 +93,16 @@ public class SQLiteTests extends ActivityInstrumentationTestCase2<MainMenu> {
         assertNotNull(scores); // TEST
 
         Iterator<List<QuestionTimeScore>> s = scores.iterator();
-        while (s.hasNext()) {
+        while(s.hasNext()){
             List<QuestionTimeScore> singlescorelist = s.next();
 
             Log.v("[SQLite Test]", "Score:");
             Iterator<QuestionTimeScore> sQuestion = singlescorelist.iterator();
-            while (sQuestion.hasNext()) {
+            while(sQuestion.hasNext()){
                 QuestionTimeScore qts = sQuestion.next();
-                assertTrue(qts.getQuestion() > 0); // TEST
-                assertTrue(qts.getScore() > 0.0f); // TEST
-                Log.v("[SQLite Test]", "----Question: " + qts.getQuestion() + " Score: " + qts.getScore() + " Time: " + qts.getHumanTime());
+                assertTrue(qts.getQuestion()>0); // TEST
+                assertTrue(qts.getScore()>0.0f); // TEST
+                Log.v("[SQLite Test]","----Question: "+qts.getQuestion()+" Score: "+qts.getScore()+" Time: "+qts.getHumanTime());
             }
         }
 

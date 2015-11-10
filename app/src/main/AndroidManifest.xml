@@ -84,6 +84,7 @@
         <activity
             android:name=".SoundActivity"
             android:label="@string/title_activity_sound" >
+            android:screenOrientation="landscape" >
         </activity>
         <activity
             android:name=".CreditsActivity"
