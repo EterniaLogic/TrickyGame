@@ -3,7 +3,6 @@
  */
 package team5.trickygame.Q6Classes;
 
-import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.util.Log;
 import android.view.SurfaceHolder;

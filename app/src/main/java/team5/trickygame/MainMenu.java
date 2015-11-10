@@ -16,7 +16,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import team5.trickygame.util.Foreground;
 import team5.trickygame.util.SoundService;
 
 public class MainMenu extends Activity {

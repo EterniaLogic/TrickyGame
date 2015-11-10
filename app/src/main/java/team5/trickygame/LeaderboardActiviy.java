@@ -74,7 +74,7 @@ public class LeaderboardActiviy  extends FragmentActivity implements
 
         // create the list adapter
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_list_item_2, android.R.id.text1, values.toArray(new String[0]));
+                android.R.layout.simple_list_item_2, android.R.id.text1, values.toArray(new String[values.size()]));
         Local.setAdapter(adapter);
     }
 

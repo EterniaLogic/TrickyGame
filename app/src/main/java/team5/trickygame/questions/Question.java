@@ -2,16 +2,12 @@ package team5.trickygame.questions;
 
 import android.app.Activity;
 
-import android.content.Context;
-
 import android.content.res.Configuration;
 
 import android.view.Menu;
 import android.view.MenuItem;
 
 import team5.trickygame.R;
-import team5.trickygame.util.Foreground;
-import team5.trickygame.util.SoundService;
 
 /**
  * Created by Andrew on 10/1/2015.

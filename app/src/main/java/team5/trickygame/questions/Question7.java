@@ -27,7 +27,7 @@ public class Question7 extends Question {
         Intent intent = new Intent(this, Question10.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
-        PendingIntent pendingIntent = PendingIntent.getActivity(getApplicationContext(), 01, intent, PendingIntent.FLAG_CANCEL_CURRENT);
+        PendingIntent pendingIntent = PendingIntent.getActivity(getApplicationContext(), 01/*Is a private request code for sender*/, intent, PendingIntent.FLAG_CANCEL_CURRENT);
         Notification.Builder builder = new Notification.Builder(getApplicationContext());
         builder.setContentTitle("You are so smart");
         builder.setContentText("Press here for next question");
@@ -39,7 +39,7 @@ public class Question7 extends Question {
         Notification notification = builder.build();
         notificationManger =
                 (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-        notificationManger.notify(01, notification);
+        notificationManger.notify(01/*is private code from earlier*/, notification);
 
         // Helps keep the GameManager Question ticker in sync
         GameManager.getInstance().incQuestionNumber();
