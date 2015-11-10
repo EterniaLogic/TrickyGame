@@ -10,7 +10,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import team5.trickygame.R;
-import team5.trickygame.util.Foreground;
 import team5.trickygame.util.SoundService;
 
 /**

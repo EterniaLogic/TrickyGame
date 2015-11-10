@@ -37,3 +37,4 @@ gradlew
 *.bat
 *~
 *.swp
+*.orig

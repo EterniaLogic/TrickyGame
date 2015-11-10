@@ -16,7 +16,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import team5.trickygame.util.Foreground;
 import team5.trickygame.util.SoundService;
 
 public class MainMenu extends Activity {
@@ -59,8 +58,6 @@ public class MainMenu extends Activity {
             // App has been started for the first time:
             firstRun = false;
             GameManager.getInitialInstance(this.getBaseContext());
-
-
             // Get the google account, used later for the LeaderboardGlobal.
             Account[] accounts = AccountManager.get(this).getAccountsByType("com.google");
             for (Account account : accounts) {
