@@ -25,7 +25,9 @@ public class Question7 extends Question {
         //          continue the quiz.
         //Fixed.
         Intent intent = new Intent(this, Question10.class);
-        PendingIntent pendingIntent = PendingIntent.getActivity(this, 01, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        PendingIntent pendingIntent = PendingIntent.getActivity(getApplicationContext(), 01, intent, PendingIntent.FLAG_CANCEL_CURRENT);
         Notification.Builder builder = new Notification.Builder(getApplicationContext());
         builder.setContentTitle("You are so smart");
         builder.setContentText("Press here for next question");
