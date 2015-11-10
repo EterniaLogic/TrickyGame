@@ -6,11 +6,8 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
-<<<<<<< HEAD
     <uses-permission android:name="android.permission.VIBRATE" />
-=======
-    <uses-permission android:name="android.permission.VIBRATE"/>
->>>>>>> 0286c442bc563b819563dc62db4ce00fc20d174f
+
 
     <uses-feature
         android:name="android.hardware.sensor.accelerometer"
