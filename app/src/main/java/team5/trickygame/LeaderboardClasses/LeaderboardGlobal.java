@@ -39,7 +39,7 @@ public class LeaderboardGlobal {
     private static LeaderboardGlobal instance;
     HttpClient httpclient;
     HttpPost httppost;
-    private String serverAddr = "https://eternialogic.com:888/TrickyGame/";
+    private String serverAddr = "https://eternialogic.com/TrickyGame/";
     private String iToken = "", cKey = "";
     private List<String> lKey = new LinkedList<String>();
 
