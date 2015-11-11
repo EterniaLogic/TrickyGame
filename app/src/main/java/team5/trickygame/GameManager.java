@@ -25,7 +25,6 @@ import team5.trickygame.questions.Question4;
 import team5.trickygame.questions.Question7;
 import team5.trickygame.util.Command;
 import team5.trickygame.util.QuestionTimeScore;
-import team5.trickygame.util.SoundService;
 
 
 
@@ -48,9 +47,9 @@ public class GameManager extends Thread {
     // non-static members
     public boolean running;
     public boolean sound;
-    public ConcurrentLinkedQueue<Object> taskManager = new ConcurrentLinkedQueue<Object>();
+    public ConcurrentLinkedQueue<Object> taskManager = new ConcurrentLinkedQueue<>();
     private boolean quit;
-    private LinkedList<QuestionTimeScore> questionScores = new LinkedList<QuestionTimeScore>(); // for mid-game statistics
+    private LinkedList<QuestionTimeScore> questionScores = new LinkedList<>(); // for mid-game statistics
     private long startTime = 0, lastQTime=0, timeminus=0; // used for end-game and mid-game statistics
     private float score = 0;
     private int questionNum = 0, lives=0; // question Number used for end-game
@@ -291,7 +290,9 @@ public class GameManager extends Thread {
                         Executors.newSingleThreadExecutor().execute(new Runnable() {
                             @Override
                             public void run() {
-                                try { Thread.sleep(500); } catch (InterruptedException e) {}
+                                try { Thread.sleep(500); } catch (InterruptedException e) {
+                                    Log.d(TAG, "[run] Thread sleep threw an error!");
+                                }
 
                                 // run this method
                                 request.execute();

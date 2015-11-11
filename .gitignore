@@ -31,10 +31,12 @@ gradle/
 *.iml
 *.iws
 *.ipr
-*.gradle
-gradle.properties
-gradlew
+#*.gradle
+#gradle.properties
 *.bat
 *~
 *.swp
 *.orig
+
+# for linux
+#gradlew

@@ -43,6 +43,7 @@ public class LeaderboardActiviy  extends FragmentActivity implements
         LinkedList<String> values = new LinkedList<>();
         List<List<QuestionTimeScore>> scores = GameManager.getInstance().getLeaderboard(true, 10);
 
+        // loop through global scores
         Iterator<List<QuestionTimeScore>> s = scores.iterator();
         while(s.hasNext()){
             List<QuestionTimeScore> singlescorelist = s.next();
@@ -51,7 +52,7 @@ public class LeaderboardActiviy  extends FragmentActivity implements
         }
 
         // create the list adapter
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
                 android.R.layout.simple_list_item_2, android.R.id.text1, values);
         //Global.setAdapter(adapter);
     }
@@ -63,7 +64,7 @@ public class LeaderboardActiviy  extends FragmentActivity implements
         LinkedList<String> values = new LinkedList<>();
         List<List<QuestionTimeScore>> scores = GameManager.getInstance().getLeaderboard(false, 10);
 
-
+        // loop through the scores
         Iterator<List<QuestionTimeScore>> s = scores.iterator();
         while(s.hasNext()){
             List<QuestionTimeScore> singlescorelist = s.next();
@@ -73,7 +74,7 @@ public class LeaderboardActiviy  extends FragmentActivity implements
         }
 
         // create the list adapter
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
                 android.R.layout.simple_list_item_2, android.R.id.text1, values.toArray(new String[values.size()]));
         Local.setAdapter(adapter);
     }
@@ -90,15 +91,5 @@ public class LeaderboardActiviy  extends FragmentActivity implements
 
     @Override
     public void onTabUnselected(ActionBar.Tab tab, FragmentTransaction ft) {
-    }
-
-    public void display() {
-        // TODO - implement LeaderboardScreen.display
-        throw new UnsupportedOperationException();
-    }
-
-    public void back() {
-        // TODO - implement LeaderboardScreen.back
-        throw new UnsupportedOperationException();
     }
 }

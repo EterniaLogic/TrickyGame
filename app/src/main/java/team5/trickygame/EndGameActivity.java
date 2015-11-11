@@ -12,7 +12,6 @@ import android.widget.TextView;
 
 import java.util.LinkedList;
 
-import team5.trickygame.questions.Question1;
 import team5.trickygame.util.QuestionTimeScore;
 
 public class EndGameActivity extends Activity {
@@ -66,8 +65,6 @@ public class EndGameActivity extends Activity {
 
 
     public void goToMainMenu(View V) {
-        // TODO - implement MainMenu.startGame
-
         Intent intent = new Intent(EndGameActivity.this, MainMenu.class);
 
         this.startActivity(intent);
@@ -76,15 +73,8 @@ public class EndGameActivity extends Activity {
     }
 
     public void restartGame(View V) {
-        // TODO - implement MainMenu.startGame
-
-        Intent intent = new Intent(EndGameActivity.this, Question1.class);
-
         // Important for time and score keeping!
         GameManager.getInstance().startQuiz(this);
-
-        this.startActivity(intent);
-        finish();
     }
 
     @Override
