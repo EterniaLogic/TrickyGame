@@ -4,39 +4,61 @@ package team5.trickygame;
 import android.accounts.Account;
 import android.accounts.AccountManager;
 import android.app.Activity;
+import android.content.ComponentName;
+import android.content.Context;
 import android.content.Intent;
+import android.content.ServiceConnection;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.os.IBinder;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
 
-<<<<<<< HEAD
-import team5.trickygame.questions.Question1;
-import team5.trickygame.util.MusicManager;
+import team5.trickygame.util.SoundService;
 
 public class MainMenu extends Activity {
-    public static boolean firstRun =true;
-    boolean continueMusic = true;
-=======
-import team5.trickygame.util.MusicManager;
->>>>>>> master
-
-public class MainMenu extends Activity {
+    private SoundService soundService;
     public static boolean firstRun = true;
-    boolean continueMusic = true;
+    protected ServiceConnection mConn = new ServiceConnection() {
+        @Override
+        public void onServiceConnected(ComponentName name, IBinder binder) {
+            soundService = ((SoundService.SoundBinder) binder).getService();
+            Log.d("ServiceConnection", "connected");
+        }
+
+        @Override
+        public void onServiceDisconnected(ComponentName name) {
+            soundService = null;
+        }
+    };
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        Intent intent = new Intent(this,SoundService.class);
+        bindService(intent, mConn, Context.BIND_AUTO_CREATE);
+    }
+    @Override
+    public void onDestroy() {
+        Log.d("activity", "onPause");
+        if (soundService != null) {
+            unbindService(mConn);
+            soundService = null;
+        }
+        super.onDestroy();
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu2);
-        onResume();
+
         if(firstRun) {
             // App has been started for the first time:
             firstRun = false;
-
-
-            // Get the google account, used later for the LeaderboardServer.
+            GameManager.getInitialInstance(this.getBaseContext());
+            // Get the google account, used later for the LeaderboardGlobal.
             Account[] accounts = AccountManager.get(this).getAccountsByType("com.google");
             for (Account account : accounts) {
                 if(account.name.endsWith("@gmail.com")){
@@ -49,6 +71,7 @@ public class MainMenu extends Activity {
             // set a default account if none exists (This goes to an Anonymous account)
             // Anonymous accounts cannot get a score.
             if(GameManager.getInstance().noAccount()){
+
                 GameManager.getInstance().setAccount("Anonymous");
             }
         }
@@ -76,31 +99,28 @@ public class MainMenu extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
-	public void goToOptions(View V) {
-        Toast.makeText(this, "Clicked on Sound Button", Toast.LENGTH_LONG).show();
-	}
+    public void goToSound(View V) {
+        //Toast.makeText(this, "Clicked on Sound Button", Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(MainMenu.this, SoundActivity.class);
+        startActivity(intent);
+    }
 
-	public void goToLeaderboards(View V) {
+    public void goToLeaderboards(View V) {
         Intent intent = new Intent(MainMenu.this, LeaderboardActiviy.class);
         startActivity(intent);
-	}
+    }
 
-	public void startGame(View V) {
+    public void startGame(View V) {
         // Important for time and score keeping!
-<<<<<<< HEAD
-        GameManager.getInstance().startQuiz();
-        this.startActivity(intent);
-        finish();
-=======
         // Note: on GameManager line 56, you can add additional questions.
         GameManager.getInstance().startQuiz(this);
->>>>>>> master
-	}
+    }
 
-	public void goToCredits(View V) {
+    public void goToCredits(View V) {
         Intent intent = new Intent(MainMenu.this, CreditsActivity.class);
         startActivity(intent);
-	}
+
+    }
 
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
@@ -109,21 +129,5 @@ public class MainMenu extends Activity {
             super.onConfigurationChanged(newConfig);
         }
     }
-<<<<<<< HEAD
 
-=======
->>>>>>> master
-    @Override
-    protected void onPause() {
-        super.onPause();
-        if (!continueMusic) {
-            MusicManager.pause();
-        }
-    }
-    @Override
-    protected void onResume() {
-        super.onResume();
-        continueMusic = false;
-        MusicManager.start(this);
-    }
 }

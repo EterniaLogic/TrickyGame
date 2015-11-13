@@ -1,32 +1,32 @@
 package team5.trickygame;
 
 import android.app.Activity;
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-import android.content.ServiceConnection;
-import android.os.IBinder;
+import android.os.Vibrator;
 import android.util.Log;
 import android.widget.TextView;
 
 import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.Executors;
 
-<<<<<<< HEAD
-import team5.trickygame.LeaderboardClasses.LeaderboardServer;
-=======
->>>>>>> master
+import team5.trickygame.LeaderboardClasses.LeaderboardGlobal;
+import team5.trickygame.LeaderboardClasses.LeaderboardLocal;
 import team5.trickygame.questions.Question;
 import team5.trickygame.questions.Question1;
 import team5.trickygame.questions.Question10;
+import team5.trickygame.questions.Question11;
 import team5.trickygame.questions.Question2;
 import team5.trickygame.questions.Question3;
 import team5.trickygame.questions.Question4;
 import team5.trickygame.questions.Question7;
 import team5.trickygame.util.Command;
 import team5.trickygame.util.QuestionTimeScore;
+
+
 
 
 /**
@@ -39,103 +39,84 @@ public class GameManager extends Thread {
     // static members
     private static final String TAG = GameManager.class.getSimpleName();
 
-    private static GameManager instance = null;
-
+    // Enforce Singletons
+    private static GameManager instance;
+    private static LeaderboardGlobal LBG;
+    private static LeaderboardLocal LBL;
+    private static Context context;
     // non-static members
     public boolean running;
     public boolean sound;
-    ConcurrentLinkedQueue<Object> taskManager = new ConcurrentLinkedQueue<Object>();
+    public ConcurrentLinkedQueue<Object> taskManager = new ConcurrentLinkedQueue<>();
     private boolean quit;
-<<<<<<< HEAD
-    public boolean sound;
-=======
->>>>>>> master
-    private LinkedList<QuestionTimeScore> questionScores = new LinkedList<QuestionTimeScore>(); // for mid-game statistics
-    private long startTime = 0, lastQTime=0; // used for end-game and mid-game statistics
+    private LinkedList<QuestionTimeScore> questionScores = new LinkedList<>(); // for mid-game statistics
+    private long startTime = 0, lastQTime=0, timeminus=0; // used for end-game and mid-game statistics
     private float score = 0;
     private int questionNum = 0, lives=0; // question Number used for end-game
     private boolean gameStarted=false;
-<<<<<<< HEAD
-    public ConcurrentLinkedQueue<Object> taskManager = new ConcurrentLinkedQueue<Object>();
-
-=======
->>>>>>> master
     // Questions list: (Actual Android activities)
     private LinkedList<Class<? extends Question>> questions = new LinkedList<Class<? extends Question>>();
-
-    // internal usage for the LeaderboardServer
+    // internal usage for the LeaderboardGlobal
     private String account="";
-    private LeaderboardServer LBS;
-    private long timeminus=0; // time modification
 
-    /**
-     *
-     */
-    GameManager(){
+
+    private GameManager(){
         // initialize other variables
         quit=false;
         running = false;
-        this.start();
 
-        LBS = new LeaderboardServer(this);
-
-        // TODO: Add every question here (This can be used to customize question orders)
+        // TODO: Add every question here. Order Matters.
         questions.add(Question1.class);
         questions.add(Question2.class);
         questions.add(Question3.class);
         questions.add(Question4.class);
-<<<<<<< HEAD
         //questions.add(Question6.class);
-=======
->>>>>>> master
         questions.add(Question7.class);
         questions.add(Question10.class);
+        questions.add(Question11.class);
     }
-
-    /**
-     *
-     * @return
-     */
-    public static GameManager getInstance() {
-        if(instance == null)
+    public static GameManager getInitialInstance(Context context_){
+        if(instance == null) {
+            context = context_;
             instance = new GameManager();
 
+            instance.start();
+            LBL = LeaderboardLocal.getInstance();
+            LBG = LeaderboardGlobal.getInstance();
+        }
+        return getInstance();
+    }
+
+
+
+
+    // getInstance makes a new GameManager
+    //  Enforces a singleton
+    public static GameManager getInstance() throws NullPointerException{
+        if(instance == null) throw new NullPointerException("GameManager: Tried to get unknown instance");
         return instance;
     }
 
-    /** Set the Leaderboards server account
-     *
-     * @param name
-     */
+    public static Context getContext() throws NullPointerException{
+        if(context == null) throw new NullPointerException("GameManager: Tried to get unknown Context");
+        return context;
+    }
+
+
     public void setAccount(String name){
         this.account = name;
-        //LBS.setAccount(this.account);
-        LeaderboardServer.AsyncA async = new LeaderboardServer.AsyncA();
+        //LBG.setAccount(this.account);
+        LeaderboardGlobal.AsyncA async = new LeaderboardGlobal.AsyncA();
         async.passed = this.account;
-        async.LBS = this.LBS;
+        async.LBS = LBG;
         this.taskManager.add(async);
     }
 
-    /** determine if there is no account assiciated to the GameManager
-     *
-     * @return
-     */
     public boolean noAccount(){
         return this.account.equals("");
     }
 
-    /**
-     *
-     * @param value
-     */
-    public void setTimeMod(long value){
-        timeminus=value;
-    }
-
-    /**
-     *
-     * @param thisQuestion
-     */
+    // goes to the next question in the gameList
     public void gotoNextQuestion(Question thisQuestion){
         boolean next=false;
 
@@ -176,34 +157,26 @@ public class GameManager extends Thread {
         }
     }
 
-    /**
-     *
-     * @return The current amount of lives the player has
-     */
+    /**		+    // goes to the next question in the gameList
+     -     *
+     -     * @param value
+     -     */
+    public void setTimeMod(long value){
+        timeminus=value;
+    }
+
     public int getLives(){
         return lives;
     }
 
-    /**
-     *
-     * @return The current amount of lives the player has
-     */
     public String getLivesStr(){
         return Integer.toString(lives);
     }
 
-    /**
-     * Take one life away from the player
-     */
     public void killLife(){
         lives--;
     }
 
-    /**
-     *
-     * @param thisQ Current Question
-     * @param txt The txt
-     */
     public void checkEndGame(Question thisQ, TextView txt){
         GameManager.getInstance().killLife();
         txt.setText(Integer.toString(GameManager.getInstance().getLives()));
@@ -214,11 +187,14 @@ public class GameManager extends Thread {
             thisQ.startActivity(intent);
             thisQ.finish();
         }
+
+        Vibrator v = (Vibrator)context.getSystemService(Context.VIBRATOR_SERVICE);
+        v.vibrate(200);
     }
 
-    /**
-     * Starts the quiz
-     */
+    // Start the quiz, this updates all relevant fields these include:
+    //  # of questions
+    //  amount of time spent for each question
     public void startQuiz(Activity thisActivity){
         this.startTime = System.currentTimeMillis();
         this.lastQTime=System.currentTimeMillis(); // since we started the first question
@@ -227,60 +203,74 @@ public class GameManager extends Thread {
         this.questionScores.clear(); // clear out times
         this.lives=5; // divided by difficulty
         this.gameStarted = true; // used when getting data out of endGame
+        LBL.startQuiz();
+        LBG.startQuiz();
 
         Intent intent = new Intent(thisActivity, questions.getFirst());
         thisActivity.startActivity(intent);
-        thisActivity.finish();
+        if(!thisActivity.getLocalClassName().equals("MainMenu"))
+            thisActivity.finish();
     }
 
-    /**
-     * Increments the Question #, also uses a LinkedList for
-     * End-game statistics, used for score-keeping
-     */
+    // Increments the Question #, also uses a LinkedList for
+    //  End-game statistics, used for score-keeping
     public void incQuestionNumber(){
         this.questionNum++; // a question was correct!
         long sysms = System.currentTimeMillis();
         QuestionTimeScore qts = new QuestionTimeScore(questionNum, (sysms-this.lastQTime)-timeminus);
         score += qts.getScore(); // total score tally
         questionScores.add(qts); // add QTS
-        timeminus=0; // reset time modifier
+        timeminus=0;
 
         this.lastQTime=System.currentTimeMillis();
 
-        // post this question
-        LeaderboardServer.AsyncQ qpass = new LeaderboardServer.AsyncQ();
-        qpass.LBS = this.LBS;
-        qpass.passed = qts;
-        taskManager.add(qpass);
+        // post this question to Local and Global
+        LBL.postQuestion(qts);
+        LBG.postQuestion(qts);
     }
 
 
-    /**
-     *
-     * @return the total score at moment
-     */
+
     public float getTotalScore(){ // return the current score
         return score;
     }
 
-    /**
-     *
-     * @return End game stats
-     */
+    public void clearLocalLeaderboard(){
+        LBL.clearQuizTimes();
+    }
+
+    public List<List<QuestionTimeScore>> getLeaderboard(boolean isGlobal, int scores){
+        if(isGlobal){
+            return LBG.getLeaderboard(scores);
+        }else{
+            return LBL.getLeaderboard(scores);
+        }
+    }
+
     // returns a list of all of the scores, appended is the total score
     public LinkedList<QuestionTimeScore> endQuizStats(){
         // has endQuizStats been called before?
         if(this.gameStarted) {
             this.gameStarted = false; // prevent it from being called again
-            questionScores.add(new QuestionTimeScore(questionNum, (System.currentTimeMillis() - this.startTime), score));
+            long time=0, score=0;
+
+            Iterator<QuestionTimeScore> sQuestion = questionScores.iterator();
+            while(sQuestion.hasNext()) {
+                QuestionTimeScore qts = sQuestion.next();
+                time+=qts.getTime();
+                score+=qts.getScore();
+            }
+
+            QuestionTimeScore qtsEnd = new QuestionTimeScore(questionNum, time, score);
+            questionScores.add(qtsEnd);
+            LBL.endQuiz(qtsEnd);
+            LBG.endQuiz(qtsEnd);
         }
         return questionScores;
     }
 
 
-    /**
-     * instance keepalive so GC doesnt collect
-     */
+    // instance keepalive (GC wont eat me!)
     public void run(){
         running=true; // used for assertions
 
@@ -292,15 +282,17 @@ public class GameManager extends Thread {
             while(!taskManager.isEmpty()){
                 // get an object
                 Object t = taskManager.poll();
-                if(t instanceof LeaderboardServer.AsyncKey){
-                    final LeaderboardServer.AsyncKey request = (LeaderboardServer.AsyncKey)t;
+                if(t instanceof LeaderboardGlobal.AsyncKey){
+                    final LeaderboardGlobal.AsyncKey request = (LeaderboardGlobal.AsyncKey)t;
                     // Asyncronously timed key retrieval
                     if(request.timeout <= 0){
                         request.timeout = 300; // 30 seconds
                         Executors.newSingleThreadExecutor().execute(new Runnable() {
                             @Override
                             public void run() {
-                                try { Thread.sleep(500); } catch (InterruptedException e) {}
+                                try { Thread.sleep(500); } catch (InterruptedException e) {
+                                    Log.d(TAG, "[run] Thread sleep threw an error!");
+                                }
 
                                 // run this method
                                 request.execute();
@@ -328,9 +320,6 @@ public class GameManager extends Thread {
         running=false; // used for assertions
     }
 
-    /**
-     *
-     */
     // Manages end-of-life
     public void die(){
         // Enforce an asynchronous stopper variable
@@ -352,6 +341,4 @@ public class GameManager extends Thread {
             Log.d(TAG, "[die] Thread join threw an error!");
         }
     }
-
-
 }

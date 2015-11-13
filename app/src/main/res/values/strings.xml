@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">TrickyGame</string>
+    <string name="app_name">TrickyQuiz</string>
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
@@ -33,14 +33,10 @@
     <string name="title_activity_question6">Question6</string>
     <string name="stopped">Stopped</string>
     <string name="title_activity_question10">Question10</string>
-<<<<<<< HEAD
     <string name="title_activity_question3">Question3</string>
     <string name="title_activity_question7">Question7</string>
     <string name="title_activity_question4">Question10</string>
     <string name="SodaCanQuestion">Explode the Soda Can!</string>
-=======
-        <string name="SodaCanQuestion">Explode the Soda Can!</string>
->>>>>>> master
     <string name="sodadesc">soda</string>
     <string name="title_activity_credits">CreditsActivity</string>
     <string name="creditsBy">This app has been created by:</string>
@@ -49,14 +45,16 @@
     <string name="DanielMcredit">Daniel Medina Sada</string>
     <string name="FeyiOcredit">Feyi Oyewole</string>
     <string name="JamesEcredit">James Ewings</string>
-<<<<<<< HEAD
     <string name="CreditsTitle">Credits</string>
     <string name="LeaderboardTitle">Leaderboard</string>
     <string name="Q8Str">Get the ball to the corner</string>
     <string name="livesQ6">Medium Text</string>
-=======
-    <string name="title_activity_question7">Question7</string>
-    <string name="title_activity_question3">Question3</string>
-    <string name="title_activity_question4">Question4</string>
->>>>>>> master
+    <string name="title_activity_question11">Question11</string>
+    <string name="title_activity_sound">SoundActivity</string>
+    <string name="timerText">\n00:30</string>
+    <string name="livesTxtq6">5</string>
+    <string name="q7title">Look in the drawer</string>
+    <string name="sound2_music">Music:</string>
+    <string name="sound2_soundeffects">Sound Effects:</string>
+    <string name="sound2_title">Sound Options</string>
 </resources>

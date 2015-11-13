@@ -42,6 +42,9 @@ public class Q6Ball {
 	public void setY(int y) {
 		this.y = y;
 	}
+	public int getWidth(){
+		return bitmap.getWidth();
+	}
 
 	public boolean isTouched() {
 		return touched;
@@ -62,7 +65,7 @@ public class Q6Ball {
 	 * @param eventY - the event's Y coordinate
 	 */
 	public void handleActionDown(int eventX, int eventY) {
-		if (eventX >= (x - bitmap.getWidth() / 2) && (eventX <= (x + bitmap.getWidth()/2))) {
+		if (eventX >= (x - bitmap.getWidth() / 2) && (eventX <= (x + bitmap.getWidth() / 2))) {
 			if (eventY >= (y - bitmap.getHeight() / 2) && (y <= (y + bitmap.getHeight() / 2))) {
 				// ball touched
 				setTouched(true);

@@ -4,63 +4,92 @@ package team5.trickygame;
  *   Created by Daniel Medina Sada
  *
  */
-import android.app.Activity;
+
+import android.app.ActionBar;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
-import team5.trickygame.LeaderboardClasses.*;
+import android.support.v4.app.FragmentActivity;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
-import team5.trickygame.util.MusicManager;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
 
-public class LeaderboardActiviy extends Activity {
+import team5.trickygame.util.QuestionTimeScore;
+
+// References:
+//  http://androidexample.com/Create_A_Simple_Listview_-_Android_Example/index.php?view=article_discription&aid=65&aaid=90
+
+
+public class LeaderboardActiviy  extends FragmentActivity implements
+        ActionBar.TabListener {
+    ListView Global, Local;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_leaderboard_activiy);
+
+        Global = (ListView) findViewById(R.id.listView);
+        Local = (ListView) findViewById(R.id.listView2);
+
+        drawGlobalBoard();
+        drawLocalBoard();
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_leaderboard_activiy, menu);
-        return true;
-    }
+    public void drawGlobalBoard(){
+        // Defined Array values to show in ListView
+        LinkedList<String> values = new LinkedList<>();
+        List<List<QuestionTimeScore>> scores = GameManager.getInstance().getLeaderboard(true, 10);
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        // loop through global scores
+        Iterator<List<QuestionTimeScore>> s = scores.iterator();
+        while(s.hasNext()){
+            List<QuestionTimeScore> singlescorelist = s.next();
+            QuestionTimeScore lastQts = singlescorelist.get(singlescorelist.size() - 1);
+            values.add(lastQts.getAccount()+" - "+lastQts.getScore()+" "+lastQts.getHumanTime());
         }
 
-        return super.onOptionsItemSelected(item);
+        // create the list adapter
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
+                android.R.layout.simple_list_item_2, android.R.id.text1, values);
+        //Global.setAdapter(adapter);
     }
 
-    private double database;
+    public void drawLocalBoard(){
+        Local = (ListView) findViewById(R.id.listView2);
 
-    public void display() {
-        // TODO - implement LeaderboardScreen.display
-        throw new UnsupportedOperationException();
+        // Defined Array values to show in ListView
+        LinkedList<String> values = new LinkedList<>();
+        List<List<QuestionTimeScore>> scores = GameManager.getInstance().getLeaderboard(false, 10);
+
+        // loop through the scores
+        Iterator<List<QuestionTimeScore>> s = scores.iterator();
+        while(s.hasNext()){
+            List<QuestionTimeScore> singlescorelist = s.next();
+
+            QuestionTimeScore lastQts = singlescorelist.get(singlescorelist.size()-1);
+            values.add(lastQts.getScore()+" -- "+lastQts.getHumanTime());
+        }
+
+        // create the list adapter
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
+                android.R.layout.simple_list_item_2, android.R.id.text1, values.toArray(new String[values.size()]));
+        Local.setAdapter(adapter);
     }
 
-    public void back() {
-        // TODO - implement LeaderboardScreen.back
-        throw new UnsupportedOperationException();
-    }
     @Override
-    protected void onPause() {
-        super.onPause();
-        MusicManager.pause();
+    public void onTabReselected(ActionBar.Tab tab, FragmentTransaction ft) {
     }
+
     @Override
-    protected void onResume() {
-        super.onResume();
-        MusicManager.start(this);
+    public void onTabSelected(ActionBar.Tab tab, FragmentTransaction ft) {
+        // on tab selected
+        // show respected fragment view
+    }
+
+    @Override
+    public void onTabUnselected(ActionBar.Tab tab, FragmentTransaction ft) {
     }
 }
