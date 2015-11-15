@@ -49,4 +49,8 @@
     <string name="LeaderboardTitle">Leaderboard</string>
     <string name="Q8Str">Get the ball to the corner</string>
     <string name="livesQ6">Medium Text</string>
+    <string name="title_activity_question13">Question13</string>
+    <string name="openSafeStr">Open</string>
+    <string name="safeboxdesc">SafeBox</string>
+    <string name="GTNQstr">GoToNextQuestion</string>
 </resources>

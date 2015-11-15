@@ -13,6 +13,7 @@ import team5.trickygame.LeaderboardClasses.LeaderboardServer;
 import team5.trickygame.questions.Question;
 import team5.trickygame.questions.Question1;
 import team5.trickygame.questions.Question10;
+import team5.trickygame.questions.Question13;
 import team5.trickygame.questions.Question2;
 import team5.trickygame.questions.Question3;
 import team5.trickygame.questions.Question4;
@@ -67,6 +68,8 @@ public class GameManager extends Thread {
         //questions.add(Question6.class);
         questions.add(Question7.class);
         questions.add(Question10.class);
+        questions.add(Question13.class);
+
     }
 
     public static GameManager getInstance() {

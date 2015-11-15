@@ -9,8 +9,6 @@ import android.graphics.drawable.AnimationDrawable;
 import android.hardware.Sensor;
 import android.hardware.SensorManager;
 import android.os.Bundle;
-
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -53,7 +51,7 @@ public class Question10 extends Question   {
             }
         });
 
-
+        //Set initial image
         can.setImageResource(R.drawable.sodacan1);
         AnimationDrawable canExplodeAnimation;
 
@@ -62,6 +60,7 @@ public class Question10 extends Question   {
         mAccelerometer = mSensorManager
                 .getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
         mShakeDetector = new ShakeDetector();
+        //Count the shakes
         mShakeDetector.setOnShakeListener(new ShakeDetector.OnShakeListener() {
 
             @Override
@@ -78,8 +77,7 @@ public class Question10 extends Question   {
 
     //When there is a shake
     public void handleShakeEvent(int count) {
-        System.out.print("Shake Count: " + count);
-        Log.e("Shake Count", String.valueOf(shakeCount));
+    //Count the shakes for can to explode
         shakeCount += count;
         if (shakeCount > 12) {
             can.setImageDrawable(null);
@@ -88,8 +86,6 @@ public class Question10 extends Question   {
             can.setBackgroundResource(R.drawable.soda_explode);
             AnimationDrawable frameAnimation = (AnimationDrawable) can.getBackground();
             frameAnimation.start();
-
-            //TODO: Connect to next Activity
         } else if (shakeCount > 8) {
             can.setImageResource(R.drawable.sodacan4);
         } else if (shakeCount > 4) {
