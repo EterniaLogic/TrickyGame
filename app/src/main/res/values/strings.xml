@@ -49,6 +49,7 @@
     <string name="LeaderboardTitle">Leaderboard</string>
     <string name="Q8Str">Get the ball to the corner</string>
     <string name="livesQ6">Medium Text</string>
+<<<<<<< HEAD
     <string name="title_activity_question11">Question11</string>
     <string name="title_activity_sound">SoundActivity</string>
     <string name="timerText">\n00:30</string>
@@ -57,4 +58,10 @@
     <string name="sound2_music">Music:</string>
     <string name="sound2_soundeffects">Sound Effects:</string>
     <string name="sound2_title">Sound Options</string>
+=======
+    <string name="title_activity_question13">Question13</string>
+    <string name="openSafeStr">Open</string>
+    <string name="safeboxdesc">SafeBox</string>
+    <string name="GTNQstr">GoToNextQuestion</string>
+>>>>>>> origin/Daniel
 </resources>
