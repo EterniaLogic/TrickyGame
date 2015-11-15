@@ -6,9 +6,14 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.Window;
 import android.view.WindowManager;
+
 import team5.trickygame.Q6Classes.Q6GameControl;
 import team5.trickygame.R;
-import team5.trickygame.questions.Question;
+
+/**
+ * Created by Daniel Medina Sada on 9/30/2015.
+ */
+
 
 public class Question6 extends Question {
 
@@ -21,6 +26,7 @@ public class Question6 extends Question {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         // making it full screen
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
         // set our MainGamePanel as the View
         setContentView(new Q6GameControl(this));
     }
