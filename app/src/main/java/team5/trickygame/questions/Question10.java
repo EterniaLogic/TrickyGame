@@ -6,15 +6,10 @@ package team5.trickygame.questions;
  */
 
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
 import android.hardware.Sensor;
 import android.hardware.SensorManager;
 import android.os.Bundle;
-<<<<<<< HEAD
-import android.util.Log;
-=======
->>>>>>> origin/Daniel
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -80,14 +75,8 @@ public class Question10 extends Question   {
     }
 
     //When there is a shake
-<<<<<<< HEAD
-    public void handleShakeEvent(int count){
-        System.out.print("Shake Count: "+ count);
-        Log.e("Shake Count", String.valueOf(shakeCount));
-=======
     public void handleShakeEvent(int count) {
     //Count the shakes for can to explode
->>>>>>> origin/Daniel
         shakeCount += count;
         if (shakeCount > 12 && !doneShaking){
             // timeout for end of animation, then goto the next question:
@@ -113,12 +102,7 @@ public class Question10 extends Question   {
             can.setBackgroundResource(R.drawable.soda_explode);
             AnimationDrawable frameAnimation = (AnimationDrawable) can.getBackground();
             frameAnimation.start();
-<<<<<<< HEAD
-        }
-        else if (shakeCount > 8){
-=======
         } else if (shakeCount > 8) {
->>>>>>> origin/Daniel
             can.setImageResource(R.drawable.sodacan4);
         } else if (shakeCount > 4) {
             can.setImageResource(R.drawable.sodacan3);

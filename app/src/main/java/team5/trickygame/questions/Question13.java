@@ -1,6 +1,5 @@
 package team5.trickygame.questions;
 
-import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -40,7 +39,9 @@ public class Question13 extends Question {
         nextQBtn = (ImageButton) findViewById(R.id.NextBtn);
         nextQBtn.setVisibility(View.INVISIBLE);
         safeBox = (ImageView) findViewById(R.id.SafeBoxImg);
-        safeBox.setImageResource(R.mipmap.safeclosed);
+
+        // TODO: Your image is not sourced to git
+        //safeBox.setImageResource(R.mipmap.safeclosed);
 
         lives = (TextView) findViewById(R.id.livesTxt);
         lives.setText(GameManager.getInstance().getLivesStr());
@@ -63,7 +64,8 @@ public class Question13 extends Question {
         np3.setMaxValue(9);
         np3.setMinValue(0);
 
-        final MediaPlayer mpCorrect = MediaPlayer.create(this, R.raw.correctpass);
+        // TODO: Same, Add these medias to the git
+        /*final MediaPlayer mpCorrect = MediaPlayer.create(this, R.raw.correctpass);
         final MediaPlayer mpWrong = MediaPlayer.create(this, R.raw.wrongpass);
 
         np1.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
@@ -109,15 +111,14 @@ public class Question13 extends Question {
 
                 currentPass[2] = newVal;
             }
-        });
-
-
+        });*/
     }
 
     public void checkIfCorrect(View v){
         Log.e(String.valueOf(currentPass[0]),String.valueOf(correctPass[0]));
         if (currentPass[0] == correctPass[0] & currentPass[1] == correctPass[1] & currentPass[2] == correctPass[2]){
-            safeBox.setImageResource(R.mipmap.safeopened);
+            // TODO: Same, Add these medias to the git
+            //safeBox.setImageResource(R.mipmap.safeopened);
             nextQBtn.setVisibility(View.VISIBLE);
         }else{
             GameManager.getInstance().checkEndGame(Question13.this, lives);
