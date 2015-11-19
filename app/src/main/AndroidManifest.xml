@@ -101,19 +101,10 @@
             android:name=".questions.Question3"
             android:label="@string/title_activity_question3" >
         </activity>
-<<<<<<< HEAD
-
-        <service
-            android:name=".util.SoundService"
-            android:enabled="true"
-            android:exported="true" >
-        </service>
-=======
         <activity
             android:name=".questions.Question13"
             android:label="@string/title_activity_question13" >
         </activity>
->>>>>>> origin/Daniel
     </application>
 
 </manifest>
