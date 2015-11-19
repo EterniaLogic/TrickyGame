@@ -5,9 +5,6 @@
       <config />
     </shared>
     <layouts>
-<<<<<<< HEAD
-      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_end_game.xml">
-=======
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_question13.xml">
         <config>
           <state>Landscape</state>
@@ -15,7 +12,6 @@
         </config>
       </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_question4.xml">
->>>>>>> origin/Daniel
         <config>
           <state>Landscape</state>
           <theme>@style/AppTheme</theme>
