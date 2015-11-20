@@ -75,7 +75,15 @@
         android:layout_marginBottom="65dp"
         android:layout_marginEnd="203dp"
         android:layout_marginRight="203dp"
+<<<<<<< HEAD
+<<<<<<< HEAD
+        android:text="@string/timerText"
+=======
         android:text="@string/q11_timer"
+>>>>>>> origin/Daniel
+=======
+        android:text="@string/q11_timer"
+>>>>>>> master
         android:textColor="#010101"
         android:textSize="20sp" />
 

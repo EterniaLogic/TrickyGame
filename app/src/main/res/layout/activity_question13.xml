@@ -13,6 +13,7 @@
         android:id="@+id/SafeBoxImg"
         android:layout_centerHorizontal="true"
         android:contentDescription="@string/safeboxdesc"
+<<<<<<< HEAD
         android:layout_above="@+id/numberPicker2" />
 
     <TextView
@@ -24,6 +25,10 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:textColor="#ff1908" />
+=======
+        android:layout_above="@+id/numberPicker2"
+        android:src="@mipmap/safeclosed" />
+>>>>>>> origin/Daniel
 
     <Button
         android:layout_width="wrap_content"
@@ -38,6 +43,7 @@
         android:alpha="0"
         android:onClick="pressedWrongBtn" />
 
+<<<<<<< HEAD
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -50,6 +56,8 @@
         android:contentDescription="@string/GTNQstr"
         android:onClick="goToNextQuestion" />
 
+=======
+>>>>>>> origin/Daniel
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -66,6 +74,31 @@
         android:layout_marginLeft="20dp"
         android:onClick="checkIfCorrect" />
 
+<<<<<<< HEAD
+=======
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/NextBtn"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/numberPicker3"
+        android:layout_toRightOf="@+id/numberPicker2"
+        android:layout_toEndOf="@+id/numberPicker2"
+        android:alpha="0"
+        android:contentDescription="@string/GTNQstr"
+        android:onClick="goToNextQuestion" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/livesTxt"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:textColor="#ff1908" />
+
+>>>>>>> origin/Daniel
     <NumberPicker
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
