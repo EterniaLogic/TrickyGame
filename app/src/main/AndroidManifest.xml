@@ -99,6 +99,7 @@
         </activity>
         <activity
             android:name=".questions.Question3"
+<<<<<<< HEAD
             android:label="@string/title_activity_question3" >
         </activity>
 <<<<<<< HEAD
@@ -112,6 +113,16 @@
         <activity
             android:name=".questions.Question13"
             android:label="@string/title_activity_question13" >
+        </activity>
+>>>>>>> origin/Daniel
+=======
+            android:label="@string/title_activity_question3"
+            android:screenOrientation="landscape">
+        </activity>
+        <activity
+            android:name=".questions.Question13"
+            android:label="@string/title_activity_question13"
+            android:screenOrientation="landscape" >
         </activity>
 >>>>>>> origin/Daniel
     </application>

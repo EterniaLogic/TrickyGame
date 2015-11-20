@@ -6,13 +6,19 @@ package team5.trickygame.questions;
  */
 
 import android.content.Context;
+<<<<<<< HEAD
 import android.content.Intent;
+=======
+>>>>>>> origin/Daniel
 import android.graphics.drawable.AnimationDrawable;
 import android.hardware.Sensor;
 import android.hardware.SensorManager;
 import android.os.Bundle;
 <<<<<<< HEAD
+<<<<<<< HEAD
 import android.util.Log;
+=======
+>>>>>>> origin/Daniel
 =======
 >>>>>>> origin/Daniel
 import android.view.Menu;
@@ -81,9 +87,14 @@ public class Question10 extends Question   {
 
     //When there is a shake
 <<<<<<< HEAD
+<<<<<<< HEAD
     public void handleShakeEvent(int count){
         System.out.print("Shake Count: "+ count);
         Log.e("Shake Count", String.valueOf(shakeCount));
+=======
+    public void handleShakeEvent(int count) {
+    //Count the shakes for can to explode
+>>>>>>> origin/Daniel
 =======
     public void handleShakeEvent(int count) {
     //Count the shakes for can to explode
@@ -114,8 +125,12 @@ public class Question10 extends Question   {
             AnimationDrawable frameAnimation = (AnimationDrawable) can.getBackground();
             frameAnimation.start();
 <<<<<<< HEAD
+<<<<<<< HEAD
         }
         else if (shakeCount > 8){
+=======
+        } else if (shakeCount > 8) {
+>>>>>>> origin/Daniel
 =======
         } else if (shakeCount > 8) {
 >>>>>>> origin/Daniel
