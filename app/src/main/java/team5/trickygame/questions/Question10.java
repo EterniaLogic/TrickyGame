@@ -7,13 +7,17 @@ package team5.trickygame.questions;
 
 import android.content.Context;
 <<<<<<< HEAD
+<<<<<<< HEAD
 import android.content.Intent;
 =======
 >>>>>>> origin/Daniel
+=======
+>>>>>>> master
 import android.graphics.drawable.AnimationDrawable;
 import android.hardware.Sensor;
 import android.hardware.SensorManager;
 import android.os.Bundle;
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 import android.util.Log;
@@ -21,6 +25,8 @@ import android.util.Log;
 >>>>>>> origin/Daniel
 =======
 >>>>>>> origin/Daniel
+=======
+>>>>>>> master
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -88,6 +94,7 @@ public class Question10 extends Question   {
     //When there is a shake
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     public void handleShakeEvent(int count){
         System.out.print("Shake Count: "+ count);
         Log.e("Shake Count", String.valueOf(shakeCount));
@@ -99,6 +106,10 @@ public class Question10 extends Question   {
     public void handleShakeEvent(int count) {
     //Count the shakes for can to explode
 >>>>>>> origin/Daniel
+=======
+    public void handleShakeEvent(int count) {
+    //Count the shakes for can to explode
+>>>>>>> master
         shakeCount += count;
         if (shakeCount > 12 && !doneShaking){
             // timeout for end of animation, then goto the next question:
@@ -126,6 +137,7 @@ public class Question10 extends Question   {
             frameAnimation.start();
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         }
         else if (shakeCount > 8){
 =======
@@ -134,6 +146,9 @@ public class Question10 extends Question   {
 =======
         } else if (shakeCount > 8) {
 >>>>>>> origin/Daniel
+=======
+        } else if (shakeCount > 8) {
+>>>>>>> master
             can.setImageResource(R.drawable.sodacan4);
         } else if (shakeCount > 4) {
             can.setImageResource(R.drawable.sodacan3);

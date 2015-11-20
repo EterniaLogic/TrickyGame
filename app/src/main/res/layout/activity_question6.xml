@@ -37,7 +37,7 @@
         android:layout_alignEnd="@+id/view"
         android:layout_alignParentTop="true"
         android:layout_alignRight="@+id/view"
-        android:text="@string/livesTxtq6"
+        android:text="5"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#ff180d" />
 =======

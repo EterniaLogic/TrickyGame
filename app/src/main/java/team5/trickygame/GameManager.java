@@ -20,10 +20,12 @@ import team5.trickygame.questions.Question1;
 import team5.trickygame.questions.Question10;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import team5.trickygame.questions.Question11;
 =======
+=======
+>>>>>>> master
 import team5.trickygame.questions.Question13;
->>>>>>> origin/Daniel
 import team5.trickygame.questions.Question2;
 import team5.trickygame.questions.Question3;
 import team5.trickygame.questions.Question4;
@@ -86,10 +88,8 @@ public class GameManager extends Thread {
         //questions.add(Question6.class);
         questions.add(Question7.class);
         questions.add(Question10.class);
-<<<<<<< HEAD
-        questions.add(Question11.class);
-=======
         questions.add(Question13.class);
+<<<<<<< HEAD
 
 >>>>>>> origin/Daniel
 =======
@@ -98,6 +98,8 @@ public class GameManager extends Thread {
         questions.add(Question10.class);
         questions.add(Question13.class);
 >>>>>>> origin/Daniel
+=======
+>>>>>>> master
     }
     public static GameManager getInitialInstance(Context context_){
         if(instance == null) {
