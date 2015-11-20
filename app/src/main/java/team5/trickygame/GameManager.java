@@ -7,6 +7,7 @@ import android.os.Vibrator;
 import android.util.Log;
 import android.widget.TextView;
 
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -21,6 +22,7 @@ import team5.trickygame.questions.Question10;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import team5.trickygame.questions.Question11;
 =======
 =======
@@ -30,6 +32,9 @@ import team5.trickygame.questions.Question2;
 import team5.trickygame.questions.Question3;
 import team5.trickygame.questions.Question4;
 =======
+=======
+import team5.trickygame.questions.Question11;
+>>>>>>> origin/Daniel
 import team5.trickygame.questions.Question13;
 import team5.trickygame.questions.Question2;
 import team5.trickygame.questions.Question3;
@@ -79,6 +84,7 @@ public class GameManager extends Thread {
         quit=false;
         running = false;
 
+<<<<<<< HEAD
         // TODO: Add every question here. Order Matters.
         questions.add(Question1.class);
         questions.add(Question2.class);
@@ -100,6 +106,34 @@ public class GameManager extends Thread {
 >>>>>>> origin/Daniel
 =======
 >>>>>>> master
+=======
+
+        LinkedList<Class<? extends Question>> Tier1 = new LinkedList<Class<? extends Question>>();
+        LinkedList<Class<? extends Question>> Tier2 = new LinkedList<Class<? extends Question>>();
+
+
+        Tier1.add(Question1.class);
+        Tier1.add(Question2.class);
+        Tier1.add(Question3.class);
+        Tier1.add(Question4.class);
+        Tier1.add(Question6.class);
+        Collections.shuffle(Tier1);
+
+        Tier2.add(Question11.class);
+        Tier2.add(Question13.class);
+        Collections.shuffle(Tier2);
+
+
+        for (int i = 0; i < Tier1.size(); i++){
+            questions.add(Tier1.get(i));
+        }
+        questions.add(Question7.class);
+        questions.add(Question10.class);
+
+        for (int i = 0; i < Tier2.size(); i++){
+            questions.add(Tier2.get(i));
+        }
+>>>>>>> origin/Daniel
     }
     public static GameManager getInitialInstance(Context context_){
         if(instance == null) {

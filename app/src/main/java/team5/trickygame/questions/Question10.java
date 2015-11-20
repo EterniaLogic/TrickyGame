@@ -138,6 +138,7 @@ public class Question10 extends Question   {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         }
         else if (shakeCount > 8){
 =======
@@ -147,6 +148,9 @@ public class Question10 extends Question   {
         } else if (shakeCount > 8) {
 >>>>>>> origin/Daniel
 =======
+=======
+
+>>>>>>> origin/Daniel
         } else if (shakeCount > 8) {
 >>>>>>> master
             can.setImageResource(R.drawable.sodacan4);
