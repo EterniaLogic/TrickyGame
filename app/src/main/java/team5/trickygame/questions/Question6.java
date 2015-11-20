@@ -1,15 +1,6 @@
 package team5.trickygame.questions;
 
 
-<<<<<<< HEAD
-import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.Window;
-import android.view.WindowManager;
-
-import team5.trickygame.Q6Classes.Q6GameControl;
-=======
 import android.content.Context;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
@@ -25,7 +16,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import team5.trickygame.GameManager;
->>>>>>> origin/Daniel
 import team5.trickygame.R;
 
 /**
@@ -33,15 +23,12 @@ import team5.trickygame.R;
  */
 
 
-<<<<<<< HEAD
-public class Question6 extends Question {
 
-
-=======
 public class Question6 extends Question implements SensorEventListener {
 
     private static final String TAG = "MainActivity";
-
+    float[] g = new float[3];
+    int inclination;
     private TextView tv;
     private ImageView drawer;
     private SensorManager sensorManager;
@@ -49,50 +36,17 @@ public class Question6 extends Question implements SensorEventListener {
     private Sensor magnetometer;
     private float[] mGravity;
     private float[] mGeomagnetic;
-    float[] g = new float[3];
-    int inclination;
     private ImageView nextQbtn;
     private TextView livesText;
->>>>>>> origin/Daniel
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-<<<<<<< HEAD
-
-=======
->>>>>>> origin/Daniel
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         // making it full screen
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         // set our MainGamePanel as the View
-<<<<<<< HEAD
-        setContentView(new Q6GameControl(this));
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_question6, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-=======
         setContentView(R.layout.activity_question6);
         // Keep the screen on
         // https://developer.android.com/training/scheduling/wakelock.html#screen
@@ -259,5 +213,4 @@ public class Question6 extends Question implements SensorEventListener {
 
     @Override
     public void onAccuracyChanged(Sensor sensor, int accuracy) {}
->>>>>>> origin/Daniel
 }

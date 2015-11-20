@@ -1,126 +1,94 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:layout_height="match_parent" android:background="@android:color/white"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="team5.trickygame.questions.Question13"
-    android:background="@android:color/white">
+    tools:context="team5.trickygame.questions.Question13">
 
-    <ImageView
+    <ImageButton
+        android:id="@+id/NextBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/SafeBoxImg"
-        android:layout_centerHorizontal="true"
-        android:contentDescription="@string/safeboxdesc"
-<<<<<<< HEAD
-        android:layout_above="@+id/numberPicker2" />
+        android:layout_centerVertical="true"
+        android:layout_toEndOf="@+id/numberPicker2"
+        android:layout_toLeftOf="@+id/numberPicker3"
+        android:layout_toRightOf="@+id/numberPicker2"
+        android:alpha="0"
+        android:contentDescription="@string/GTNQstr"
+        android:onClick="goToNextQuestion" />
 
     <TextView
+        android:id="@+id/livesTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:id="@+id/livesTxt"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="#ff1908" />
-=======
+
+    <ImageView
+        android:id="@+id/SafeBoxImg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_above="@+id/numberPicker2"
+        android:layout_centerHorizontal="true"
+        android:contentDescription="@string/safeboxdesc"
         android:src="@mipmap/safeclosed" />
->>>>>>> origin/Daniel
 
     <Button
+        android:id="@+id/WrongBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/WrongBtn"
-        android:layout_alignParentTop="true"
+        android:layout_alignEnd="@+id/livesTxt"
+        android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
+        android:layout_alignParentTop="true"
         android:layout_alignRight="@+id/livesTxt"
-        android:layout_alignEnd="@+id/livesTxt"
         android:alpha="0"
         android:onClick="pressedWrongBtn" />
 
-<<<<<<< HEAD
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/NextBtn"
-        android:layout_centerVertical="true"
-        android:layout_toLeftOf="@+id/numberPicker3"
-        android:layout_toRightOf="@+id/numberPicker2"
-        android:layout_toEndOf="@+id/numberPicker2"
-        android:alpha="0"
-        android:contentDescription="@string/GTNQstr"
-        android:onClick="goToNextQuestion" />
-
-=======
->>>>>>> origin/Daniel
     <Button
+        android:id="@+id/openSafeBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/openSafeStr"
-        android:id="@+id/openSafeBtn"
-        android:layout_alignTop="@+id/numberPicker3"
-        android:layout_toRightOf="@+id/numberPicker3"
-        android:layout_toEndOf="@+id/numberPicker3"
         android:layout_alignBottom="@+id/numberPicker3"
-        android:paddingLeft="30dp"
-        android:paddingRight="30dp"
-        android:layout_marginTop="40dp"
+        android:layout_alignTop="@+id/numberPicker3"
         android:layout_marginBottom="40dp"
         android:layout_marginLeft="20dp"
-        android:onClick="checkIfCorrect" />
+        android:layout_marginTop="40dp"
+        android:layout_toEndOf="@+id/numberPicker3"
+        android:layout_toRightOf="@+id/numberPicker3"
+        android:onClick="checkIfCorrect"
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp"
+        android:text="@string/openSafeStr" />
 
-<<<<<<< HEAD
-=======
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/NextBtn"
-        android:layout_centerVertical="true"
-        android:layout_toLeftOf="@+id/numberPicker3"
-        android:layout_toRightOf="@+id/numberPicker2"
-        android:layout_toEndOf="@+id/numberPicker2"
-        android:alpha="0"
-        android:contentDescription="@string/GTNQstr"
-        android:onClick="goToNextQuestion" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:id="@+id/livesTxt"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:textColor="#ff1908" />
-
->>>>>>> origin/Daniel
     <NumberPicker
+        android:id="@+id/numberPicker3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/numberPicker3"
         android:layout_alignTop="@+id/numberPicker"
-        android:layout_toRightOf="@+id/numberPicker"
         android:layout_toEndOf="@+id/numberPicker"
+        android:layout_toRightOf="@+id/numberPicker"
         android:focusableInTouchMode="true" />
 
     <NumberPicker
+        android:id="@+id/numberPicker2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/numberPicker2"
         android:layout_alignTop="@+id/numberPicker"
         android:layout_toLeftOf="@+id/numberPicker"
         android:layout_toStartOf="@+id/numberPicker"
         android:focusableInTouchMode="false" />
 
     <NumberPicker
+        android:id="@+id/numberPicker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/numberPicker"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:focusableInTouchMode="true" />

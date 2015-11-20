@@ -19,28 +19,12 @@ import team5.trickygame.LeaderboardClasses.LeaderboardLocal;
 import team5.trickygame.questions.Question;
 import team5.trickygame.questions.Question1;
 import team5.trickygame.questions.Question10;
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 import team5.trickygame.questions.Question11;
-=======
-=======
->>>>>>> master
-import team5.trickygame.questions.Question13;
-import team5.trickygame.questions.Question2;
-import team5.trickygame.questions.Question3;
-import team5.trickygame.questions.Question4;
-=======
-=======
-import team5.trickygame.questions.Question11;
->>>>>>> origin/Daniel
 import team5.trickygame.questions.Question13;
 import team5.trickygame.questions.Question2;
 import team5.trickygame.questions.Question3;
 import team5.trickygame.questions.Question4;
 import team5.trickygame.questions.Question6;
->>>>>>> origin/Daniel
 import team5.trickygame.questions.Question7;
 import team5.trickygame.util.Command;
 import team5.trickygame.util.QuestionTimeScore;
@@ -84,30 +68,6 @@ public class GameManager extends Thread {
         quit=false;
         running = false;
 
-<<<<<<< HEAD
-        // TODO: Add every question here. Order Matters.
-        questions.add(Question1.class);
-        questions.add(Question2.class);
-        questions.add(Question3.class);
-        questions.add(Question4.class);
-<<<<<<< HEAD
-        //questions.add(Question6.class);
-        questions.add(Question7.class);
-        questions.add(Question10.class);
-        questions.add(Question13.class);
-<<<<<<< HEAD
-
->>>>>>> origin/Daniel
-=======
-        questions.add(Question6.class);
-        questions.add(Question7.class);
-        questions.add(Question10.class);
-        questions.add(Question13.class);
->>>>>>> origin/Daniel
-=======
->>>>>>> master
-=======
-
         LinkedList<Class<? extends Question>> Tier1 = new LinkedList<Class<? extends Question>>();
         LinkedList<Class<? extends Question>> Tier2 = new LinkedList<Class<? extends Question>>();
 
@@ -133,7 +93,6 @@ public class GameManager extends Thread {
         for (int i = 0; i < Tier2.size(); i++){
             questions.add(Tier2.get(i));
         }
->>>>>>> origin/Daniel
     }
     public static GameManager getInitialInstance(Context context_){
         if(instance == null) {
