@@ -102,6 +102,7 @@ public class Question10 extends Question   {
             can.setBackgroundResource(R.drawable.soda_explode);
             AnimationDrawable frameAnimation = (AnimationDrawable) can.getBackground();
             frameAnimation.start();
+
         } else if (shakeCount > 8) {
             can.setImageResource(R.drawable.sodacan4);
         } else if (shakeCount > 4) {
