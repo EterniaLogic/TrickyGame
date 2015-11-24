@@ -21,6 +21,7 @@ import team5.trickygame.questions.Question1;
 import team5.trickygame.questions.Question10;
 import team5.trickygame.questions.Question11;
 import team5.trickygame.questions.Question13;
+import team5.trickygame.questions.Question14;
 import team5.trickygame.questions.Question2;
 import team5.trickygame.questions.Question3;
 import team5.trickygame.questions.Question4;
@@ -81,6 +82,7 @@ public class GameManager extends Thread {
 
         Tier2.add(Question11.class);
         Tier2.add(Question13.class);
+        Tier2.add(Question14.class);
         Collections.shuffle(Tier2);
 
 
