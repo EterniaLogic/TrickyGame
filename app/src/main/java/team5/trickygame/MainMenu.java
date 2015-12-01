@@ -19,8 +19,8 @@ import android.view.View;
 import team5.trickygame.util.SoundService;
 
 public class MainMenu extends Activity {
-    private SoundService soundService;
     public static boolean firstRun = true;
+    private SoundService soundService;
     protected ServiceConnection mConn = new ServiceConnection() {
         @Override
         public void onServiceConnected(ComponentName name, IBinder binder) {
@@ -40,6 +40,7 @@ public class MainMenu extends Activity {
         Intent intent = new Intent(this,SoundService.class);
         bindService(intent, mConn, Context.BIND_AUTO_CREATE);
     }
+
     @Override
     public void onDestroy() {
         Log.d("activity", "onPause");
@@ -49,6 +50,7 @@ public class MainMenu extends Activity {
         }
         super.onDestroy();
     }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,6 +76,8 @@ public class MainMenu extends Activity {
 
                 GameManager.getInstance().setAccount("Anonymous");
             }
+
+            soundService = new SoundService();
         }
     }
 

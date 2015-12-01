@@ -5,12 +5,12 @@ package team5.trickygame;
  *
  */
 
-import android.app.ActionBar;
-import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.ToggleButton;
 
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -22,8 +22,7 @@ import team5.trickygame.util.QuestionTimeScore;
 //  http://androidexample.com/Create_A_Simple_Listview_-_Android_Example/index.php?view=article_discription&aid=65&aaid=90
 
 
-public class LeaderboardActiviy  extends FragmentActivity implements
-        ActionBar.TabListener {
+public class LeaderboardActiviy  extends FragmentActivity  {
     ListView Global, Local;
 
     @Override
@@ -33,6 +32,15 @@ public class LeaderboardActiviy  extends FragmentActivity implements
 
         Global = (ListView) findViewById(R.id.listView);
         Local = (ListView) findViewById(R.id.listView2);
+
+        Global.setVisibility(View.INVISIBLE);
+        Local.setVisibility(View.VISIBLE);
+
+        ToggleButton tb = (ToggleButton) findViewById(R.id.toggleButton);
+        tb.setText("Local");
+        tb.setTextOff("Local");
+        tb.setTextOn("Global");
+
 
         drawGlobalBoard();
         drawLocalBoard();
@@ -79,17 +87,14 @@ public class LeaderboardActiviy  extends FragmentActivity implements
         Local.setAdapter(adapter);
     }
 
-    @Override
-    public void onTabReselected(ActionBar.Tab tab, FragmentTransaction ft) {
-    }
-
-    @Override
-    public void onTabSelected(ActionBar.Tab tab, FragmentTransaction ft) {
-        // on tab selected
-        // show respected fragment view
-    }
-
-    @Override
-    public void onTabUnselected(ActionBar.Tab tab, FragmentTransaction ft) {
+    public void buttonToggle(View view) {
+        ToggleButton tb = (ToggleButton) findViewById(R.id.toggleButton);
+        if(tb.isChecked()){
+            Global.setVisibility(View.VISIBLE);
+            Local.setVisibility(View.INVISIBLE);
+        }else{
+            Global.setVisibility(View.INVISIBLE);
+            Local.setVisibility(View.VISIBLE);
+        }
     }
 }

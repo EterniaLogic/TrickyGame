@@ -84,6 +84,11 @@
             android:screenOrientation="landscape" >
         </activity>
         <activity
+            android:name=".questions.Question14"
+            android:label="@string/title_activity_question14"
+            android:screenOrientation="landscape" >
+        </activity>
+        <activity
             android:name=".SoundActivity"
             android:label="@string/title_activity_sound" >
             android:screenOrientation="landscape" >
@@ -99,16 +104,6 @@
         </activity>
         <activity
             android:name=".questions.Question3"
-<<<<<<< HEAD
-            android:label="@string/title_activity_question3" >
-        </activity>
-        <activity
-            android:name=".questions.Question13"
-            android:label="@string/title_activity_question13" >
-        </activity>
-<<<<<<< HEAD
->>>>>>> origin/Daniel
-=======
             android:label="@string/title_activity_question3"
             android:screenOrientation="landscape">
         </activity>
@@ -117,9 +112,6 @@
             android:label="@string/title_activity_question13"
             android:screenOrientation="landscape" >
         </activity>
->>>>>>> origin/Daniel
-=======
->>>>>>> master
     </application>
 
 </manifest>

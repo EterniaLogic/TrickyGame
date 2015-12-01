@@ -35,7 +35,7 @@
     <string name="title_activity_question10">Question10</string>
     <string name="title_activity_question3">Question3</string>
     <string name="title_activity_question7">Question7</string>
-    <string name="title_activity_question4">Question10</string>
+    <string name="title_activity_question4">Question4</string>
     <string name="SodaCanQuestion">Explode the Soda Can!</string>
     <string name="sodadesc">soda</string>
     <string name="title_activity_credits">CreditsActivity</string>
@@ -49,22 +49,11 @@
     <string name="LeaderboardTitle">Leaderboard</string>
     <string name="Q8Str">Get the ball to the corner</string>
     <string name="livesQ6">Medium Text</string>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> master
     <string name="title_activity_question13">Question13</string>
     <string name="openSafeStr">Open</string>
     <string name="safeboxdesc">SafeBox</string>
     <string name="GTNQstr">GoToNextQuestion</string>
     <string name="q11_timer">00:00</string>
-
-<<<<<<< HEAD
->>>>>>> origin/Daniel
-=======
->>>>>>> master
     <string name="title_activity_question11">Question11</string>
     <string name="title_activity_sound">SoundActivity</string>
     <string name="timerText">\n00:30</string>
@@ -73,18 +62,7 @@
     <string name="sound2_music">Music:</string>
     <string name="sound2_soundeffects">Sound Effects:</string>
     <string name="sound2_title">Sound Options</string>
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-    <string name="title_activity_question13">Question13</string>
-    <string name="openSafeStr">Open</string>
-    <string name="safeboxdesc">SafeBox</string>
-    <string name="GTNQstr">GoToNextQuestion</string>
->>>>>>> origin/Daniel
-=======
     <string name="nextqbtn6str">nextq6str</string>
     <string name="drawerrstr">drawerrstr</string>
->>>>>>> origin/Daniel
-=======
->>>>>>> master
+    <string name="title_activity_question14">Question14</string>
 </resources>

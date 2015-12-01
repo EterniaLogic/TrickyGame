@@ -19,28 +19,13 @@ import team5.trickygame.LeaderboardClasses.LeaderboardLocal;
 import team5.trickygame.questions.Question;
 import team5.trickygame.questions.Question1;
 import team5.trickygame.questions.Question10;
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 import team5.trickygame.questions.Question11;
-=======
-=======
->>>>>>> master
 import team5.trickygame.questions.Question13;
-import team5.trickygame.questions.Question2;
-import team5.trickygame.questions.Question3;
-import team5.trickygame.questions.Question4;
-=======
-=======
-import team5.trickygame.questions.Question11;
->>>>>>> origin/Daniel
-import team5.trickygame.questions.Question13;
+import team5.trickygame.questions.Question14;
 import team5.trickygame.questions.Question2;
 import team5.trickygame.questions.Question3;
 import team5.trickygame.questions.Question4;
 import team5.trickygame.questions.Question6;
->>>>>>> origin/Daniel
 import team5.trickygame.questions.Question7;
 import team5.trickygame.util.Command;
 import team5.trickygame.util.QuestionTimeScore;
@@ -59,9 +44,9 @@ public class GameManager extends Thread {
     private static final String TAG = GameManager.class.getSimpleName();
 
     // Enforce Singletons
-    private static GameManager instance;
+    private static GameManager instance; //
     private static LeaderboardGlobal LBG;
-    private static LeaderboardLocal LBL;
+    private static LeaderboardLocal LBL; // SQLLite file manager for data
     private static Context context;
     // non-static members
     public boolean running;
@@ -74,9 +59,10 @@ public class GameManager extends Thread {
     private int questionNum = 0, lives=0; // question Number used for end-game
     private boolean gameStarted=false;
     // Questions list: (Actual Android activities)
-    private LinkedList<Class<? extends Question>> questions = new LinkedList<Class<? extends Question>>();
+    private LinkedList<Class<? extends Question>> questions = new LinkedList<>();
     // internal usage for the LeaderboardGlobal
     private String account="";
+    private Question currentQuestion;
 
 
     private GameManager(){
@@ -84,57 +70,9 @@ public class GameManager extends Thread {
         quit=false;
         running = false;
 
-<<<<<<< HEAD
-        // TODO: Add every question here. Order Matters.
-        questions.add(Question1.class);
-        questions.add(Question2.class);
-        questions.add(Question3.class);
-        questions.add(Question4.class);
-<<<<<<< HEAD
-        //questions.add(Question6.class);
-        questions.add(Question7.class);
-        questions.add(Question10.class);
-        questions.add(Question13.class);
-<<<<<<< HEAD
-
->>>>>>> origin/Daniel
-=======
-        questions.add(Question6.class);
-        questions.add(Question7.class);
-        questions.add(Question10.class);
-        questions.add(Question13.class);
->>>>>>> origin/Daniel
-=======
->>>>>>> master
-=======
-
-        LinkedList<Class<? extends Question>> Tier1 = new LinkedList<Class<? extends Question>>();
-        LinkedList<Class<? extends Question>> Tier2 = new LinkedList<Class<? extends Question>>();
-
-
-        Tier1.add(Question1.class);
-        Tier1.add(Question2.class);
-        Tier1.add(Question3.class);
-        Tier1.add(Question4.class);
-        Tier1.add(Question6.class);
-        Collections.shuffle(Tier1);
-
-        Tier2.add(Question11.class);
-        Tier2.add(Question13.class);
-        Collections.shuffle(Tier2);
-
-
-        for (int i = 0; i < Tier1.size(); i++){
-            questions.add(Tier1.get(i));
-        }
-        questions.add(Question7.class);
-        questions.add(Question10.class);
-
-        for (int i = 0; i < Tier2.size(); i++){
-            questions.add(Tier2.get(i));
-        }
->>>>>>> origin/Daniel
+        // TODO: Add questions in startQuiz()
     }
+
     public static GameManager getInitialInstance(Context context_){
         if(instance == null) {
             context = context_;
@@ -146,9 +84,6 @@ public class GameManager extends Thread {
         }
         return getInstance();
     }
-
-
-
 
     // getInstance makes a new GameManager
     //  Enforces a singleton
@@ -162,6 +97,10 @@ public class GameManager extends Thread {
         return context;
     }
 
+    @Override
+    public void finalize(){
+        die();
+    }
 
     public void setAccount(String name){
         this.account = name;
@@ -174,6 +113,12 @@ public class GameManager extends Thread {
 
     public boolean noAccount(){
         return this.account.equals("");
+    }
+
+    public Class<Question> getNextQuestionClass(Class<? extends Question> thisQuestion){
+        int index = questions.indexOf(thisQuestion)+1;
+        Class<Question> question = (Class<Question>)questions.get(index);
+        return (index >= questions.size()) ? null : question;
     }
 
     // goes to the next question in the gameList
@@ -193,6 +138,7 @@ public class GameManager extends Thread {
                 incQuestionNumber();
 
                 // Intent to goto the next question
+
                 Intent intent = new Intent(thisQuestion, item);
                 thisQuestion.startActivity(intent);
                 thisQuestion.finish();
@@ -239,7 +185,7 @@ public class GameManager extends Thread {
 
     public void checkEndGame(Question thisQ, TextView txt){
         GameManager.getInstance().killLife();
-        txt.setText(Integer.toString(GameManager.getInstance().getLives()));
+        if(txt != null) txt.setText(Integer.toString(GameManager.getInstance().getLives()));
         if (GameManager.getInstance().getLives()==0){
             Intent intent = new Intent(thisQ,EndGameActivity.class);
             intent.putExtra("val", "You lose");
@@ -250,6 +196,18 @@ public class GameManager extends Thread {
 
         Vibrator v = (Vibrator)context.getSystemService(Context.VIBRATOR_SERVICE);
         v.vibrate(200);
+    }
+
+    public boolean getGameStarted(){
+        return gameStarted;
+    }
+
+    public Question getCurrentQuestion(){
+        return currentQuestion;
+    }
+
+    public void setCurrentQuestion(Question question){
+        currentQuestion = question;
     }
 
     // Start the quiz, this updates all relevant fields these include:
@@ -266,7 +224,39 @@ public class GameManager extends Thread {
         LBL.startQuiz();
         LBG.startQuiz();
 
-        Intent intent = new Intent(thisActivity, questions.getFirst());
+        ///////////////// TODO: ADD QUESTIONS HERE //////////////////
+        questions.clear(); // clear the questions
+
+        LinkedList<Class<? extends Question>> Tier1 = new LinkedList<>();
+        LinkedList<Class<? extends Question>> Tier2 = new LinkedList<>();
+
+        Tier1.add(Question1.class);
+        Tier1.add(Question2.class);
+        Tier1.add(Question3.class);
+        Tier1.add(Question4.class);
+        Tier1.add(Question6.class);
+        Collections.shuffle(Tier1);
+
+        Tier2.add(Question7.class);
+        Tier2.add(Question10.class);
+        Tier2.add(Question11.class);
+        Tier2.add(Question13.class);
+        Tier2.add(Question14.class);
+        Collections.shuffle(Tier2);
+
+
+        for (int i = 0; i < Tier1.size(); i++){
+            questions.add(Tier1.get(i));
+        }
+
+        for (int i = 0; i < Tier2.size(); i++){
+            questions.add(Tier2.get(i));
+        }
+
+        ///////////////////////////// END ///////////////////////////
+
+        Class<? extends Question> q = questions.getFirst();
+        Intent intent = new Intent(thisActivity, q);
         thisActivity.startActivity(intent);
         if(!thisActivity.getLocalClassName().equals("MainMenu"))
             thisActivity.finish();
@@ -382,23 +372,10 @@ public class GameManager extends Thread {
 
     // Manages end-of-life
     public void die(){
-        // Enforce an asynchronous stopper variable
-        quit=true;
 
-        // Wait until the main thread is dead (another fun while loop)
-        while(quit){
-            try {
-                Thread.sleep(100); // 100ms Timer
-            }catch(Exception e){
-                Log.d(TAG, "[die] sleep threw an error!");
-            }
-        }
-
-        // Finally, stop the thread, in case the above code does not fully stop it.
-        try{
-            this.join();
-        }catch(Exception e){
-            Log.d(TAG, "[die] Thread join threw an error!");
-        }
+        // thread killing does not apply.
+        this.interrupt();
     }
+
+
 }

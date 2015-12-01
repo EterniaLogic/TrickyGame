@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/layout" android:layout_width="match_parent"
+    android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_height="match_parent"
     android:background="@drawable/background"
-    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="team5.trickygame.questions.Question11"
     android:visibility="visible">
 
     <ImageView
@@ -37,12 +42,10 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/livesText"
         android:layout_marginEnd="72dp"
         android:layout_marginLeft="56dp"
         android:layout_marginRight="72dp"
         android:layout_marginStart="56dp"
-        android:layout_marginTop="67dp"
         android:background="@null"
         android:onClick="isWrong" />
 
@@ -50,42 +53,28 @@
         android:id="@+id/stopBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/wrongBtn"
-        android:layout_alignEnd="@+id/wrongBtn"
-        android:layout_alignLeft="@+id/wrongBtn"
-        android:layout_alignRight="@+id/wrongBtn"
-        android:layout_alignStart="@+id/wrongBtn"
-        android:layout_below="@+id/livesText"
-        android:layout_marginBottom="295dp"
-        android:layout_marginEnd="252dp"
-        android:layout_marginLeft="92dp"
-        android:layout_marginRight="252dp"
-        android:layout_marginStart="92dp"
+        android:layout_marginBottom="63dp"
+        android:layout_marginLeft="112dp"
+        android:layout_marginStart="112dp"
         android:background="@null"
-        android:onClick="isRight" />
+        android:onClick="isRight"
+        android:layout_alignLeft="@+id/wrongBtn"
+        android:layout_alignStart="@+id/wrongBtn"
+        android:layout_toStartOf="@+id/timer"
+        android:layout_alignParentTop="true"
+        android:layout_alignBottom="@+id/timer"
+        android:layout_toLeftOf="@+id/timer" />
 
     <TextView
         android:id="@+id/timer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/wrongBtn"
-        android:layout_alignEnd="@+id/wrongBtn"
-        android:layout_alignRight="@+id/wrongBtn"
-        android:layout_alignTop="@+id/wrongBtn"
-        android:layout_marginBottom="65dp"
-        android:layout_marginEnd="203dp"
-        android:layout_marginRight="203dp"
-<<<<<<< HEAD
-<<<<<<< HEAD
-        android:text="@string/timerText"
-=======
         android:text="@string/q11_timer"
->>>>>>> origin/Daniel
-=======
-        android:text="@string/q11_timer"
->>>>>>> master
         android:textColor="#010101"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        android:layout_marginTop="73dp"
+        android:layout_below="@+id/livesText"
+        android:layout_centerHorizontal="true" />
 
 
 </RelativeLayout>

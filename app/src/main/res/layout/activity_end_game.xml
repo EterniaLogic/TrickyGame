@@ -7,6 +7,16 @@
     tools:context="team5.trickygame.EndGameActivity"
     android:background="@mipmap/tmpbackg1">
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/funImage"
+        android:src="@mipmap/picard"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/linechart"
+        android:layout_marginTop="50dp" />
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
