@@ -49,6 +49,5 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:alpha="0"
-        android:onClick="wrongAnswer" />
+        android:alpha="0" />
 </RelativeLayout>
