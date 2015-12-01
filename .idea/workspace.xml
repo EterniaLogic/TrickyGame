@@ -9,7 +9,7 @@
       </config>
     </shared>
     <layouts>
-      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_question4.xml">
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_end_game.xml">
         <config>
           <state>Landscape</state>
           <theme>@style/AppTheme</theme>
@@ -18,7 +18,7 @@
     </layouts>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="645fc5cd-72cb-475d-a36c-cc649c946cf2" name="Default" comment="" />
+    <list default="true" id="a6324068-7c33-4aa5-b239-f516262f1832" name="Default" comment="" />
     <ignored path="TrickyGame.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -45,16 +45,16 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="activity_question4.xml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_question4.xml">
-          <provider selected="true" editor-type-id="android-designer">
-            <state />
-          </provider>
+      <file leaf-file-name="activity_end_game.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_end_game.xml">
           <provider editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
+          </provider>
+          <provider selected="true" editor-type-id="android-designer">
+            <state />
           </provider>
         </entry>
       </file>
@@ -1174,7 +1174,7 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="C:\Users\james_000\Desktop\TrickyGame" value="4344953106000" />
+        <entry key="C:\Users\james_000\Desktop\TrickyGame" value="4345048164000" />
       </map>
     </option>
     <option name="projectBuildClasspath">
@@ -1472,6 +1472,8 @@
     <panes />
   </component>
   <component name="PropertiesComponent">
+    <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
+    <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="recentsLimit" value="5" />
   </component>
   <component name="RunManager" selected="Android Application.app">
@@ -1659,10 +1661,10 @@
   <component name="ShelveChangesManager" show_recycled="false" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="645fc5cd-72cb-475d-a36c-cc649c946cf2" name="Default" comment="" />
-      <created>1448337684114</created>
+      <changelist id="a6324068-7c33-4aa5-b239-f516262f1832" name="Default" comment="" />
+      <created>1449002735866</created>
       <option name="number" value="Default" />
-      <updated>1448337684114</updated>
+      <updated>1449002735866</updated>
     </task>
     <servers />
   </component>
@@ -1706,15 +1708,15 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_question4.xml">
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
-      </provider>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_end_game.xml">
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
       </provider>
     </entry>
   </component>

@@ -17,20 +17,14 @@ public class TrickyGameTestCase extends ActivityInstrumentationTestCase2<MainMen
         assertNotNull(getActivity());
     }
 
-    public void testGameManager() {
+    public void testGameManager() throws InterruptedException {
         // Make sure that the GameManager Class has been declared
         Log.v("[GameManager Test]", "Start GameManager Test");
         assertNotNull(GameManager.getInstance());
 
         // Make sure that the thread is running
         assertEquals(true, GameManager.getInstance().running);
-    }
 
-    public void testQuestions() {
-        // loop through each question for every possibility
-    }
-
-    public void testQuestionScoring() {
-        Log.v("[Scoring Test]", "Start Scoring Test");
+        GameManager.getInstance().die();
     }
 }

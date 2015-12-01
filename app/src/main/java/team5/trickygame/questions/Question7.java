@@ -24,7 +24,7 @@ public class Question7 extends Question {
         // Problem: If you fail the quiz then use this, you will still be able to
         //          continue the quiz.
         //Fixed.
-        Intent intent = new Intent(this, Question10.class);
+        Intent intent = new Intent(this, GameManager.getInstance().getNextQuestionClass(((Question) this).getClass()));
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
         PendingIntent pendingIntent = PendingIntent.getActivity(getApplicationContext(), 01/*Is a private request code for sender*/, intent, PendingIntent.FLAG_CANCEL_CURRENT);
@@ -42,8 +42,6 @@ public class Question7 extends Question {
         notificationManger.notify(01/*is private code from earlier*/, notification);
 
         // Helps keep the GameManager Question ticker in sync
-        GameManager.getInstance().incQuestionNumber();
-
         GameManager.getInstance().incQuestionNumber();
 
         livesTxt = (TextView) findViewById(R.id.livesText);

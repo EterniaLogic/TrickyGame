@@ -72,9 +72,9 @@
         android:text="@string/q11_timer"
         android:textColor="#010101"
         android:textSize="20sp"
+        android:layout_marginTop="73dp"
         android:layout_below="@+id/livesText"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="80dp" />
+        android:layout_centerHorizontal="true" />
 
 
 </RelativeLayout>
