@@ -90,7 +90,7 @@
         </activity>
         <activity
             android:name=".SoundActivity"
-            android:label="@string/title_activity_sound" >
+            android:label="@string/title_activity_sound"
             android:screenOrientation="landscape" >
         </activity>
         <activity
