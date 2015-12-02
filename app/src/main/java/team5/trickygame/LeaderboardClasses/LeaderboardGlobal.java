@@ -74,10 +74,12 @@ public class LeaderboardGlobal {
 
     public void startQuiz(){
         // start the quiz
+        // TODO: setup at start of quiz 
     }
 
     public void endQuiz(QuestionTimeScore fullTime){
         // end the quiz and reports the full time taken
+        // TODO: setup at end of quiz
     }
 
     public List<List<QuestionTimeScore>> getLeaderboard(int scores) {

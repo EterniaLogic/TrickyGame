@@ -22,6 +22,7 @@ import team5.trickygame.questions.Question10;
 import team5.trickygame.questions.Question11;
 import team5.trickygame.questions.Question13;
 import team5.trickygame.questions.Question14;
+import team5.trickygame.questions.Question17;
 import team5.trickygame.questions.Question2;
 import team5.trickygame.questions.Question3;
 import team5.trickygame.questions.Question4;
@@ -252,6 +253,8 @@ public class GameManager extends Thread {
         for (int i = 0; i < Tier2.size(); i++){
             questions.add(Tier2.get(i));
         }
+
+        questions.add(Question17.class);
 
         ///////////////////////////// END ///////////////////////////
 
