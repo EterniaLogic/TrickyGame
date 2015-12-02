@@ -8,8 +8,10 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.Random;
 import java.util.LinkedList;
 
 import team5.trickygame.util.QuestionTimeScore;
@@ -25,6 +27,12 @@ public class EndGameActivity extends Activity {
 
         Intent intent = getIntent();
 
+        ImageView pic = (ImageView) findViewById(R.id.funImage);
+
+        // variables used to determine which picture to show at the end of the game
+        Random rand = new Random();
+        int picNum = rand.nextInt(2);
+
         // force built-in rounding
         LinkedList<QuestionTimeScore> qtsList = GameManager.getInstance().endQuizStats();
         long totalScore = (long)qtsList.getLast().getScore();
@@ -36,6 +44,10 @@ public class EndGameActivity extends Activity {
             status.setTextColor(Color.RED);
         } else{
             status.setTextColor(Color.rgb(0,150,100));
+            if (picNum == 0)
+                pic.setImageResource(R.mipmap.colbert2);
+            else
+                pic.setImageResource(R.mipmap.corporate);
         }
 
 

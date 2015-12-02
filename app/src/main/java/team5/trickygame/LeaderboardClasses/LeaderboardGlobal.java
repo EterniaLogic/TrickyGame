@@ -41,7 +41,8 @@ public class LeaderboardGlobal {
     HttpPost httppost;
     private String serverAddr = "https://eternialogic.com/TrickyGame/";
     private String iToken = "", cKey = "";
-    private List<String> lKey = new LinkedList<String>();
+    private List<String> lKey = new LinkedList<>();
+    private boolean serverThere=false;
 
 
     // REF: http://stackoverflow.com/questions/3324717/sending-http-post-request-in-java
@@ -73,10 +74,12 @@ public class LeaderboardGlobal {
 
     public void startQuiz(){
         // start the quiz
+        // TODO: setup at start of quiz 
     }
 
     public void endQuiz(QuestionTimeScore fullTime){
         // end the quiz and reports the full time taken
+        // TODO: setup at end of quiz
     }
 
     public List<List<QuestionTimeScore>> getLeaderboard(int scores) {
@@ -106,6 +109,7 @@ public class LeaderboardGlobal {
 
     // keyed request
     private String doRequest(String req, List<BasicNameValuePair> pairs){
+        if(!serverThere) return "";
         try{
             httpclient = HttpClients.createDefault();
             /*TrustStrategy trustStrategy = new TrustStrategy() {
@@ -130,7 +134,7 @@ public class LeaderboardGlobal {
             iToken = UUID.randomUUID().toString();
 
             // Request parameters and other properties.
-            List<NameValuePair> params = new ArrayList<NameValuePair>(2);
+            List<NameValuePair> params = new ArrayList<>(2);
             params.add(new BasicNameValuePair(iToken, cKey)); // initial challenge pair
             params.add(new BasicNameValuePair("r", "ip")); // operation
 
@@ -202,6 +206,7 @@ public class LeaderboardGlobal {
 
         public void execute()
         {
+            if(!serverThere) return;
             try{
                 httpclient = HttpClients.createDefault();
                 httppost = new HttpPost(serverAddr);
@@ -210,7 +215,7 @@ public class LeaderboardGlobal {
                 iToken = UUID.randomUUID().toString();
 
                 // Request parameters and other properties.
-                List<NameValuePair> params = new ArrayList<NameValuePair>(2);
+                List<NameValuePair> params = new ArrayList<>(2);
                 params.add(new BasicNameValuePair("i", iToken)); // initial token
 
                 httppost.setEntity(new UrlEncodedFormEntity(params, "UTF-8"));

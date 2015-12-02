@@ -1,5 +1,6 @@
 package team5.trickygame.questions;
 
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -40,8 +41,7 @@ public class Question13 extends Question {
         nextQBtn.setVisibility(View.INVISIBLE);
         safeBox = (ImageView) findViewById(R.id.SafeBoxImg);
 
-        // TODO: Your image is not sourced to git
-        //safeBox.setImageResource(R.mipmap.safeclosed);
+        safeBox.setImageResource(R.mipmap.safeclosed);
 
         lives = (TextView) findViewById(R.id.livesTxt);
         lives.setText(GameManager.getInstance().getLivesStr());
@@ -64,9 +64,10 @@ public class Question13 extends Question {
         np3.setMaxValue(9);
         np3.setMinValue(0);
 
-        // TODO: Same, Add these medias to the git
-        /*final MediaPlayer mpCorrect = MediaPlayer.create(this, R.raw.correctpass);
+        final MediaPlayer mpCorrect = MediaPlayer.create(this, R.raw.correctpass);
         final MediaPlayer mpWrong = MediaPlayer.create(this, R.raw.wrongpass);
+        mpCorrect.setVolume(3.0f,3.0f);
+        mpWrong.setVolume(0.7f,0.7f);
 
         np1.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
             @Override
@@ -111,15 +112,15 @@ public class Question13 extends Question {
 
                 currentPass[2] = newVal;
             }
-        });*/
+        });
     }
 
     public void checkIfCorrect(View v){
         Log.e(String.valueOf(currentPass[0]),String.valueOf(correctPass[0]));
         if (currentPass[0] == correctPass[0] & currentPass[1] == correctPass[1] & currentPass[2] == correctPass[2]){
-            // TODO: Same, Add these medias to the git
-            //safeBox.setImageResource(R.mipmap.safeopened);
+            safeBox.setImageResource(R.mipmap.safeopened);
             nextQBtn.setVisibility(View.VISIBLE);
+            GameManager.getInstance().gotoNextQuestion(Question13.this);
         }else{
             GameManager.getInstance().checkEndGame(Question13.this, lives);
         }
