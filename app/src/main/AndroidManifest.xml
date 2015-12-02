@@ -94,6 +94,16 @@
             android:screenOrientation="landscape" >
         </activity>
         <activity
+            android:name=".questions.Question12"
+            android:label="@string/title_activity_question12"
+            android:screenOrientation="landscape" >
+        </activity>
+        <activity
+            android:name=".questions.Question5"
+            android:label="@string/title_activity_question5"
+            android:screenOrientation="landscape" >
+        </activity>
+        <activity
             android:name=".SoundActivity"
             android:label="@string/title_activity_sound"
             android:screenOrientation="landscape" >

@@ -20,12 +20,14 @@ import team5.trickygame.questions.Question;
 import team5.trickygame.questions.Question1;
 import team5.trickygame.questions.Question10;
 import team5.trickygame.questions.Question11;
+import team5.trickygame.questions.Question12;
 import team5.trickygame.questions.Question13;
 import team5.trickygame.questions.Question14;
 import team5.trickygame.questions.Question17;
 import team5.trickygame.questions.Question2;
 import team5.trickygame.questions.Question3;
 import team5.trickygame.questions.Question4;
+import team5.trickygame.questions.Question5;
 import team5.trickygame.questions.Question6;
 import team5.trickygame.questions.Question7;
 import team5.trickygame.util.Command;
@@ -235,12 +237,14 @@ public class GameManager extends Thread {
         Tier1.add(Question2.class);
         Tier1.add(Question3.class);
         Tier1.add(Question4.class);
+        Tier1.add(Question5.class);
         Tier1.add(Question6.class);
         Collections.shuffle(Tier1);
 
         Tier2.add(Question7.class);
         Tier2.add(Question10.class);
         Tier2.add(Question11.class);
+        Tier2.add(Question12.class);
         Tier2.add(Question13.class);
         Tier2.add(Question14.class);
         Collections.shuffle(Tier2);
@@ -250,9 +254,9 @@ public class GameManager extends Thread {
             questions.add(Tier1.get(i));
         }
 
-        for (int i = 0; i < Tier2.size(); i++){
+        /*for (int i = 0; i < Tier2.size(); i++){
             questions.add(Tier2.get(i));
-        }
+        }*/
 
         questions.add(Question17.class);
 
