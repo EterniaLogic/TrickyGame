@@ -254,9 +254,9 @@ public class GameManager extends Thread {
             questions.add(Tier1.get(i));
         }
 
-        /*for (int i = 0; i < Tier2.size(); i++){
+        for (int i = 0; i < Tier2.size(); i++){
             questions.add(Tier2.get(i));
-        }*/
+        }
 
         questions.add(Question17.class);
 
