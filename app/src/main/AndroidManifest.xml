@@ -112,6 +112,12 @@
             android:label="@string/title_activity_question13"
             android:screenOrientation="landscape" >
         </activity>
+        
+        <service
+            android:name=".util.SoundService"
+            android:enabled="true"
+            android:exported="true" >
+        </service>
     </application>
 
 </manifest>
